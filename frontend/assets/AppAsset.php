@@ -31,6 +31,7 @@ class AppAsset extends AssetBundle
         "js/owl-carousel/owl.carousel.min.js",
         "js/jquery.mCustomScrollbar.concat.min.js",
         "js/main.js",
+        "js/components.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',

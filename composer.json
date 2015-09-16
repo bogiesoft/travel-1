@@ -24,7 +24,10 @@
         "dezmont765/yii2-grid-view-library" : "dev-master",
         "zyx/zyx-phpmailer": "dev-log-fix",
         "bower-asset/ckeditor": "4.*",
-        "costa-rico/yii2-images": "dev-master"
+        "costa-rico/yii2-images": "dev-master",
+        "dmstr/yii2-adminlte-asset": "2.*",
+        "mihaildev/yii2-ckeditor": "*",
+        "yiisoft/yii2-jui": "^2.0@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

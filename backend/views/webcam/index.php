@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title_ru',
             'image',
             'code:ntext',
-            'city_ru',
+            //'city_ru',
             // 'country_ru',
             // 'description_ru:ntext',
             // 'timezone',

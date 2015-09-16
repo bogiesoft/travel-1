@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Webcam */
@@ -20,16 +22,16 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?php $image = $model->getImage(); ?>
-        <img src="<?=$image->getUrl('x200')?>" alt="">
+        <?php if($image){ ?><img src="<?=$image->getUrl('x200')?>" alt=""><?php } ?>
     </div>
 
     <?= $form->field($model, 'code')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'city_ru')->textInput(['maxlength' => true]) ?>
+    <?= Html::activeDropDownList($model, 'city_id', ArrayHelper::map(\common\models\Cities::find()->all(), 'id', 'title_ru')) ?>
 
-    <?= $form->field($model, 'country_ru')->textInput(['maxlength' => true]) ?>
+    <?= Html::activeDropDownList($model, 'country_id', ArrayHelper::map(\common\models\Countries::find()->all(), 'id', 'title_ru')) ?>
 
-    <?= $form->field($model, 'description_ru')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description_ru')->widget(CKEditor::className()) ?>
 
     <?= $form->field($model, 'timezone')->textInput(['maxlength' => true]) ?>
 

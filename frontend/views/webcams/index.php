@@ -6,75 +6,12 @@ use yii\helpers\Html;
 use yii\helpers\BaseStringHelper;
 
 $this->title = 'Web-камеры';
+$this->params['sidebarType'] = 0;
+
+$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/webcams/']];
+
 ?>
 
-
-<main class="main-content">
-    <div class="container">
-        <div class="row">
-            <aside class="aside-block col-lg-3 col-md-3 hidden-sm hidden-xs">
-                <div class="filter__search-field">
-                    <form action="javascript: void(null);" method="post">
-                        <input type="text" name="find-place" placeholder="Найти место" >
-                        <input type="submit" name="" value="">
-                    </form>
-                </div>
-                <div class="aside-block__categories aside-block__categories--country">
-                    <button type="button" class="btn common-button">Страна</button>
-                    <ul class="aside-block__categories__list list-unstyled">
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                        <li><a href="#">Одна из стран</a></li>
-                    </ul>
-                </div>  <!--aside-block__categories-->
-
-                <div class="aside-block__categories aside-block__categories--country">
-                    <button type="button" class="btn common-button">Города</button>
-                    <ul class="aside-block__categories__list list-unstyled">
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-                        <li><a href="#">Название города</a></li>
-
-                    </ul>
-                </div>  <!--aside-block__categories-->
-
-                <div class="filter-btn-group">
-                    <button type="button" class="filter-btn-group__clear btn common-button">Очистить</button>
-                    <button type="button" class="filter-btn-group__show btn common-button">Показать</button>
-                </div>
-            </aside>    <!--aside-block-->
-
-            <div class="grid col-lg-9 col-md-9 ">
-                <div class="breadcrumb clearfix">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">Web-камеры</a></li>
-                </div>
                 <div class="web-cameras">
                     <div class="container">
                         <div class="row">
@@ -91,7 +28,9 @@ $this->title = 'Web-камеры';
                                     <div class="caption">
                                         <h4 class="title"><?=$model->title_ru; ?></h4>
                                         <p><?=BaseStringHelper::truncateWords($model->description_ru, 22)?></p>
-                                        <a href="#" class="common-button common-button--thin">Посмотреть</a>
+                                        <!--<a href="#" class="common-button common-button--thin">Посмотреть</a>-->
+
+                                        <?=Html::a('Посмотреть', [Html::encode('webcams/show/'.$model->id)], ['class'=>'common-button common-button--thin'])?>
                                     </div>
                                 </div>  <!--web-cameras__item-->
                             </div>

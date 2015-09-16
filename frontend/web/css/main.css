@@ -758,8 +758,12 @@ header.header-main .grid .btn-sm {
     padding-bottom: 8px;
     padding-top: 31px;
     margin-top: -20px;
-    padding-left: 25%;
     margin-bottom: 0px;
+    padding-left: 0;
+}
+
+.breadcrumb--offset-with {
+    padding-left: 25%;
 }
 
 .breadcrumb > li:first-child {
@@ -1435,6 +1439,42 @@ header.header-main .grid .btn-sm {
     }
 }
 
+.consultations {
+    padding-left: 34px;
+    padding-right: 15px;
+}
+
+.consultations__block {
+    margin-bottom: 18px;
+}
+
+.consultations__block h4.title {
+    font-size: 18px;
+    color: #f27269;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.consultations__block h4.title--upper {
+    margin-top: 10px;
+    margin-bottom: 24px;
+}
+
+.consultations__block ul {
+    font: 18px 'Calibri';
+    color: #00678f;
+    padding-left: 20px;
+}
+
+.consultations__block p {
+    color: #00678f;
+    line-height: 1.1;
+}
+
+.title--upper {
+    text-transform: uppercase;
+}
+
 @media(min-width: 1760px) {
     .another-cams__item {
         width: 20%;
@@ -1705,6 +1745,10 @@ header.header-main .grid .btn-sm {
         max-width: 100%;
     }
 
+    .consultations {
+        padding-left: 15px;
+    }
+
     .breadcrumb {
         display: none;
     }
@@ -1744,6 +1788,10 @@ header.header-main .grid .btn-sm {
         float: none;
     }
 
+    .consultations__block ul {
+        line-height: 1.4;
+    }
+
 }
 
 @media(max-width: 399px) {
@@ -1754,6 +1802,20 @@ header.header-main .grid .btn-sm {
     .header-main__filter .filter__search-field {
         display: none !important;
     }
+
+    .consultations__block h4.title {
+        font-size: 17px;
+    }
+
+    .consultations__block ul {
+        font: 14px 'Calibri';
+        line-height: 1.4;
+    }
+
+    .consultations__block p, ul.list-num-style {
+        font-size: 13px;
+    }
+
 }
 
 @media(max-width: 359px) {
@@ -2473,6 +2535,27 @@ textarea.contact-us__field {
     display: inline-block;
     float: none;
     vertical-align: middle;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+ul.list-num-style {
+    list-style-type: decimal;
+    font: 16px 'Calibri';
+    list-style-position: inside;
+}
+
+@media(max-width: 399px) {
+    ul.list-num-style {
+        font-size: 13px;
+        list-style-position: inherit;
+    }
+
+    ul.list-num-style li {
+        padding: 5px 0px;
+    }
 }
 
 /*

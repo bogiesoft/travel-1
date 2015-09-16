@@ -85,7 +85,9 @@ class WebcamController extends Controller
 
             $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
             if($model->image) {
-                $model->removeImages();
+                if($model->getImage()) {
+                    $model->removeImages();
+                }
                 $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
                 $model->image->saveAs($path);
                 $model->attachImage($path, true);

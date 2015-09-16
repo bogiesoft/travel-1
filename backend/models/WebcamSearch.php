@@ -19,7 +19,7 @@ class WebcamSearch extends Webcam
     {
         return [
             [['id', 'size_width', 'size_height'], 'integer'],
-            [['title_ru', 'image', 'code', 'city_ru', 'country_ru', 'description_ru', 'timezone'], 'safe'],
+            [['title_ru', 'image', 'code', 'city_id', 'country_id', 'description_ru', 'timezone'], 'safe'],
         ];
     }
 
@@ -67,8 +67,8 @@ class WebcamSearch extends Webcam
         $query->andFilterWhere(['like', 'title_ru', $this->title_ru])
             ->andFilterWhere(['like', 'image', $this->image])
             ->andFilterWhere(['like', 'code', $this->code])
-            ->andFilterWhere(['like', 'city_ru', $this->city_ru])
-            ->andFilterWhere(['like', 'country_ru', $this->country_ru])
+            ->andFilterWhere(['like', 'city_id', $this->city_id])
+            ->andFilterWhere(['like', 'country_id', $this->country_id])
             ->andFilterWhere(['like', 'description_ru', $this->description_ru])
             ->andFilterWhere(['like', 'timezone', $this->timezone]);
 
