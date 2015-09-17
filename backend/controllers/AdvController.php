@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Webcam;
-use backend\models\WebcamSearch;
+use common\models\Adv;
+use backend\models\AdvSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * WebcamController implements the CRUD actions for Webcam model.
+ * AdvController implements the CRUD actions for Adv model.
  */
-class WebcamController extends Controller
+class AdvController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class WebcamController extends Controller
     }
 
     /**
-     * Lists all Webcam models.
+     * Lists all Adv models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new WebcamSearch();
+        $searchModel = new AdvSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class WebcamController extends Controller
     }
 
     /**
-     * Displays a single Webcam model.
+     * Displays a single Adv model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +54,13 @@ class WebcamController extends Controller
     }
 
     /**
-     * Creates a new Webcam model.
+     * Creates a new Adv model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Webcam();
+        $model = new Adv();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
@@ -81,7 +81,7 @@ class WebcamController extends Controller
     }
 
     /**
-     * Updates an existing Webcam model.
+     * Updates an existing Adv model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -111,7 +111,7 @@ class WebcamController extends Controller
     }
 
     /**
-     * Deletes an existing Webcam model.
+     * Deletes an existing Adv model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,15 +124,15 @@ class WebcamController extends Controller
     }
 
     /**
-     * Finds the Webcam model based on its primary key value.
+     * Finds the Adv model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Webcam the loaded model
+     * @return Adv the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Webcam::findOne($id)) !== null) {
+        if (($model = Adv::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

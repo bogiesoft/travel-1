@@ -15,6 +15,10 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\filters\AccessControl;
 use yii\web\Response;
+use common\models\Slider;
+use common\models\Advices;
+use common\models\Adv;
+use common\models\News;
 
 /**
  * Site controller
@@ -64,7 +68,18 @@ class SiteController extends MainController
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $slides = Slider::find()->all();
+
+        $advices = Advices::find()->where(["show"=>1])->orderBy('created_at DESC')->all();
+        $adv = Adv::find()->where(["show"=>1])->limit(3)->all();
+        $news = News::find()->where(["status"=>1])->limit(3)->orderBy('created_at DESC')->all();
+
+        return $this->render('index',[
+            'slides'=>$slides,
+            'advices'=>$advices,
+            'adv' => $adv,
+            'news'=>$news,
+        ]);
     }
 
 

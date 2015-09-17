@@ -19,6 +19,20 @@ $(document).ready(function(){
         });
     }
 
+    $('.panel-group .panel-heading a').click(function(){
+        var col = $(this).attr('href');
+        var arrow = '.panel-collapse-arrow';
+        if($(col).hasClass('in') && $(this).find(arrow).hasClass('down')) {
+            $(this).find(arrow).toggleClass('down');
+            $(this).closest('.panel').toggleClass('active');
+        } else {
+            if(!$(col).hasClass('in')) {
+                $(this).find(arrow).toggleClass('down');
+                $(this).closest('.panel').toggleClass('active');
+            }
+        }
+    });
+
 
     // Custom scroll bar
     $(".aside-block__categories__list, .header-main__filter__variants").mCustomScrollbar({

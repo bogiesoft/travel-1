@@ -15,18 +15,19 @@ class LeftSidebar extends Widget {
 
     function run() {
         $countries = Countries::find()->all();
-        $cities = Cities::find()->all();
-
-        $arrayCountries = RoslArrayHelper::arraySingle(ArrayHelper::map($countries, 'id', 'title_ru'));
-        $arrayCities = RoslArrayHelper::arraySingle(ArrayHelper::map($cities, 'id', 'title_ru'));
-        $array = ArrayHelper::merge($arrayCities, $arrayCountries);
-
         switch($this->type):
             case 0:
-                return $this->render('leftsidebar', ['cities'=>$cities,'countries'=>$countries, 'source'=>$array]);
+                $cities = Cities::find()->all();
+
+                $arrayCountries = RoslArrayHelper::arraySingle(ArrayHelper::map($countries, 'id', 'title_ru'));
+                $arrayCities = RoslArrayHelper::arraySingle(ArrayHelper::map($cities, 'id', 'title_ru'));
+                $array = ArrayHelper::merge($arrayCities, $arrayCountries);
+
+                return $this->render('leftsidebar', ['cities'=>$cities, 'countries'=>$countries, 'source'=>$array]);
                 break;
             case 1:
-                return $this->render('leftsidebar-type1', ['cities'=>$cities,'countries'=>$countries, 'source'=>$array]);
+                $countries = Countries::find()->all();
+                return $this->render('leftsidebar-type1',['countries'=>$countries]);
                 break;
         endswitch;
     }

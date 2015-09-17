@@ -47,15 +47,17 @@ include_once('header.php'); ?>
                 <nav class="nav-menu list-unstyled clearfix">
                     <?=Menu::widget([
                         'items' => [
-                            ['label' => 'О проекте', 'url' => ['page/about']],
-                            ['label' => 'Консультации', 'url' => ['consult/']],
-                            ['label' => 'Форум', 'url' => ['forum/']],
-                            ['label' => 'Карты', 'url' => ['maps/']],
-                            ['label' => 'Web-камеры', 'url' => ['webcams/']],
-                            ['label' => 'Справочник', 'url' => ['info/']],
-                            ['label' => 'Контакты', 'url' => ['contacts/']],
+                            ['label' => 'О проекте', 'url' => ['/page/about/']],
+                            ['label' => 'Консультации', 'url' => ['/page/consult/']],
+                            ['label' => 'Форум', 'url' => ['/forum/']],
+                            ['label' => 'Карты', 'url' => ['/maps/']],
+                            ['label' => 'Web-камеры', 'url' => ['/webcams/index']],
+                            ['label' => 'Справочник', 'url' => ['/info/']],
+                            ['label' => 'Контакты', 'url' => ['page/contacts/']],
                         ],
                         'activeCssClass'=>'active',
+                        'activateParents'=>true,
+                        'activateItems'=>true
                     ]); ?>
                 </nav>
                 <button type="button" class="btn btn-sm">Вход</button>
@@ -115,7 +117,7 @@ include_once('header.php'); ?>
 <main class="main-content">
     <div class="container">
         <div class="row">
-
+            <?php $this->params['sidebarType'] = isset($this->params['sidebarType']) ? $this->params['sidebarType'] : 1; ?>
             <?=frontend\widgets\LeftSidebar::widget([
                 'type'=>$this->params['sidebarType']
             ])?>

@@ -2,32 +2,25 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\helpers\StringHelper;
 
 $this->title = 'Главная - Турфирм.НЕТ';
 $this->params['sidebarType'] = 1;
 ?>
                 <div class="slider-block">
                     <div class="owl-carousel main-slider">
+                        <?php foreach($slides as $slide):
+                            $image = $slide->getImage(); ?>
                         <div class="main-slider__item">
-                            <img src="/img/slider_img1.jpg" alt="">
+                            <img src="<?=$image->getUrl('1012x497')?>" alt="">
                             <div class="main-slider__desc">
-                                <h2 class="main-slider__desc__title">ЗАГОЛОВОК СЛАЙДЕРА</h2>
-                                <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Равным образом сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие
-                                    в формировании существенных финансовых и административных условий. </p>
-                                <a href="#" class="common-button">Узнать больше</a>
+                                <h2 class="main-slider__desc__title"><?=Html::encode($slide->title_ru)?></h2>
+                                <?=Html::decode($slide->excerpt_ru)?>
+                                <a href="<?=Url::to($slide->link)?>" class="common-button"><?=Html::encode($slide->link_name_ru)?></a>
                             </div>
                         </div>
-                        <div class="main-slider__item">
-                            <img src="/img/slider_img1.jpg" alt="">
-                            <div class="main-slider__desc">
-                                <h2 class="main-slider__desc__title">ЗАГОЛОВОК СЛАЙДЕРА</h2>
-                                <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Равным образом сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие
-                                    в формировании существенных финансовых и административных условий. </p>
-                                <a href="#" class="common-button">Узнать больше</a>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>  <!--slider-block-->
 
@@ -35,32 +28,16 @@ $this->params['sidebarType'] = 1;
                     <div class="day-advice__corner"></div>
                     <div class="day-advice__corner-border"></div>
                     <div class="owl-carousel day-advice-slider">
+                        <?php foreach($advices as $advice): ?>
                         <div class="day-advice-slider__item">
-                            <h2 class="title">Совет дня</h2>
-                            <h3 class="title">Как самостоятельно организовать свой отдых</h3>
+                            <h2 class="title"><?=Html::encode($advice->main_title_ru)?></h2>
+                            <h3 class="title"><?=Html::encode($advice->sub_title_ru)?></h3>
                             <hr>
-                            <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения
-                                и модернизации модели развития. Равным образом сложившаяся структура организации
-                                обеспечивает широкому кругу (специалистов) участие в формировании существенных финансовых
-                                и административных условий. Равным образом дальнейшее развитие различных форм
-                                деятельности позволяет выполнять важные задания по разработке позиций,
-                                занимаемых участниками в отношении поставленных задач.
+                            <p>	<?=Html::encode($advice->excerpt_ru)?>
                             </p>
-                            <a href="#" class="common-button">Больше информации</a>
+                            <a href="<?=Url::to(['advice/show', ['id'=>$advice->id]])?>" class="common-button">Больше информации</a>
                         </div>
-                        <div class="day-advice-slider__item">
-                            <h2 class="title">Совет дня</h2>
-                            <h3 class="title">Как самостоятельно организовать свой отдых</h3>
-                            <hr>
-                            <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения
-                                и модернизации модели развития. Равным образом сложившаяся структура организации
-                                обеспечивает широкому кругу (специалистов) участие в формировании существенных финансовых
-                                и административных условий. Равным образом дальнейшее развитие различных форм
-                                деятельности позволяет выполнять важные задания по разработке позиций,
-                                занимаемых участниками в отношении поставленных задач.
-                            </p>
-                            <a href="#" class="common-button">Больше информации</a>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>  <!--day-advice-->
 
@@ -185,10 +162,10 @@ $this->params['sidebarType'] = 1;
                 </div>  <!--featured-tours-->
 
                 <div class="banners clearfix">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><a href="#"><img src="/img/banner1.png"></a></div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><a href="#"><img src="/img/banner2.png"></a></div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><a href="#"><img src="/img/banner3.png"></a></div>
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 visible-xs"><a href="#"><img src="/img/banner3.png"></a></div>
+                    <?php foreach($adv as $banner):
+                        $image = $banner->getImage();?>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><a href="<?=Url::to($banner->link)?>"><img src="<?=$image->getUrl('299x269')?>"></a></div>
+                    <?php endforeach; ?>
                 </div>  <!--banners-->
 
                 <div class="closest-events clearfix">
@@ -245,36 +222,19 @@ $this->params['sidebarType'] = 1;
                         <h2 class="title">Последние новости туризма</h2>
                         <p>Новости с сайта <a href="#">intrnationaltourism.com</a></p>
                     </div>
+                    <?php foreach($news as $item):
+                        $image = $item->getImage(); ?>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="news__item">
-                            <div class="image"><img src="/img/news_img.jpg" alt=""></div>
+                            <div class="image"><img src="<?=$image->getUrl('301x161')?>" alt=""></div>
                             <div class="caption">
-                                <h3 class="title">Заголовок новости</h3>
-                                <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.</p>
-                                <a class="more" href="#">Читать</a>
+                                <h3 class="title"><?=Html::encode($item->title_ru)?></h3>
+                                <p><?=StringHelper::truncateWords(Html::encode($item->excerpt_ru), 23) ?></p>
+                                <a class="more" href="<?=Url::to(['news/show/'.$item->id])?>">Читать</a>
                             </div>
                         </div>
                     </div>  <!--news__item-->
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="news__item">
-                            <div class="image"><img src="/img/news_img.jpg" alt=""></div>
-                            <div class="caption">
-                                <h3 class="title">Заголовок новости</h3>
-                                <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.</p>
-                                <a class="more" href="#">Читать</a>
-                            </div>
-                        </div>
-                    </div>  <!--news__item-->
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="news__item">
-                            <div class="image"><img src="/img/news_img.jpg" alt=""></div>
-                            <div class="caption">
-                                <h3 class="title">Заголовок новости</h3>
-                                <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.</p>
-                                <a class="more" href="#">Читать</a>
-                            </div>
-                        </div>
-                    </div>  <!--news__item-->
+                    <?php endforeach; ?>
                 </div>  <!--news-->
             </div>  <!--grid-->
         </div>  <!--row-->

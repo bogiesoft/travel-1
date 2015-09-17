@@ -7,6 +7,7 @@ use yii\jui\AutoComplete;
     .aside-block__categories__list {
         height: auto;
         max-height: 420px;
+        margin-right: 0;
     }
     .mCustomScrollBox {
         height: auto;
@@ -25,7 +26,7 @@ use yii\jui\AutoComplete;
             <input type="submit" name="" value="">
         </form>
     </div>
-    <div class="webcamAside aside-block__categories aside-block__categories--country countryList">
+    <div class="webcamAside filter-block__categories aside-block__categories--country countryList">
         <button type="button" class="btn common-button">Страна</button>
         <ul class="aside-block__categories__list list-unstyled">
             <?php foreach($countries as $country): ?>
@@ -36,7 +37,7 @@ use yii\jui\AutoComplete;
         </ul>
     </div>  <!--aside-block__categories-->
 
-    <div class="webcamAside aside-block__categories aside-block__categories--country cityList">
+    <div class="webcamAside filter-block__categories aside-block__categories--country cityList">
         <button type="button" class="btn common-button">Города</button>
         <ul class="aside-block__categories__list list-unstyled">
             <?php foreach($cities as $city): ?>

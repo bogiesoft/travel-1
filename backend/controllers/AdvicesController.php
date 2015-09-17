@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Webcam;
-use backend\models\WebcamSearch;
+use common\models\Advices;
+use backend\models\AdvicesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * WebcamController implements the CRUD actions for Webcam model.
+ * AdvicesController implements the CRUD actions for Advices model.
  */
-class WebcamController extends Controller
+class AdvicesController extends Controller
 {
     public function behaviors()
     {
@@ -25,14 +25,13 @@ class WebcamController extends Controller
             ],
         ];
     }
-
     /**
-     * Lists all Webcam models.
+     * Lists all Advices models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new WebcamSearch();
+        $searchModel = new AdvicesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +41,7 @@ class WebcamController extends Controller
     }
 
     /**
-     * Displays a single Webcam model.
+     * Displays a single Advices model.
      * @param integer $id
      * @return mixed
      */
@@ -54,24 +53,16 @@ class WebcamController extends Controller
     }
 
     /**
-     * Creates a new Webcam model.
+     * Creates a new Advices model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Webcam();
+        $model = new Advices();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
-            if($model->image) {
-                if($model->getImage()) {
-                    $model->removeImages();
-                }
-                $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
-                $model->image->saveAs($path);
-                $model->attachImage($path, true);
-            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -81,7 +72,7 @@ class WebcamController extends Controller
     }
 
     /**
-     * Updates an existing Webcam model.
+     * Updates an existing Advices model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,17 +82,6 @@ class WebcamController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
-            if($model->image) {
-                if($model->getImage()) {
-                    $model->removeImages();
-                }
-                $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
-                $model->image->saveAs($path);
-                $model->attachImage($path, true);
-            }
-
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -111,7 +91,7 @@ class WebcamController extends Controller
     }
 
     /**
-     * Deletes an existing Webcam model.
+     * Deletes an existing Advices model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,15 +104,15 @@ class WebcamController extends Controller
     }
 
     /**
-     * Finds the Webcam model based on its primary key value.
+     * Finds the Advices model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Webcam the loaded model
+     * @return Advices the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Webcam::findOne($id)) !== null) {
+        if (($model = Advices::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
