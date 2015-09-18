@@ -27,7 +27,9 @@
         "costa-rico/yii2-images": "dev-master",
         "dmstr/yii2-adminlte-asset": "2.*",
         "mihaildev/yii2-ckeditor": "*",
-        "yiisoft/yii2-jui": "^2.0@dev"
+        "yiisoft/yii2-jui": "^2.0@dev",
+        "zelenin/yii2-slug-behavior": "~1.0@stable",
+        "dektrium/yii2-user": "0.9.*@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

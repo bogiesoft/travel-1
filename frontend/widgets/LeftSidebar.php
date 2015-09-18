@@ -12,6 +12,7 @@ use yii\helpers\ArrayHelper;
 
 class LeftSidebar extends Widget {
     public $type = 0;
+    public $isMobile = false;
 
     function run() {
         $countries = Countries::find()->all();
@@ -23,11 +24,11 @@ class LeftSidebar extends Widget {
                 $arrayCities = RoslArrayHelper::arraySingle(ArrayHelper::map($cities, 'id', 'title_ru'));
                 $array = ArrayHelper::merge($arrayCities, $arrayCountries);
 
-                return $this->render('leftsidebar', ['cities'=>$cities, 'countries'=>$countries, 'source'=>$array]);
+                return !$this->isMobile ? $this->render('leftsidebar', ['cities'=>$cities, 'countries'=>$countries, 'source'=>$array]) : $this->render('leftsidebar-mobile', ['cities'=>$cities, 'countries'=>$countries, 'source'=>$array]);
                 break;
             case 1:
                 $countries = Countries::find()->all();
-                return $this->render('leftsidebar-type1',['countries'=>$countries]);
+                return !$this->isMobile ? $this->render('leftsidebar-type1',['countries'=>$countries]) : $this->render('leftsidebar-type1-mobile',['countries'=>$countries]);
                 break;
         endswitch;
     }

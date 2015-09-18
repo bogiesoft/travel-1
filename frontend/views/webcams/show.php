@@ -48,7 +48,3 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                 </div>  <!--web-cams-page-->
-            </div>  <!--grid-->
-        </div>  <!--row-->
-    </div>  <!--container-->
-</main> <!--main-content-->

@@ -25,7 +25,7 @@ use yii\helpers\Html;
         </ul>
     </div>  <!--filter-block__categories-->
 
-    <div class="aside-block__categories aside-block__categories--country">
+    <div class="filter-block__categories aside-block__categories--country">
         <button type="button" class="btn common-button">Страна</button>
         <ul class="aside-block__categories__list list-unstyled">
             <?php foreach($countries as $country): ?>

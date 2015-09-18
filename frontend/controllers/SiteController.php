@@ -204,4 +204,9 @@ class SiteController extends MainController
             'model' => $model,
         ]);
     }
+
+    public static function getOption($name) {
+        $option = \common\models\Options::findOne(['name'=>$name]);
+        return $option->value;
+    }
 }

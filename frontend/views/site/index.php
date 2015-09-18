@@ -35,7 +35,7 @@ $this->params['sidebarType'] = 1;
                             <hr>
                             <p>	<?=Html::encode($advice->excerpt_ru)?>
                             </p>
-                            <a href="<?=Url::to(['advice/show', ['id'=>$advice->id]])?>" class="common-button">Больше информации</a>
+                            <a href="<?=Url::to(['advice/show/'.$advice->id])?>" class="common-button">Больше информации</a>
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -236,7 +236,3 @@ $this->params['sidebarType'] = 1;
                     </div>  <!--news__item-->
                     <?php endforeach; ?>
                 </div>  <!--news-->
-            </div>  <!--grid-->
-        </div>  <!--row-->
-    </div>  <!--container-->
-</main> <!--main-content-->

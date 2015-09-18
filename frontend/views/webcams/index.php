@@ -39,8 +39,4 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/webcams/'
                         </div>
                     </div>
                 </div>  <!--web-cameras-->
-            </div>  <!--grid-->
-        </div>  <!--row-->
-    </div>  <!--container-->
-</main> <!--main-content-->
 

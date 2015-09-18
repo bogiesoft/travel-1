@@ -47,13 +47,13 @@ include_once('header.php'); ?>
                 <nav class="nav-menu list-unstyled clearfix">
                     <?=Menu::widget([
                         'items' => [
-                            ['label' => 'О проекте', 'url' => ['/page/about/']],
-                            ['label' => 'Консультации', 'url' => ['/page/consult/']],
-                            ['label' => 'Форум', 'url' => ['/forum/']],
+                            ['label' => 'О проекте', 'url' => ['/page/show/1/']],
+                            ['label' => 'Консультации', 'url' => ['/page/show/2']],
+                            ['label' => 'Форум', 'url' => 'http://forum.travel.dev/'],
                             ['label' => 'Карты', 'url' => ['/maps/']],
                             ['label' => 'Web-камеры', 'url' => ['/webcams/index']],
-                            ['label' => 'Справочник', 'url' => ['/info/']],
-                            ['label' => 'Контакты', 'url' => ['page/contacts/']],
+                            ['label' => 'Справочник', 'url' => ['/page/show/3']],
+                            ['label' => 'Контакты', 'url' => ['page/show/4']],
                         ],
                         'activeCssClass'=>'active',
                         'activateParents'=>true,
@@ -63,51 +63,12 @@ include_once('header.php'); ?>
                 <button type="button" class="btn btn-sm">Вход</button>
             </div> <!--grid-->
             <button class="btn btn-menu collapsed visible-xs visible-sm" data-target="#menu" data-toggle="collapse" type="button"><i class="menu-icon"></i></button>
-            <div class="header-main__filter visible-sm visible-xs clearfix">
-                <button class="btn common-button pull-left collapsed" data-target="#tour-variant-toggle" data-toggle="collapse" type="button">Вариант тура</button>
-                <button class="btn common-button pull-right collapsed" data-target="#country-toggle" data-toggle="collapse" type="button">Страна</button>
-            </div>
-            <div id="tour-variant-toggle" class="header-main__filter__variants collapse">
-                <ul class="header-main__filter__list list-unstyled">
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
-                </ul>
-            </div>
-            <div id="country-toggle" class="header-main__filter__variants collapse">
-                <ul class="header-main__filter__list list-unstyled">
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
-                    <li class="col-sm-6 col-xs-6"><a href="#">Одна из стран</a></li>
+            <?php $this->params['sidebarType'] = isset($this->params['sidebarType']) ? $this->params['sidebarType'] : 1; ?>
 
-                </ul>
-            </div>
+            <?=frontend\widgets\LeftSidebar::widget([
+                'isMobile'=>true,
+                'type'=>$this->params['sidebarType']
+            ])?>
         </div>  <!--row-->
     </div>  <!--container-->
 </header>   <!--header-main-->
@@ -117,7 +78,6 @@ include_once('header.php'); ?>
 <main class="main-content">
     <div class="container">
         <div class="row">
-            <?php $this->params['sidebarType'] = isset($this->params['sidebarType']) ? $this->params['sidebarType'] : 1; ?>
             <?=frontend\widgets\LeftSidebar::widget([
                 'type'=>$this->params['sidebarType']
             ])?>
@@ -134,7 +94,12 @@ include_once('header.php'); ?>
                 ?>
                 <?php endif; ?>
 
-<?= $content ?>
+                <?= $content ?>
+
+            </div>  <!--grid-->
+        </div>  <!--row-->
+    </div>  <!--container-->
+</main> <!--main-content-->
 
 <?php include_once('footer.php');?>
 
