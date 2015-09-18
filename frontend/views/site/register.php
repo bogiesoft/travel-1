@@ -6,24 +6,27 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\RegisterForm */
 
-$this->title = 'Signup';
+$this->title = 'Регистрация';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to signup:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+<div class="consultations">
+    <div class="container">
+        <div class="row">
+            <div class="main-content__heading">
+                <h3 class="title">
+                    <?=Html::encode($this->title)?>
+                </h3>
+            </div>  <!--main-content__heading-->
+            <div class="consultations__block col-lg-5">
+                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <?= $form->field($model, 'passwordConfirm')->passwordInput() ?>
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('app','Register'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
-            <?php ActiveForm::end(); ?>
+                <?php ActiveForm::end(); ?>
+            </div>  <!--consultations__block-->
         </div>
     </div>
-</div>
+</div>  <!--web-cams-page-->

@@ -7,7 +7,6 @@ use yii\helpers\Html;
 $this->title = $model->title_ru;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
                 <div class="consultations">
                     <div class="container">
                         <div class="row">

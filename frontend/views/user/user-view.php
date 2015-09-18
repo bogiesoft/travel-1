@@ -22,6 +22,7 @@ if($user->email_verification_status == User::EMAIL_NOT_VERIFIED):?>
 
     <br>
 
+    <?php var_dump($model); ?>
 
     <?= DetailView::widget([
                                'model' => $model,

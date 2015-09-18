@@ -4,15 +4,16 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\Menu;
-
+use yii\web\User;
 /* @var $this \common\components\MainView */
 
-include_once('header.php'); ?>
+include_once('header.php');
+$user = \Yii::$app->user->identity; ?>
 <?php $this->beginBody() ?>
 <div id="menu" class="main-menu collapse">
     <div class="main-menu__control">
         <button class="btn btn-menu--close collapsed" data-target="#menu" data-toggle="collapse" type="button"><p>&#10006;</p></button>
-        <a class="enter" href="#">Вход</a>
+        <a class="enter" href="#"><?=$user ? $user->username : 'Вход'; ?></a>
     </div>
     <nav class="nav-menu list-unstyled clearfix">
 <!--        <li><a href="#">О проекте</a></li>
