@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>  <!--main-content__heading-->
             <div class="consultations__block col-lg-5">
                 <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+                <?= $form->field($model, 'username') ?>
                 <?= $form->field($model, 'email') ?>
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <?= $form->field($model, 'passwordConfirm')->passwordInput() ?>

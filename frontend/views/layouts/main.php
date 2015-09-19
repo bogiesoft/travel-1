@@ -7,13 +7,13 @@ use yii\widgets\Menu;
 use yii\web\User;
 /* @var $this \common\components\MainView */
 
-include_once('header.php');
-$user = \Yii::$app->user->identity; ?>
+include_once('header.php'); ?>
 <?php $this->beginBody() ?>
+<?php $user = \Yii::$app->user->identity; ?>
 <div id="menu" class="main-menu collapse">
     <div class="main-menu__control">
         <button class="btn btn-menu--close collapsed" data-target="#menu" data-toggle="collapse" type="button"><p>&#10006;</p></button>
-        <a class="enter" href="#"><?=$user ? $user->username : 'Вход'; ?></a>
+        <a class="enter" href="#"><?php echo $user ? $user->username : 'Вход'; ?></a>
     </div>
     <nav class="nav-menu list-unstyled clearfix">
 <!--        <li><a href="#">О проекте</a></li>
@@ -61,7 +61,7 @@ $user = \Yii::$app->user->identity; ?>
                         'activateItems'=>true
                     ]); ?>
                 </nav>
-                <button type="button" class="btn btn-sm">Вход</button>
+                <button type="button" class="btn btn-sm"><?php echo $user ? $user->username : 'Вход'; ?></button>
             </div> <!--grid-->
             <button class="btn btn-menu collapsed visible-xs visible-sm" data-target="#menu" data-toggle="collapse" type="button"><i class="menu-icon"></i></button>
             <?php $this->params['sidebarType'] = isset($this->params['sidebarType']) ? $this->params['sidebarType'] : 1; ?>

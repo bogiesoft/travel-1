@@ -10,6 +10,11 @@ return [
         '@backend_file_view_dir' => '@backend/web/files',
         '@frontend_file_view_dir' => '@frontend/web/files'
     ],
+    /*'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+        ],
+    ],*/
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
