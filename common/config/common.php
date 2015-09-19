@@ -19,6 +19,9 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'PhpBbUsers' => [
+            'class' => 'common\components\PhpBbUsers'
+        ],
         'assetManager'=>[
             'appendTimestamp' => true,
             'bundles' =>  [

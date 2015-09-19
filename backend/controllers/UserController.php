@@ -11,6 +11,7 @@ use common\models\User;
 use common\models\UserSearch;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use common\components\PhpBbUsers;
 
 /**
  * UserController implements the CRUD actions for User model.
