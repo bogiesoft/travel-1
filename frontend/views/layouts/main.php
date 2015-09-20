@@ -42,9 +42,10 @@ include_once('header.php'); ?>
 <header class="header-main">
     <div class="container">
         <div class="row">
-            <div class="logo valign col-lg-3 col-md-3">
+            <div class="logo col-lg-3 col-md-3">
                 <a href="/"><h3>Турфирм<span>НЕТ</span></h3></a>
-            </div><div class="grid valign col-lg-9 col-md-9 hidden-sm hidden-xs">
+            </div>
+            <div class="grid valign col-lg-9 col-md-9 hidden-sm hidden-xs">
                 <nav class="nav-menu list-unstyled clearfix">
                     <?=Menu::widget([
                         'items' => [
@@ -66,10 +67,10 @@ include_once('header.php'); ?>
             <button class="btn btn-menu collapsed visible-xs visible-sm" data-target="#menu" data-toggle="collapse" type="button"><i class="menu-icon"></i></button>
             <?php $this->params['sidebarType'] = isset($this->params['sidebarType']) ? $this->params['sidebarType'] : 1; ?>
 
-            <?=frontend\widgets\LeftSidebar::widget([
+            <?=$this->params['sidebarType'] != -1 ? frontend\widgets\LeftSidebar::widget([
                 'isMobile'=>true,
                 'type'=>$this->params['sidebarType']
-            ])?>
+            ]) : ''?>
         </div>  <!--row-->
     </div>  <!--container-->
 </header>   <!--header-main-->
@@ -82,7 +83,13 @@ include_once('header.php'); ?>
             <?=frontend\widgets\LeftSidebar::widget([
                 'type'=>$this->params['sidebarType']
             ])?>
+            <?php if($this->title == 'Карты') {
+            $bcClass = 'breadcrumb breadcrumb--offset-with clearfix'; ?>
+            <div class="grid col-lg-12 col-md-12 ">
+                <?php } else {
+                $bcClass = 'breadcrumb'; ?>
             <div class="grid col-lg-9 col-md-9 ">
+                <?php } ?>
                 <?php if(isset($this->params['breadcrumbs'])): ?>
                 <?=
                 Breadcrumbs::widget([
@@ -91,6 +98,7 @@ include_once('header.php'); ?>
                         'url' => Yii::$app->homeUrl,
                     ],
                     'links' => $this->params['breadcrumbs'],
+                    'options' => ['class' => $bcClass]
                    ])
                 ?>
                 <?php endif; ?>

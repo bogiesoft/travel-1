@@ -5461,6 +5461,23 @@ function page_footer($run_cron = true, $display_template = true, $exit_handler =
 	{
 		exit_handler();
 	}
+
+
+	garbage_collection();
+
+//************************   FORUM Yii **********************************
+	if (class_exists('Yii', false) && \Yii::$app->controller !== null) {
+		$content = ob_get_clean();
+		echo \Yii::$app->controller->render('//layouts/forum', ['content' => $content]);
+	}
+//************************   ********** **********************************
+
+	if ($exit_handler)
+	{
+		exit_handler();
+	}
+
+
 }
 
 /**

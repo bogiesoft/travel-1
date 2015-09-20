@@ -12,7 +12,7 @@ use yii\helpers\Url;
 use yii\web\IdentityInterface;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
-
+use nill\forum\behaviors\PhpBBUserBahavior;
 /**
  * User model
  *
@@ -33,6 +33,13 @@ use yii\web\UploadedFile;
  */
 class User extends MainActiveRecord implements IdentityInterface
 {
+    /**
+     * The variables required for integration with the forum
+     * @var string $password_reg - old password
+     * @var string $password_new - new password
+     */
+    public $password_reg;
+    public $password_new;
 
     public   $uploadedFile;
     const PASSWORD_CHANGE = 'password-change';
@@ -253,6 +260,7 @@ class User extends MainActiveRecord implements IdentityInterface
     {
         return [
             TimestampBehavior::className(),
+
         ];
     }
 
@@ -413,8 +421,9 @@ class User extends MainActiveRecord implements IdentityInterface
      * @param string $password password to validate
      * @return boolean if password provided is valid for current user
      */
-    public function validatePassword($password)
-    {
+    public function validatePassword($password) {
+        $this->password_reg = $password;
+
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 

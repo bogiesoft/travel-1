@@ -17,6 +17,17 @@
 /**
 * @ignore
 */
+
+//************************   FORUM Yii **********************************
+
+include "yiiapp.php";
+
+$controller = new yii\web\Controller('7','forum');
+\Yii::$app->controller = $controller;
+ob_start();
+
+//************************  *********  **********************************
+
 define('IN_PHPBB', true);
 $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
