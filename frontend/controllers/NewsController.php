@@ -7,7 +7,8 @@ class NewsController extends \yii\web\Controller {
     public function actionIndex() {}
 
     public function actionShow($id) {
+        $model = \common\models\News::findOne(['id'=>$id]);
 
-        echo 11111;
+        return $this->render('show',['model'=>$model]);
     }
 }

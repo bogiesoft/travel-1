@@ -19,7 +19,7 @@ class OptionsSearch extends Options
     {
         return [
             [['id'], 'integer'],
-            [['name', 'value'], 'safe'],
+            [['name', 'value', 'type'], 'safe'],
         ];
     }
 
@@ -63,7 +63,8 @@ class OptionsSearch extends Options
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'value', $this->value]);
+            ->andFilterWhere(['like', 'value', $this->value])
+            ->andFilterWhere(['like', 'type', $this->type]);
 
         return $dataProvider;
     }

@@ -29,6 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::submitButton(Yii::t('app','Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
                 <?php ActiveForm::end(); ?>
+                <div class="form-group">
+                    Еще не зарегистрированы? <?=Html::a('Регистрация', ['site/register/'])?>
+                </div>
             </div>  <!--consultations__block-->
         </div>
     </div>

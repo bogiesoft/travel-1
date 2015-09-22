@@ -31,7 +31,8 @@
         "zelenin/yii2-slug-behavior": "~1.0@stable",
         "dektrium/yii2-user": "0.9.*@dev",
         "kolyunya/yii2-map-input-widget": "dev-master",
-        "2amigos/yii2-google-maps-library": "*"
+        "2amigos/yii2-google-maps-library": "*",
+        "newerton/yii2-fancybox": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

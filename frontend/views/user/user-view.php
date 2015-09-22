@@ -9,7 +9,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\User */
 /* @var $user common\models\User */
 
-$this->title = $model->email;
+$this->title = $model->username;
 $user = Yii::$app->user->identity;
 if($user->email_verification_status == User::EMAIL_NOT_VERIFIED):?>
     <br>
@@ -19,10 +19,6 @@ if($user->email_verification_status == User::EMAIL_NOT_VERIFIED):?>
     </p>
 <?php endif?>
 <div class="user-view">
-
-    <br>
-
-    <?php var_dump($model); ?>
 
     <?= DetailView::widget([
                                'model' => $model,

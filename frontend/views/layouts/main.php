@@ -62,7 +62,7 @@ include_once('header.php'); ?>
                         'activateItems'=>true
                     ]); ?>
                 </nav>
-                <button type="button" class="btn btn-sm"><?php echo $user ? $user->username : 'Вход'; ?></button>
+                <button type="button" class="btn btn-sm"><?php echo $user ? \yii\helpers\Html::a($user->username, ['user/view/'.$user->getId()]) : \yii\helpers\Html::a('Вход', ['site/login']); ?></button>
             </div> <!--grid-->
             <button class="btn btn-menu collapsed visible-xs visible-sm" data-target="#menu" data-toggle="collapse" type="button"><i class="menu-icon"></i></button>
             <?php $this->params['sidebarType'] = isset($this->params['sidebarType']) ? $this->params['sidebarType'] : 1; ?>

@@ -27,7 +27,8 @@ class Options extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'value'], 'string', 'max' => 255],
+            [['name', 'type'], 'string', 'max' => 255],
+            [['value'], 'string']
         ];
     }
 
@@ -40,6 +41,16 @@ class Options extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'value' => 'Value',
+            'type' => 'Тип',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
         ];
     }
 }

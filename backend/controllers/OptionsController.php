@@ -63,6 +63,19 @@ class OptionsController extends Controller
         $model = new Options();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            if($model->type == 'image') {
+                $model->image = \yii\web\UploadedFile::getInstance($model, 'value');
+                if($model->image) {
+                    if($model->getImage()) {
+                        $model->removeImages();
+                    }
+                    $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
+                    $model->image->saveAs($path);
+                    $model->attachImage($path, true);
+                }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -82,6 +95,19 @@ class OptionsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            if($model->type == 'image') {
+                $model->image = \yii\web\UploadedFile::getInstance($model, 'value');
+                if($model->image) {
+                    if($model->getImage()) {
+                        $model->removeImages();
+                    }
+                    $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
+                    $model->image->saveAs($path);
+                    $model->attachImage($path, true);
+                }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

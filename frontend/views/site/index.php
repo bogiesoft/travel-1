@@ -4,6 +4,7 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
+use frontend\controllers\SiteController;
 
 $this->title = 'Главная - Турфирм.НЕТ';
 $this->params['sidebarType'] = 1;
@@ -48,16 +49,9 @@ $this->params['sidebarType'] = 1;
                 </div>  <!--tours-catalog-->
 
                 <div class="more-about-us clearfix">
-                    <h3 class="title">
-                        Мы не турфирма,<br>
-                        мы профессиональные туристы и делимся свои опытом,<br>
-                        нам это нужно для самоутверждения, общения и помощи другим людям.
-                    </h3>
-                    <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации
-                        модели развития. Равным образом сложившаяся структура организации обеспечивает широкому кругу
-                        (специалистов) участие в формировании существенных финансовых и административных условий.
-                        Равным образом дальнейшее развитие различных форм деятельности позволяет выполнять важные задания.</p>
-                    <button type="button" class="btn common-button">БОЛЬШЕ О НАС</button>
+                    <?=Html::decode(SiteController::getOption('about_header'))?>
+                    <?=Html::decode(SiteController::getOption('about_text'))?>
+                    <a href="<?=Url::to(['/page/show/1'])?>"><button type="button" class="btn common-button">БОЛЬШЕ О НАС</button></a>
                 </div>  <!--more-about-us-->
 
                 <div class="search-tour">
@@ -170,8 +164,8 @@ $this->params['sidebarType'] = 1;
 
                 <div class="closest-events clearfix">
                     <div class="closest-events__heading">
-                        <h2 class="title">Ближайшие события в мире</h2>
-                        <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития</p>
+                        <h2 class="title"><?=Html::encode(SiteController::getOption('events_header'))?></h2>
+                        <p><?=Html::encode(SiteController::getOption('events_sub'))?></p>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="closest-events__item">

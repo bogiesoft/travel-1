@@ -69,6 +69,45 @@ $(document).ready(function(){
             var eventInfo = $(this).detach();
             eventInfo.appendTo(divForAppend);
         });
+
+        $('.events__country__event .rating').each(function(){
+            divForAppend = $(this).closest('.events__country__event').find('.date');
+            var eventInfo = $(this).detach();
+            divForAppend.parent().prepend(eventInfo);
+        });
+    }
+    var slider, photoSlider;
+    if($('body').find('#image-gallery').length > 0) {
+        slider = $('#image-gallery').lightSlider({
+            gallery:true,
+            item:1,
+            thumbItem:6,
+            slideMargin: 0,
+            speed:500,
+            thumbMargin: 0,
+            auto:false,
+            loop:true,
+            onSliderLoad: function() {
+                $('#image-gallery').removeClass('cS-hidden');
+            }
+        });
+    }
+
+    if($('body').find('#photo-gallery').length > 0) {
+        photoSlider = $('#photo-gallery').lightSlider({
+            gallery:false,
+            item:2,
+            thumbItem:0,
+            slideMargin: 0,
+            speed:500,
+            pager: false,
+            thumbMargin: 0,
+            auto:false,
+            loop:true,
+            onSliderLoad: function() {
+                $('#photo-gallery').removeClass('cS-hidden');
+            }
+        });
     }
 
     $(window).resize(function(){
@@ -101,6 +140,12 @@ $(document).ready(function(){
                     var eventInfo = $(this).detach();
                     eventInfo.appendTo(divForAppend);
                 });
+
+                $('.events__country__event .rating').each(function(){
+                    divForAppend = $(this).closest('.events__country__event').find('.date');
+                    var eventInfo = $(this).detach();
+                    divForAppend.parent().prepend(eventInfo);
+                });
             }
         } else {
             $('.closest-events__item__about .closest-events__item__title').each(function(){
@@ -115,6 +160,14 @@ $(document).ready(function(){
                 eventInfo.insertAfter(divForAppend);
             });
 
+            $('.events__country__event .rating').each(function(){
+                divForAppend = $(this).closest('.events__country__event').find('.date');
+                var eventInfo = $(this).detach();
+                divForAppend.after(eventInfo);
+            });
+
+            photoSlider.refresh();
+
             closestItemImageDiv.find('.closest-events__item__about').remove();
         }
 
@@ -126,5 +179,6 @@ $(document).ready(function(){
             }
         }
     });
+
 
 });

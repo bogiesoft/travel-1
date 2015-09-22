@@ -1,6 +1,6 @@
 <?php
 /*
- * $types: 0 - webcameras
+ * $types: -1 - no sidebar, 0 - webcameras, 1 - tours filter, 2 - events filter
  * */
 namespace frontend\widgets;
 
