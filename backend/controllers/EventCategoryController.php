@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Countries;
-use backend\models\CountriesSearch;
+use common\models\EventCategory;
+use backend\models\EventCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CountriesController implements the CRUD actions for Countries model.
+ * EventCategoryController implements the CRUD actions for EventCategory model.
  */
-class CountriesController extends Controller
+class EventCategoryController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class CountriesController extends Controller
     }
 
     /**
-     * Lists all Countries models.
+     * Lists all EventCategory models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CountriesSearch();
+        $searchModel = new EventCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class CountriesController extends Controller
     }
 
     /**
-     * Displays a single Countries model.
+     * Displays a single EventCategory model.
      * @param integer $id
      * @return mixed
      */
@@ -54,24 +54,15 @@ class CountriesController extends Controller
     }
 
     /**
-     * Creates a new Countries model.
+     * Creates a new EventCategory model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Countries();
+        $model = new EventCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->icon = \yii\web\UploadedFile::getInstance($model, 'icon');
-            if($model->icon) {
-                if($model->getImage()) {
-                    $model->removeImages();
-                }
-                $path = Yii::getAlias('@webroot/images/store/').$model->icon->baseName.'.'.$model->icon->extension;
-                $model->icon->saveAs($path);
-                $model->attachImage($path, true);
-            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -81,7 +72,7 @@ class CountriesController extends Controller
     }
 
     /**
-     * Updates an existing Countries model.
+     * Updates an existing EventCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,15 +82,6 @@ class CountriesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->icon = \yii\web\UploadedFile::getInstance($model, 'icon');
-            if($model->icon) {
-                if($model->getImage()) {
-                    $model->removeImages();
-                }
-                $path = Yii::getAlias('@webroot/images/store/').$model->icon->baseName.'.'.$model->icon->extension;
-                $model->icon->saveAs($path);
-                $model->attachImage($path, true);
-            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -109,7 +91,7 @@ class CountriesController extends Controller
     }
 
     /**
-     * Deletes an existing Countries model.
+     * Deletes an existing EventCategory model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -122,15 +104,15 @@ class CountriesController extends Controller
     }
 
     /**
-     * Finds the Countries model based on its primary key value.
+     * Finds the EventCategory model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Countries the loaded model
+     * @return EventCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Countries::findOne($id)) !== null) {
+        if (($model = EventCategory::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

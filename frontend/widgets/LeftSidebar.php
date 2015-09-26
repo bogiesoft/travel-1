@@ -1,9 +1,11 @@
 <?php
 /*
- * $types: -1 - no sidebar, 0 - webcameras, 1 - tours filter, 2 - events filter
+ * $types: -1 - no sidebar, 0 - webcameras, 1 - tours filter, 2 - events filter, 3 - event-page sidebar
  * */
 namespace frontend\widgets;
 
+use common\models\EventCategory;
+use common\models\Events;
 use yii\base\Widget;
 use common\models\Cities;
 use common\models\Countries;
@@ -29,6 +31,17 @@ class LeftSidebar extends Widget {
             case 1:
                 $countries = Countries::find()->all();
                 return !$this->isMobile ? $this->render('leftsidebar-type1',['countries'=>$countries]) : $this->render('leftsidebar-type1-mobile',['countries'=>$countries]);
+                break;
+            case 2:
+                $countries = Countries::find()->all();
+                $categories = EventCategory::find()->all();
+                return !$this->isMobile ? $this->render('leftsidebar-type2',['countries'=>$countries,'categories'=>$categories]) : $this->render('leftsidebar-type2-mobile',['countries'=>$countries,'categories'=>$categories]);
+                break;
+            case 3:
+                $countries = Countries::find()->all();
+                $categories = EventCategory::find()->all();
+                $events = Events::find()->where(['status'=>1])->limit(3)->all();
+                return !$this->isMobile ? $this->render('leftsidebar-type3',['events'=>$events]) : $this->render('leftsidebar-type3-mobile',['countries'=>$countries,'categories'=>$categories]);
                 break;
         endswitch;
     }

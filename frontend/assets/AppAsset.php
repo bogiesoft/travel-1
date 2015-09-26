@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         "css/owl-carousel/owl.theme.css",
         "css/normalize.css",
         "css/main.css",
+        "css/lightslider.css",
         "css/jquery.mCustomScrollbar.min.css",
     ];
     public $js = [
@@ -32,6 +33,7 @@ class AppAsset extends AssetBundle
         "js/jquery.mCustomScrollbar.concat.min.js",
         "js/main.js",
         "js/components.js",
+        "js/lightslider.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',

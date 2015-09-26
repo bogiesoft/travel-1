@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/maps/']];
                     Карты
                 </h3>
             </div>  <!--main-content__heading-->
-            <div class="maps__filter hidden-sm hidden-xs clearfix">
+            <div class="maps__filter hidden-sm hidden-xs clearfix" ng-cloak>
                 <label>Выберите страну<select ng-change="citySelect = ''" class="selectpicker common-button common-button--thin" ng-model="countrySelect">
 
                         <option ng-repeat="country in countries" ng-value="{{country.id}}" ng-cloak>{{country.title_ru}}</option>
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/maps/']];
 
                     </select></label>
             </div>
-            <div class="map-block row">
+            <div class="map-block row" ng-cloak>
                 <div class="map-block__frame">
 
                     <ui-gmap-google-map

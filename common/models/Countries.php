@@ -3,12 +3,14 @@
 namespace common\models;
 
 use Yii;
+use common\models\Events;
 
 /**
  * This is the model class for table "countries".
  *
  * @property integer $id
  * @property string $title_ru
+ * * @property string $icon
  * @property string $description_ru
  */
 class Countries extends \yii\db\ActiveRecord
@@ -28,7 +30,7 @@ class Countries extends \yii\db\ActiveRecord
     {
         return [
             [['title_ru'], 'required'],
-            [['description_ru'], 'string'],
+            [['description_ru', 'icon'], 'string'],
             [['title_ru'], 'string', 'max' => 255],
         ];
     }
@@ -42,6 +44,20 @@ class Countries extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title_ru' => 'Title Ru',
             'description_ru' => 'Description Ru',
+            'icon' => 'Иконка',
         ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
+
+    public function getEvents() {
+        return $this->hasMany(Events::className(), ['country_id' => 'id']);
     }
 }

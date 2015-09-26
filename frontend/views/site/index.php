@@ -167,48 +167,22 @@ $this->params['sidebarType'] = 1;
                         <h2 class="title"><?=Html::encode(SiteController::getOption('events_header'))?></h2>
                         <p><?=Html::encode(SiteController::getOption('events_sub'))?></p>
                     </div>
+                    <?php foreach($events as $event): ?>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="closest-events__item">
-                            <div class="image"><img src="/img/closest_event_img.jpg" alt=""></div>
+                            <div class="image"><img src="<?=$event->getImage()->getUrl('301x161')?>" alt=""></div>
                             <div class="caption">
-                                <h3 class="closest-events__item__title">Maroon 5</h3>
-                                <p class="closest-events__item__desc">Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.</p>
-                                <p class="closest-events__item__details"><span>Дата:</span> 30.06.2015</p>
-                                <p class="closest-events__item__details"><span>Город:</span> New York</p>
+                                <h3 class="closest-events__item__title"><?=Html::encode($event->title_ru)?></h3>
+                                <p class="closest-events__item__desc"><?=StringHelper::truncateWords(Html::encode(strip_tags(html_entity_decode($event->content_ru))), 21) ?></p>
+                                <p class="closest-events__item__details"><span>Дата:</span> <?php $date = new DateTime($event->date); echo $date->format('d.m.Y'); ?></p>
+                                <p class="closest-events__item__details"><span>Место:</span> <?=Html::encode($event->place_ru)?></p>
                                 <div class="text-center clearfix">
-                                    <a href="#" class="common-button">Узнать больше</a>
+                                    <a href="<?=Url::to('/events/show/'.$event->id)?>" class="common-button">Узнать больше</a>
                                 </div>
                             </div>
                         </div>
                     </div>  <!--closest-events__item-->
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="closest-events__item">
-                            <div class="image"><img src="/img/closest_event_img.jpg" alt=""></div>
-                            <div class="caption">
-                                <h3 class="closest-events__item__title">Maroon 5</h3>
-                                <p class="closest-events__item__desc">Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.</p>
-                                <p class="closest-events__item__details"><span>Дата:</span> 30.06.2015</p>
-                                <p class="closest-events__item__details"><span>Город:</span> New York</p>
-                                <div class="text-center clearfix">
-                                    <a href="#" class="common-button">Узнать больше</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  <!--closest-events__item-->
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                        <div class="closest-events__item">
-                            <div class="image"><img src="/img/closest_event_img.jpg" alt=""></div>
-                            <div class="caption">
-                                <h3 class="closest-events__item__title">Maroon 5</h3>
-                                <p class="closest-events__item__desc">Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.</p>
-                                <p class="closest-events__item__details"><span>Дата:</span> 30.06.2015</p>
-                                <p class="closest-events__item__details"><span>Город:</span> New York</p>
-                                <div class="text-center clearfix">
-                                    <a href="#" class="common-button">Узнать больше</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  <!--closest-events__item-->
+                    <?php endforeach; ?>
                 </div>  <!--closest-events-->
 
                 <div class="news clearfix">

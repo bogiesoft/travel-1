@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Countries;
+use common\models\EventCategory;
 
 /**
- * CountriesSearch represents the model behind the search form about `common\models\Countries`.
+ * EventCategorySearch represents the model behind the search form about `common\models\EventCategory`.
  */
-class CountriesSearch extends Countries
+class EventCategorySearch extends EventCategory
 {
     /**
      * @inheritdoc
@@ -18,9 +18,8 @@ class CountriesSearch extends Countries
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['icon'], 'string'],
-            [['title_ru', 'description_ru', 'icon'], 'safe'],
+            [['id', 'status'], 'integer'],
+            [['title_ru', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -42,7 +41,7 @@ class CountriesSearch extends Countries
      */
     public function search($params)
     {
-        $query = Countries::find();
+        $query = EventCategory::find();
 
         // add conditions that should always apply here
 
@@ -61,11 +60,12 @@ class CountriesSearch extends Countries
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title_ru', $this->title_ru])
-            ->andFilterWhere(['like', 'description_ru', $this->description_ru])
-            ->andFilterWhere(['like', 'icon', $this->icon]);
+        $query->andFilterWhere(['like', 'title_ru', $this->title_ru]);
 
         return $dataProvider;
     }
