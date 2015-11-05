@@ -7,7 +7,9 @@ use yii\helpers\Html;
 </div>
 <div id="tour-variant-toggle" class="header-main__filter__variants collapse">
     <ul class="header-main__filter__list list-unstyled">
-        <li class="col-sm-6 col-xs-6"><a href="#">Название категории тура</a></li>
+        <?php foreach($categories as $category){ ?>
+            <li><a href="" data-category-id="<?=$category->id?>"><?=Html::encode($category->title_ru)?></a></li>
+        <?php } ?>
     </ul>
 </div>
 <div id="country-toggle" class="header-main__filter__variants collapse">

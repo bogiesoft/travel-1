@@ -39,7 +39,7 @@ return [
         'authManager' => [
             'class' => yii\rbac\DbManager::className(),
             'cache' =>'cache',
-            'defaultRoles' => ['super_admin','admin','user']
+            'defaultRoles' => ['super_admin','admin','user','moderator']
         ],
         'view' => [
             'class' => 'common\components\MainView',

@@ -4,6 +4,9 @@
  * */
 namespace frontend\widgets;
 
+use common\models\Reviews;
+use common\models\TourCategory;
+use Yii;
 use common\models\EventCategory;
 use common\models\Events;
 use yii\base\Widget;
@@ -14,6 +17,7 @@ use yii\helpers\ArrayHelper;
 
 class LeftSidebar extends Widget {
     public $type = 0;
+    public $item_id = 0;
     public $isMobile = false;
 
     function run() {
@@ -30,18 +34,29 @@ class LeftSidebar extends Widget {
                 break;
             case 1:
                 $countries = Countries::find()->all();
-                return !$this->isMobile ? $this->render('leftsidebar-type1',['countries'=>$countries]) : $this->render('leftsidebar-type1-mobile',['countries'=>$countries]);
+                $categories = TourCategory::find()->where(['status'=>1])->all();
+                return !$this->isMobile ? $this->render('leftsidebar-type1',['countries'=>$countries, 'categories'=>$categories]) : $this->render('leftsidebar-type1-mobile',['countries'=>$countries, 'categories'=>$categories]);
                 break;
             case 2:
                 $countries = Countries::find()->all();
                 $categories = EventCategory::find()->all();
-                return !$this->isMobile ? $this->render('leftsidebar-type2',['countries'=>$countries,'categories'=>$categories]) : $this->render('leftsidebar-type2-mobile',['countries'=>$countries,'categories'=>$categories]);
+
+                $active = [];
+                $active['category'] = Yii::$app->getRequest()->getQueryParam('category');
+                $active['country'] = Yii::$app->getRequest()->getQueryParam('country');
+
+                return !$this->isMobile ? $this->render('leftsidebar-type2',['countries'=>$countries,'categories'=>$categories, 'active' => $active]) : $this->render('leftsidebar-type2-mobile',['countries'=>$countries,'categories'=>$categories, 'active' => $active]);
                 break;
             case 3:
                 $countries = Countries::find()->all();
                 $categories = EventCategory::find()->all();
                 $events = Events::find()->where(['status'=>1])->limit(3)->all();
-                return !$this->isMobile ? $this->render('leftsidebar-type3',['events'=>$events]) : $this->render('leftsidebar-type3-mobile',['countries'=>$countries,'categories'=>$categories]);
+
+                $reviews = Reviews::find()
+                    ->where(['status'=>1, 'model'=>'Events', 'item_id'=>$this->item_id])
+                    ->orderBy('created_at DESC')->all();
+
+                return !$this->isMobile ? $this->render('leftsidebar-type3',['events'=>$events,'reviews'=>$reviews]) : $this->render('leftsidebar-type3-mobile',['countries'=>$countries,'categories'=>$categories]);
                 break;
         endswitch;
     }

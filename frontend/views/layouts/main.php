@@ -81,14 +81,17 @@ include_once('header.php'); ?>
     <div class="container">
         <div class="row">
             <?=frontend\widgets\LeftSidebar::widget([
-                'type'=>$this->params['sidebarType']
+                'type'=>$this->params['sidebarType'],
+                'item_id'=>!empty($this->params['item_id']) ? $this->params['item_id'] : 0,
             ])?>
             <?php if($this->title == 'Карты') {
             $bcClass = 'breadcrumb breadcrumb--offset-with clearfix'; ?>
             <div class="grid col-lg-12 col-md-12 ">
                 <?php } else {
                 $bcClass = 'breadcrumb'; ?>
-            <div class="grid col-lg-9 col-md-9 ">
+
+                <?=empty($this->params['tour-view']) ? '<div class="grid col-lg-9 col-md-9">':'<div class="grid grid--without-shadow col-lg-9 col-md-12 col-lg-offset-2">'?>
+
                 <?php } ?>
                 <?php if(isset($this->params['breadcrumbs'])): ?>
                 <?=

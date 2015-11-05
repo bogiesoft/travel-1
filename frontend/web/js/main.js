@@ -19,7 +19,7 @@ $(document).ready(function(){
         });
     }
 
-    $('.panel-group .panel-heading a').click(function(){
+    $('#manual-menu .panel-heading a').click(function(){
         var col = $(this).attr('href');
         var arrow = '.panel-collapse-arrow';
         if($(col).hasClass('in') && $(this).find(arrow).hasClass('down')) {
@@ -33,15 +33,29 @@ $(document).ready(function(){
         }
     });
 
+    $('#tour-legend .panel-heading a, #confirmed-reservation .panel-heading a').click(function(){
+        var col = $(this).attr('href');
+
+        if($(col).hasClass('in')) {
+            $(this).closest('.panel').toggleClass('active');
+        } else {
+            if(!$(col).hasClass('in')) {
+                $(this).closest('.panel').toggleClass('active');
+            }
+        }
+    });
+
 
     // Custom scroll bar
-    $(".aside-block__categories__list, .header-main__filter__variants").mCustomScrollbar({
-        axis:"y", // horizontal scrollbar
-        autoHideScrollbar: true,
-        autoExpandScrollbar: true,
+    if($('body').find('.aside-block__categories__list').length > 0 && $('body').find('.header-main__filter__variants').length > 0) {
+        $(".aside-block__categories__list, .header-main__filter__variants").mCustomScrollbar({
+            axis:"y", // horizontal scrollbar
+            autoHideScrollbar: true,
+            autoExpandScrollbar: true,
 
-        mouseWheel:{ preventDefault: true }
-    });
+            mouseWheel:{ preventDefault: true }
+        });
+    }
 
     var windowWidth = $(window).width();
 
@@ -78,19 +92,36 @@ $(document).ready(function(){
     }
     var slider, photoSlider;
     if($('body').find('#image-gallery').length > 0) {
-        slider = $('#image-gallery').lightSlider({
-            gallery:true,
-            item:1,
-            thumbItem:6,
-            slideMargin: 0,
-            speed:500,
-            thumbMargin: 0,
-            auto:false,
-            loop:true,
-            onSliderLoad: function() {
-                $('#image-gallery').removeClass('cS-hidden');
-            }
-        });
+        if($('#image-gallery').hasClass('without-thumbs')) {
+            slider = $('#image-gallery').lightSlider({
+                gallery:false,
+                item:1,
+                pager: false,
+                slideMargin: 0,
+                speed:500,
+                thumbMargin: 0,
+                auto:false,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+        } else {
+            slider = $('#image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:6,
+                slideMargin: 0,
+                speed:500,
+                thumbMargin: 0,
+                auto:false,
+                loop:true,
+                onSliderLoad: function() {
+                    $('#image-gallery').removeClass('cS-hidden');
+                }
+            });
+        }
+
     }
 
     if($('body').find('#photo-gallery').length > 0) {

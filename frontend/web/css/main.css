@@ -24,6 +24,13 @@
 
 @font-face {
     font-family:  'Calibri';
+    src: url("../fonts/Calibri/calibrii.ttf") format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family:  'Calibri';
     src: url("../fonts/Calibri/calibrib.ttf") format('truetype');
     font-weight: bold;
     font-style: normal;
@@ -234,6 +241,12 @@ a.common-button--solid:active {
     padding: 0;
 }
 
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../img/icons_sprite.png") no-repeat 0px 0px;
+}
+
 h2.title, h3.title, h4.title {
     margin: 0;
     font: 36px 'Calibri';
@@ -339,7 +352,7 @@ i {
 
 header.header-main {
     padding-top: 24px;
-    padding-bottom: 32px;
+    padding-bottom: 21px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 6px 4px -4px rgba(0, 0, 0, 0.34);
     border-bottom: 5px solid #fdc54f;
@@ -426,7 +439,7 @@ header.header-main .container {
 }
 
 .logo {
-    padding-right: 34px;
+    padding-right: 4.2%;
     text-align: right;
     position: relative;
 }
@@ -838,7 +851,7 @@ header.header-main .grid .btn-sm {
 
 .breadcrumb {
     background-color: #e1f7ff;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
     padding-top: 31px;
     margin-top: -20px;
     margin-bottom: 0px;
@@ -894,6 +907,10 @@ header.header-main .grid .btn-sm {
     height: 100%;
     z-index: 9;
     box-shadow: 10px 0px 10px -10px rgb(64, 64, 64);
+}
+
+.main-content .grid--without-shadow:before {
+    box-shadow: none;
 }
 
 .slider-block {
@@ -1970,7 +1987,13 @@ header.header-main .grid .btn-sm {
 .event-slider {
     max-width: 400px;
     float: left;
+    height: 258px;
+    overflow: hidden;
     margin-bottom: 28px;
+}
+
+.event-slider ul {
+    margin-bottom: 0;
 }
 
 .lslide img {
@@ -2087,6 +2110,818 @@ header.header-main .grid .btn-sm {
     display: none;
 }
 
+.tour-legend-page {
+    padding-top: 3px;
+}
+
+.tour-legend-page .main-content__heading {
+    padding: 18px 15px;
+}
+
+.location {
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 38px;
+}
+
+.location p {
+    font-size: 14.74px;
+    color: rgb(242, 114, 105);
+    line-height: 1.2;
+}
+
+.location p:after, .location p::after {
+    content: "";
+    position: relative;
+    display: block;
+    margin: 7px auto 0;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: rgb(242, 114, 105);
+    width: 17px;
+    height: 17px;
+}
+
+.tour-details {
+    border-top: 1px solid #006795;
+    border-bottom: 1px solid #006795;
+    float: left;
+    width: 50%;
+    min-height: 258px;
+    padding-top: 12px;
+    margin-left: 29px;
+}
+
+.tour-details ul li + li {
+    margin-top: 13px;
+}
+
+.tour-details ul li p {
+    font-size: 14px;
+    letter-spacing: -.3px;
+    line-height: 1.24;
+    color: rgb(0, 103, 143);
+}
+
+.tour-details ul li p span {
+    font-weight: bold;
+    min-width: 107px;
+    display: block;
+    float: left;
+    padding-bottom: 1.5%;
+}
+
+.select-day {
+    border: none;
+    text-align: center;
+    padding-left: 27px;
+    margin-bottom: 8px;
+}
+
+.select-day > li {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    margin: 0 8px;
+}
+
+.select-day > li.active {
+    color: #fff;
+    background-color: #006795;
+}
+
+.select-day > li a, .select-day > li a:hover {
+    background-color: rgb(253, 197, 79);
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    font: 16px 'Calibri';
+    font-weight: bold;
+    color: #006795;
+    border: none;
+    padding: 14px 25px;
+    min-width: 100px;
+    box-shadow: 0px 3px 0px #e0af48;
+    margin: 0 0 3px;
+}
+
+.select-day > li.active > a, .select-day > li.active > a:focus, .select-day > li.active > a:hover {
+    color: #fff;
+    background-color: #006795;
+    border: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    box-shadow: 0px 3px 0px #015276;
+}
+
+.schedule {
+    border: 12px solid #fdc549;
+}
+
+.schedule .panel {
+    border: none;
+}
+
+.schedule .panel-group .panel + .panel {
+    margin-top: 0;
+}
+
+.schedule .panel-group {
+    margin-bottom: 0;
+}
+
+.schedule .panel-default > .panel-heading {
+    background-color: #e9eff2;
+    border-bottom: 1px solid #fdc549;
+    padding-top: 14px;
+    padding-left: 17px;
+    min-height: 68px;
+}
+
+.schedule .panel.active > .panel-heading {
+    border-bottom: none;
+}
+
+.schedule .panel.active > .panel-collapse {
+    border-bottom: 1px solid #fdc549;
+}
+
+.schedule .panel-heading a {
+    padding: 0;
+}
+
+.schedule .panel-heading h4 {
+    display: inline-block;
+    vertical-align: middle;
+    font: 18px 'Calibri';
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.schedule__point {
+    background-color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #015276;
+    padding: 5px 10px;
+    min-height: 38px;
+    margin-right: 23px;
+    min-width: 130px;
+    text-align: center;
+}
+
+.icon-train {
+    width: 22px;
+    height: 28px;
+    background-position: 0px -114px;
+}
+
+.schedule .panel-heading .icon-train {
+    margin-right: 14px;
+}
+
+.panel-collapse-state {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 18px;
+    position: absolute;
+    height: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 25px;
+}
+
+.panel-collapse-state:before, .panel-collapse-state::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 0;
+    margin: auto;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6.5px 0 6.5px 11px;
+    border-color: transparent transparent transparent #006795;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.schedule .panel-heading .collapsed .panel-collapse-state:before,
+.schedule .panel-heading .collapsed .panel-collapse-state::before {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.schedule .panel-heading .panel-collapse-state:after,
+.schedule .panel-heading .panel-collapse-state::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 0;
+    margin: auto;
+    right: 2px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4.5px 0 4.5px 8px;
+    border-color: transparent transparent transparent #006795;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.schedule .panel-heading .collapsed .panel-collapse-state:after,
+.schedule .panel-heading .collapsed .panel-collapse-state::after {
+    border-color: transparent transparent transparent #fff;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.panel-collapse-state p {
+    font-weight: 200;
+}
+
+.schedule .panel-heading .panel-collapse-state p {
+    display: none;
+}
+
+.schedule .panel-heading .collapsed .panel-collapse-state p {
+    display: inline-block;
+}
+
+.schedule .panel-heading .collapsed p.panel-collapse-state__in {
+    display: none;
+}
+
+.schedule .panel-heading p.panel-collapse-state__in {
+    display: inline-block;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    padding: 10px 17px 18px;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .panel-body p {
+    letter-spacing: .47px;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .panel-body p a {
+    color: #006795;
+    text-decoration: underline;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .schedule__place {
+    padding-top: 24px;
+    padding-bottom: 26px;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .schedule__place--mod {
+    padding-top: 35px;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .schedule__excursion {
+    padding-top: 37px;
+}
+
+.schedule .tour-legend-details .icon-link {
+    top: 0;
+    left: 0;
+    margin-right: 4px;
+}
+
+.schedule__place__services, .schedule__place__additional {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.schedule__place__additional {
+    padding-left: 68px;
+}
+
+.schedule__excursion .schedule__place__services,
+.schedule__excursion .schedule__place__additional {
+    padding-top: 2px;
+}
+
+.schedule__place__additional--standart p:first-child {
+    margin-bottom: 13px;
+}
+
+.icon-bill {
+    width: 23px;
+    height: 19px;
+    background-position: -132px -32px;
+}
+
+.icon-chief {
+    width: 17px;
+    height: 25px;
+    background-position: -135px -63px;
+}
+
+.icon-cofee {
+    width: 22px;
+    height: 22px;
+    background-position: -133px -100px;
+}
+
+.icon-drink {
+    width: 20px;
+    height: 26px;
+    background-position: -101px -79px;
+}
+
+.icon-not-smoke {
+    width: 20px;
+    height: 20px;
+    background-position: -70px -85px;
+}
+
+.icon-star {
+    width: 22px;
+    height: 22px;
+    background-position: -109px -49px;
+}
+
+.icon-attention {
+    width: 22px;
+    height: 22px;
+    background-position: 0px -151px;
+}
+
+.icon-clock {
+    width: 22px;
+    height: 22px;
+    background-position: -31px -151px;
+}
+
+.icon-ticket {
+    width: 24px;
+    height: 21px;
+    background-position: -62px -151px;
+}
+
+.icon-no-discount {
+    width: 29px;
+    height: 29px;
+    background-position: -95px -147px;
+}
+
+.icon-stopover {
+    width: 17px;
+    height: 27px;
+    background-position: -135px -148px;
+}
+
+.schedule .icon-bill {
+    margin-right: 12px;
+}
+
+.schedule .icon-chief {
+    margin-left: 3px;
+    margin-right: 14px;
+}
+
+.schedule .icon-cofee {
+    margin-left: 1px;
+    margin-right: 11px;
+}
+
+.schedule .icon-drink {
+    margin-top: -4px;
+    margin-right: 14px;
+}
+
+.schedule .icon-not-smoke {
+    margin-right: 14px;
+}
+
+.schedule .icon-star {
+    margin-right: 20px;
+}
+
+.schedule .icon-clock {
+    margin-right: 13px;
+}
+
+.schedule .icon-no-discount {
+    margin-right: 14px;
+}
+
+.tour-legend-details.members-discount {
+    text-transform: uppercase;
+    color: #f27269;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    text-decoration: underline;
+    margin-bottom: 17px;
+}
+
+.members-discount .icon-discount {
+    margin-right: 17px;
+}
+
+.tour-legend-details.recommended-reasons {
+    padding-left: 51px;
+}
+
+.recommended-reasons .icon {
+    position: absolute;
+    top: -2px;
+    left: 4px;
+}
+
+.recommended-reasons .icon-attention {
+    top: 0;
+    left: 8px;
+}
+
+.tour-legend-details.prices {
+    padding-left: 42px;
+}
+
+.prices .icon-ticket {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+
+.tour-legend-details.work-hours {
+    padding-left: 42px;
+}
+
+.work-hours .icon-clock {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.schedule__excursion p:first-child {
+    margin-bottom: 10px;
+}
+
+.schedule__excursion ul {
+    margin-top: 13px;
+    margin-bottom: 0;
+}
+
+.schedule__excursion ul li {
+    position: relative;
+    padding-left: 38px;
+}
+
+.schedule__excursion ul li + li {
+    margin-top: 17px;
+}
+
+.schedule__excursion ul li:before,
+.schedule__excursion ul li::before {
+    content: "";
+    position: absolute;
+    border: 2px solid rgb(242, 114, 105);
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 9px;
+    height: 9px;
+    left: 16px;
+    top: 6px;
+}
+
+.stopover {
+    margin-top: 34px;
+}
+
+.stopover__heading {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgb(64, 91, 133);
+}
+
+.stopover__heading .icon-stopover {
+    position: absolute;
+    bottom: 0;
+    top: auto;
+    left: 0;
+}
+
+.schedule__excursion .stopover .schedule__place__services {
+    width: 53%;
+}
+
+.schedule__excursion .stopover .schedule__place__additional {
+    width: 47%;
+    padding-left: 43px;
+    margin-top: 38px;
+}
+
+.schedule__excursion .stopover__heading p {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding-bottom: 4px;
+}
+
+.stopover__desc {
+    padding-top: 4px;
+    padding-left: 7px;
+}
+
+.stopover__desc p:first-child {
+    margin-bottom: 0;
+}
+
+.stopover__current + .stopover__current {
+    margin-top: 20px;
+}
+
+.stop-block {
+    padding-left: 7px;
+    margin-bottom: 5px;
+}
+
+.schedule__excursion .stop-block .stop {
+    margin-bottom: 0;
+}
+
+.schedule__excursion .stop {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .schedule__excursion .stop {
+    letter-spacing: 0.1px;
+}
+
+.schedule__excursion .stop span {
+    color: #f27269;
+    font-weight: normal;
+    min-width: 99px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.schedule .stop.stop--eng {
+    margin-bottom: 5px;
+}
+
+.tickets-price {
+    margin-top: 28px;
+}
+
+.tickets-price + .tickets-price {
+    margin-top: 20px;
+}
+
+.schedule__excursion .tickets-price > p {
+    margin-bottom: 14px;
+}
+
+.tickets-price table {
+    width: 100%;
+}
+
+.tickets-price table tr {
+    background-color: #e9eef0;
+    border-bottom: 1px solid #fff;
+}
+
+.tickets-price table tr td {
+    padding: 5px 0;
+    height: 36px;
+    min-width: 15%;
+    text-align: center;
+}
+
+.tickets-price table tr td:first-child {
+    padding-left: 25px;
+    width: 55%;
+    text-align: left;
+    display: table-cell;
+}
+
+.schedule .panel-default .schedule__excursion .tickets-price table tr p {
+    margin: 0;
+}
+
+.schedule .stop--eng, .schedule .stop--eng span {
+    color: #848484
+}
+
+.recommended-reasons + .recommended-reasons {
+    margin-top: 7px;
+}
+
+.schedule__place__services .tour-legend-details + .tour-legend-details {
+    margin-top: 12px;
+}
+
+.schedule__place__services .tour-legend-details.none-smokers {
+    margin-top: 21px;
+}
+
+.stopover .schedule__place__services .tour-legend-details + .tour-legend-details {
+    margin-top: 17px;
+}
+
+.confirmed__heading {
+    text-align: center;
+    border-bottom: 1px solid #f27269;
+    padding: 32px 0px 28px;
+    margin-bottom: 31px;
+}
+
+.confirmed h4.title {
+    font-size: 20px;
+    color: #f27269;
+}
+
+.confirmed p.location  {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    padding: 0px 0px 0px 7px;
+}
+
+.icon-hotel {
+    width: 40px;
+    height: 32px;
+    top: 0;
+    background-position: -31px -111px;
+}
+
+.reservation {
+    padding-top: 23px;
+}
+
+.confirmed .panel {
+    border: none;
+    padding-bottom: 15px;
+}
+
+.confirmed .panel-heading {
+    padding-left: 35px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.confirmed .panel-heading p {
+    font-size: 20px;
+    color: #006795;
+    margin-left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.confirmed .panel-heading a {
+    display: inline-block;
+    border-width: 1px;
+    width: auto;
+    height: auto;
+    font: 16px 'Calibri';
+    color: #f27269;
+    background-color: transparent;
+    padding: 2px 0px;
+    text-transform: none;
+    height: 30px;
+    min-width: 138px;
+    position: absolute;
+    right: 25px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.confirmed .panel.active .panel-heading a {
+    color: #fefefe;
+    background-color: #f27269;
+}
+
+.confirmed .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    padding-left: 35px;
+    padding-top: 18px;
+    padding-bottom: 24px;
+}
+
+.confirmed .panel-default > .panel-heading + .panel-collapse > .panel-body p {
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.confirmed .panel-default > .panel-heading + .panel-collapse > .panel-body p + p {
+    margin-top: 7px;
+}
+
+.confirmed .panel-group .panel + .panel {
+    margin-top: 0;
+    padding-top: 14px;
+    border-top: 1px solid #006795;
+}
+
+.confirmed .panel-group .panel:last-child {
+    padding-top: 22px;
+}
+
+.reservation-address {
+    margin-top: 16px;
+    max-width: 320px;
+    display: inline-block;
+    vertical-align: top;
+    width: 55%;
+}
+
+.confirmed .panel-default > .panel-heading + .panel-collapse > .panel-body .reservation-address p + p {
+    margin-top: 5px;
+}
+
+.reservation-address.how-get {
+    max-width: 53%;
+    margin-left: 8px;
+    margin-bottom: 25px;
+}
+
+.icon-discount {
+    width: 24px;
+    height: 24px;
+    background-position: -87px -114px;
+}
+
+.icon-link {
+    width: 20px;
+    height: 20px;
+    background-position: -132px 0;
+}
+
+.tour-legend-details {
+    position: relative;
+    padding-left: 4px;
+}
+
+.single-on-top {
+    margin-bottom: 35px;
+}
+
+.confirmed .panel-default > .panel-heading + .panel-collapse > .panel-body .tour-legend-details + .tour-legend-details {
+    margin-top: 2px;
+}
+
+.tour-legend-details .icon-link {
+    top: 6px;
+}
+
+.method-of-service {
+    padding-left: 41px;
+    margin-bottom: 24px;
+}
+
+.method-of-service .icon-cofee {
+    position: absolute;
+    left: 4px;
+    top: 2px;
+}
+
+.reservation .tour-legend-details {
+    position: relative;
+    padding-left: 32px;
+}
+
+.reservation .tour-legend-details .icon {
+    position: absolute;
+    left: -6px;
+    top: -1px;
+}
+
+.reservation .tour-legend-details i {
+    letter-spacing: -.5px;
+}
+
 .reviews {
     padding-left: 34px;
     padding-right: 20px;
@@ -2184,6 +3019,20 @@ header.header-main .grid .btn-sm {
     }
 }
 
+@media(min-width: 1400px) {
+    .tour-legend-page {
+        max-width: 1200px;
+        margin-left: 5.55%;
+    }
+}
+
+@media(max-width: 1399px) {
+    .tour-legend-page {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
+
 @media(max-width: 1249px) {
     .filter-block__categories .bootstrap-select:not([class*=span]):not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
         width: auto;
@@ -2192,6 +3041,12 @@ header.header-main .grid .btn-sm {
     .filter-block__categories input {
         width: 77px;
         margin-left: 5px;
+    }
+}
+
+@media(max-width: 1199px) {
+    .tour-legend-page {
+        max-width: 100%;
     }
 }
 
@@ -2402,6 +3257,56 @@ header.header-main .grid .btn-sm {
     .event-page {
         padding-left: 0;
     }
+
+    .tour-details {
+        min-height: 221px;
+    }
+
+    .tour-details ul li p {
+        position: relative;
+        padding-left: 105px;
+    }
+
+    .tour-details ul li p span {
+        position: absolute;
+        left: 0;
+    }
+
+    .event-slider {
+        margin-bottom: 0;
+        max-width: 340px;
+    }
+
+    .schedule__place__services, .schedule__place__additional {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .schedule__place__additional {
+        margin-top: 24px;
+    }
+
+    .single-on-top {
+        margin-bottom: 22px;
+    }
+
+    .schedule .panel-default > .panel-heading {
+        padding-top: 12px;
+    }
+
+    .schedule__excursion .stopover .schedule__place__services {
+        width: 100%;
+    }
+
+    .schedule__excursion .stopover .schedule__place__additional {
+        width: 100%;
+        padding-left: 0;
+        margin-top: 16px !important;
+    }
+
+    .reservation-address {
+        max-width: 240px;
+    }
 }
 
 @media(max-width: 767px) {
@@ -2436,6 +3341,10 @@ header.header-main .grid .btn-sm {
 
     .event-details__action {
         float: right;
+    }
+
+    .schedule {
+        margin: 0 -15px;
     }
 }
 
@@ -2608,6 +3517,187 @@ header.header-main .grid .btn-sm {
     .events__country__event .image {
         height: auto;
     }
+
+    .main-content__heading h3.title {
+        font-size: 22px;
+    }
+
+    .main-content__heading h3.title span {
+        display: block;
+        text-transform: none;
+        margin-top: 12px;
+        font: 18px 'MyRiadPro';
+        font-weight: 700;
+    }
+
+    .location {
+        display: none;
+    }
+
+    .event-slider {
+        height: auto;
+        margin-bottom: 18px;
+    }
+
+    .tour-details {
+        margin-left: 0;
+        width: 100%;
+        margin-bottom: 22px;
+    }
+
+    .select-day {
+        text-align: left;
+        padding-left: 0px;
+    }
+
+    .select-day > li {
+        margin: 0;
+    }
+
+    .select-day > li + li {
+        margin-left: -3px;
+    }
+
+    .schedule__point {
+        display: block;
+        margin-right: 0;
+        max-width: 130px;
+        margin-bottom: 18px;
+    }
+
+    .schedule .panel > .panel-heading {
+        padding-bottom: 14px;
+    }
+
+    .schedule .panel-heading h4 {
+        font-size: 14px;
+    }
+
+    .panel-collapse-state {
+        margin: inherit;
+        top: 8px;
+        bottom: auto;
+    }
+
+    .panel-collapse-state::before, .panel-collapse-state::before {
+        top: 1px;
+    }
+
+    .schedule .panel-heading .panel-collapse-state::after, .schedule .panel-heading .panel-collapse-state::after {
+        top: 1px;
+    }
+
+    .schedule .panel-default > .panel-heading + .panel-collapse > .panel-body .tour-legend-details {
+        padding-left: 41px;
+    }
+
+    .schedule .panel-default > .panel-heading + .panel-collapse > .panel-body .tour-legend-details .icon {
+        position: absolute;
+        top: 2px;
+        left: 4px;
+    }
+
+    .schedule__place__services .tour-legend-details .icon {
+        position: absolute;
+        top: 2px;
+        left:4px;
+    }
+
+    .schedule .tour-legend-details  .icon-link {
+        top: -1px;
+    }
+
+    .schedule .tour-legend-details  .icon-bill {
+        top: 0;
+    }
+
+    .schedule .tour-legend-details  .icon-chief {
+        top: -6px;
+    }
+
+    .schedule .panel-default > .panel-heading + .panel-collapse > .panel-body .tour-legend-details .icon-no-discount {
+        top: -4px;
+    }
+
+    .tickets-price table tr td:first-child {
+        padding-left: 10px;
+    }
+
+    .tickets-price {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .schedule .panel-default > .panel-heading + .panel-collapse > .schedule__excursion {
+        padding-top: 24px;
+    }
+
+    .panel-heading.another-variant {
+        padding-right: 17px;
+    }
+
+    .panel-default .panel-heading.another-variant .panel-collapse-state {
+        max-width: 100px;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .panel-default .panel-heading.another-variant .schedule__point {
+        display: none;
+    }
+
+    .panel-default .panel-heading.another-variant > a {
+        padding-top: 25px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .confirmed__heading {
+        padding: 22px 0px 12px;
+        margin-bottom: 10px;
+    }
+
+    .reservation {
+        padding-top: 0;
+    }
+
+    .confirmed .panel-heading {
+        padding-left: 0;
+    }
+
+    .confirmed .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        padding-left: 0;
+    }
+
+    .confirmed .panel-heading a {
+        position: relative;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        margin: 0 auto;
+        margin-top: 20px;
+        display: table;
+    }
+
+    .reservation-address {
+        max-width: 100%;
+        width: 100%;
+        display: block;
+    }
+
+    .reservation-address.how-get {
+        max-width: 100%;
+        margin-left: 0;
+        margin-bottom: 25px;
+    }
+
+    .confirmed .panel-heading p {
+        margin-left: 12px;
+        font-size: 16px;
+        font-weight: bold;
+    }
 }
 
 @media(min-width: 720px) and (max-width: 991px) {
@@ -2642,6 +3732,7 @@ header.header-main .grid .btn-sm {
         float: none;
         clear: left;
     }
+
 }
 
 @media(max-width: 499px) {
@@ -2729,10 +3820,6 @@ header.header-main .grid .btn-sm {
         margin-left: 0;
     }
 
-    .event-slider {
-        display: none;
-    }
-
     .event-photos {
         display: block;
         text-align: center;
@@ -2767,6 +3854,11 @@ header.header-main .grid .btn-sm {
         clear: left;
         margin-top: 5px;
     }
+
+    .schedule .panel-heading h4 {
+        max-width: 230px;
+    }
+
 }
 
 @media(max-width: 359px) {

@@ -31,9 +31,11 @@ class AppAsset extends AssetBundle
         "js/vendor/modernizr-2.8.3.min.js",
         "js/owl-carousel/owl.carousel.min.js",
         "js/jquery.mCustomScrollbar.concat.min.js",
-        "js/main.js",
         "js/components.js",
+        "js/bootstrap.min.js",
+        "js/bootstrap-select.min.js",
         "js/lightslider.js",
+        "js/main.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -20,7 +20,8 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/events/']
             </div>  <!--main-content__heading-->
 
             <?php foreach($models as $model) {
-                if($model->events) {
+                $events = $model->getEvents($where)->all();
+                if($events) {
                     $icon = $model->getImage();
                     ?>
 
@@ -28,7 +29,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/events/']
                     <div class="events__country__heading">
                         <i class="events__country__icon"><img src="<?=$icon->getUrl('30x19')?>" alt=""></i><h4 class="title"><?=Html::encode($model->title_ru)?></h4>
                     </div>
-                <?php foreach($model->getEvents()->where(['status'=>1])->orderBy('created_at')->limit(3)->all() as $event) {
+                <?php foreach($events as $event) {
                     $image = $event->getImage();
                     $date = new DateTime($event->date);
                     ?>
@@ -56,8 +57,8 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/events/']
             <?php }
             } ?>
 
-            <div class="text-center hidden-sm hidden-xs">
-                <a href="#" class="common-button load-more-btn common-button--thin">Показать ещё страны</a>
+            <div class="text-center <?=!$showMoreButton ? 'hidden' : ''?> hidden-sm hidden-xs">
+                <a href="<?=$limit?>" class="common-button load-more-btn common-button--thin">Показать ещё страны</a>
             </div>
         </div>
     </div>

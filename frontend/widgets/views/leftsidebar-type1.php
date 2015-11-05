@@ -6,22 +6,10 @@ use yii\helpers\Html;
     <div class="filter-block__categories">
         <button type="button" class="btn common-button">Вариант тура</button>
         <ul class="aside-block__categories__list list-unstyled">
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
-            <li><a href="#">Название категории тура</a></li>
+            <?php foreach($categories as $category){ ?>
+            <li><a href="" data-category-id="<?=$category->id?>"><?=Html::encode($category->title_ru)?></a></li>
+            <?php } ?>
+
         </ul>
     </div>  <!--filter-block__categories-->
 

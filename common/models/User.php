@@ -493,4 +493,8 @@ class User extends MainActiveRecord implements IdentityInterface
         $this->email_verification_code = Yii::$app->security->generateRandomString(16);
         return $this->save();
     }
+
+    public function getUserdata() {
+        return $this->hasOne(Userdata::className(), ['user_id' => 'id']);
+    }
 }

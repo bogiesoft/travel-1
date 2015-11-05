@@ -36,4 +36,26 @@
             $('.cityList ul').html(response)
         });
     });
+
+    //events filter
+
+    $('body').on('click', '.events-filter ul a', function(e){
+        e.preventDefault();
+        $('#eventsButtons').removeClass('hidden');
+        $(this).parents('ul').find('a').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    /*$('body').on('click', '#clearFilter', function(e){
+        $('#eventsButtons').addClass('hidden');
+        $('.events-filter a').removeClass('active');
+    });*/
+
+    $('body').on('click', '#filterEvents', function(e){
+        var country = typeof $("[data-country-id].active").attr('data-country-id') != 'undefined' ? $("[data-country-id].active").attr('data-country-id') : 0;
+        var category = typeof $('[data-category-id].active').attr('data-category-id') != 'undefined' ? $('[data-category-id].active').attr('data-category-id') : 0;
+        var href = '/events/?country='+ country +'&category='+ category;
+        $(this).attr('href', href);
+    });
+
 })(jQuery)

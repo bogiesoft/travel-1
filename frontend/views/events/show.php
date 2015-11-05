@@ -8,6 +8,8 @@ use yii\helpers\BaseStringHelper;
 $this->title = $model->title_ru;
 $this->params['sidebarType'] = 3;
 
+$this->params['item_id'] = $model->id;
+
 $this->params['breadcrumbs'][] = ['label' => 'Мероприятия', 'url' => ['/events/']];
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/events/'.$model->id]]; ?>
 

@@ -21,29 +21,19 @@ use yii\helpers\Url;
             <?php endforeach; ?>
             <a href="<?=Url::to('/events/')?>" class="common-button common-button--solid load-more-btn">Больше мероприятий</a>
         </div>  <!--aside-block__events__list-->
-
+        <?php if(count($reviews)): ?>
         <button type="button" class="btn common-button">Отзывы</button>
 
         <div class="aside-block__reviews__list">
+            <?php foreach($reviews as $review): ?>
             <div class="aside-block__review">
-                <p>Не следует, однако забывать, что постоянный количественный рост
-                    и сфера нашей активности представляет собой интересный эксперимент
-                    проверки модели развития.</p>
-                <p><span>Анна</span></p>
-            </div>  <!--aside-block__review-->
-            <div class="aside-block__review">
-                <p>Не следует, однако забывать, что постоянный количественный рост
-                    и сфера нашей активности представляет собой интересный эксперимент
-                    проверки модели развития.</p>
-                <p><span>Анна</span></p>
-            </div>  <!--aside-block__review-->
-            <div class="aside-block__review">
-                <p>Не следует, однако забывать, что постоянный количественный рост
-                    и сфера нашей активности представляет собой интересный эксперимент
-                    проверки модели развития.</p>
-                <p><span>Анна</span></p>
-            </div>  <!--aside-block__review-->
-            <a href="#" class="common-button common-button--solid load-more-btn">Больше отзывов</a>
+                <?=\yii\helpers\StringHelper::truncateWords(Html::decode($review->content_ru), 40)?>
+                <p><span><?=$review->user->firstname?></span></p>
+            </div>
+            <?php endforeach; ?>
+
+            <a href="/reviews/" class="common-button common-button--solid load-more-btn">Больше отзывов</a>
         </div>  <!--aside-block__reviews__list-->
+        <?php endif; ?>
     </div>  <!--filter-block__categories-->
 </aside>    <!--aside-block-->

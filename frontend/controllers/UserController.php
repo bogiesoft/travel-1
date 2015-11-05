@@ -6,7 +6,8 @@
  * Time: 18:58
  */
 namespace frontend\controllers;
-use frontend\filters\UserLayout;
+use common\models\Userdata;
+use frontend\filters\SiteLayout;
 use common\controllers\MainController;
 use common\models\User;
 use console\controllers\RbacController;
@@ -32,7 +33,7 @@ class UserController extends MainController
                   ]
               ]
             ],
-            'layout' => UserLayout::className()
+            'layout' => SiteLayout::className()
         ];
     }
     /**
@@ -43,9 +44,11 @@ class UserController extends MainController
     public function actionView($id)
     {
         $model = $this->findModel(User::className(),$id);
+        $userdata = Userdata::findOne(['user_id'=>$id]);
         self::checkAccess(RbacController::update_profile,['user'=>$model]);
         return $this->render('user-view', [
             'model' => $model,
+            'userdata' => $userdata
         ]);
     }
 

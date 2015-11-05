@@ -14,28 +14,31 @@ $user = Yii::$app->user->identity;
 if($user->email_verification_status == User::EMAIL_NOT_VERIFIED):?>
     <br>
     <p>
-        <?php echo Yii::t('message','You have not yet confirmed your email address. Please do so to ensure your account will remain active.')?>
-        <a href="<?=Url::to('/user/get-verification-mail')?>"><?php echo Yii::t('messages','Click here to resend the confirmation email.')?></a>
+        <?php echo Yii::t('message','Вы не подтвердили свой e-mail. ')?>
+        <a href="<?=Url::to('/user/get-verification-mail')?>"><?php echo Yii::t('messages','Выслать код еще раз')?></a>
     </p>
 <?php endif?>
 <div class="user-view">
 
-    <?= DetailView::widget([
-                               'model' => $model,
-                               'attributes' => [
-                                   'id',
-                                   'email:email',
-                                   [
-                                       'attribute'=>'status',
-                                       'value'=>$model->getCurrentStatus()
-                                   ],
-                                   'created_at:datetime',
-                                   'updated_at:datetime',
-                                   [
-                                       'attribute'=>'role',
-                                       'value'=>$model->getCurrentRole()
-                                   ],
-                               ],
-                           ]) ?>
+    <h1 class="text-center"><?=Html::encode($userdata->firstname.' '.$userdata->lastname)?></h1>
+
+    <div class="row">
+        <div class="col-md-3 text-right"><img src="<?= $userdata->getImage()->getUrl('150x200') ?>" alt=""></div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4><?=Html::encode($model->email)?> (<?=Html::encode($model->username)?>)</h4>
+                </div>
+                <div class="col-md-12">
+                    <h5><?=Html::encode($userdata->country)?>, <?=Html::encode($userdata->city)?></h5>
+                </div>
+                <div class="col-md-12">
+                    <h5>Возможность предложить тур: <?=$userdata->can_moderate ? 'Да' : 'Нет'?></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 </div>

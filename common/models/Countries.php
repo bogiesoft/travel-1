@@ -57,7 +57,7 @@ class Countries extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getEvents() {
-        return $this->hasMany(Events::className(), ['country_id' => 'id']);
+    public function getEvents($where = [], $limit = 3) {
+        return $this->hasMany(Events::className(), ['country_id' => 'id'])->where($where)->orderBy('created_at')->limit($limit);
     }
 }
