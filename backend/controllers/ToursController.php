@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use yii\web\UploadedFile;
 use Yii;
 use common\models\Tours;
 use backend\models\ToursSearch;
@@ -63,13 +64,11 @@ class ToursController extends Controller
         $model = new Tours();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
-            if($model->image) {
-                if($model->getImage()) {
-                    $model->removeImages();
-                }
-                $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
-                $model->image->saveAs($path);
+            $images = UploadedFile::getInstances($model, 'image');
+
+            foreach($images as $image) {
+                $path = Yii::getAlias('@webroot/images/store/').$image->baseName.'.'.$image->extension;
+                $image->saveAs($path);
                 $model->attachImage($path, true);
             }
             return $this->redirect(['view', 'id' => $model->id]);
@@ -91,13 +90,11 @@ class ToursController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
-            if($model->image) {
-                if($model->getImage()) {
-                    $model->removeImages();
-                }
-                $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
-                $model->image->saveAs($path);
+            $images = UploadedFile::getInstances($model, 'image');
+
+            foreach($images as $image) {
+                $path = Yii::getAlias('@webroot/images/store/').$image->baseName.'.'.$image->extension;
+                $image->saveAs($path);
                 $model->attachImage($path, true);
             }
             return $this->redirect(['view', 'id' => $model->id]);

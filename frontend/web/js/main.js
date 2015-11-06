@@ -197,7 +197,9 @@ $(document).ready(function(){
                 divForAppend.after(eventInfo);
             });
 
-            photoSlider.refresh();
+            if(photoSlider) {
+                photoSlider.refresh();
+            }
 
             closestItemImageDiv.find('.closest-events__item__about').remove();
         }

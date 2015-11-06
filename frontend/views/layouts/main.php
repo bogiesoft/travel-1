@@ -89,8 +89,7 @@ include_once('header.php'); ?>
             <div class="grid col-lg-12 col-md-12 ">
                 <?php } else {
                 $bcClass = 'breadcrumb'; ?>
-
-                <?=empty($this->params['tour-view']) ? '<div class="grid col-lg-9 col-md-9">':'<div class="grid grid--without-shadow col-lg-9 col-md-12 col-lg-offset-2">'?>
+                <div class="grid col-lg-9 col-md-9">
 
                 <?php } ?>
                 <?php if(isset($this->params['breadcrumbs'])): ?>
@@ -108,7 +107,7 @@ include_once('header.php'); ?>
 
                 <?= $content ?>
 
-            </div>  <!--grid-->
+                </div>  <!--grid-->
         </div>  <!--row-->
     </div>  <!--container-->
 </main> <!--main-content-->

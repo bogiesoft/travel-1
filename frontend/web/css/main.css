@@ -2099,7 +2099,7 @@ header.header-main .grid .btn-sm {
 
 #order-ticket {
     height: 36px;
-    background-position: -71px -43px;
+    background-position: -69px -43px;
 }
 
 .event-page .consultations__block ul {
@@ -2122,15 +2122,57 @@ header.header-main .grid .btn-sm {
     text-align: center;
     padding-top: 12px;
     padding-bottom: 38px;
+    margin-top: 46px;
+    margin-bottom: 24px;
 }
 
-.location p {
+.location__point {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    min-width: 14%;
+}
+
+.location__point:before, .location__point:before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #015276;
+    top: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.location__point:first-child:before, .location__point:first-child:before {
+    left: 50%;
+}
+
+.location__point:last-child:before, .location__point:last-child:before {
+    right: 50%;
+}
+
+.location__point p {
+    position: relative;
+    text-align: center;
     font-size: 14.74px;
-    color: rgb(242, 114, 105);
+    color: #015276;
     line-height: 1.2;
+    bottom: -30px;
+    left: 0;
+    right: 0;
 }
 
-.location p:after, .location p::after {
+/*.location .active p {*/
+    /*color: rgb(242, 114, 105);*/
+/*}*/
+
+.location__point p:first-child {
+    top: -22px;
+}
+
+.location__point i {
     content: "";
     position: relative;
     display: block;
@@ -2138,9 +2180,15 @@ header.header-main .grid .btn-sm {
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    background-color: rgb(242, 114, 105);
+    background-color: #015276;
     width: 17px;
     height: 17px;
+    top: -12px;
+}
+
+.location__point i:first-child {
+    top: auto;
+    bottom: -6px;
 }
 
 .tour-details {
@@ -2177,6 +2225,7 @@ header.header-main .grid .btn-sm {
     text-align: center;
     padding-left: 27px;
     margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 .select-day > li {
@@ -2751,16 +2800,28 @@ header.header-main .grid .btn-sm {
     margin-top: 17px;
 }
 
-.confirmed__heading {
+.confirmed__heading, .note__heading {
     text-align: center;
     border-bottom: 1px solid #f27269;
     padding: 32px 0px 28px;
     margin-bottom: 31px;
 }
 
-.confirmed h4.title {
+.note {
+    padding-left: 18px;
+}
+
+.note__heading {
+    padding-top: 45px;
+    padding-bottom: 6px;
+    margin-left: -18px;
+    margin-bottom: 25px;
+}
+
+.confirmed h4.title, .note__heading h4.title {
     font-size: 20px;
     color: #f27269;
+    text-transform: uppercase;
 }
 
 .confirmed p.location  {
@@ -2920,6 +2981,76 @@ header.header-main .grid .btn-sm {
 
 .reservation .tour-legend-details i {
     letter-spacing: -.5px;
+}
+
+.icon-like {
+    background-position: -163px 5px;
+    background-color: rgb(0, 103, 149);
+}
+
+.icon-dollar {
+    background-position: -163px -27px;
+    background-color: rgb(0, 103, 149);
+}
+
+.icon-dollar--active {
+    background-color: #f27269;
+}
+
+.note__features .icon {
+    margin-right: 10px;
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.note__features {
+    margin-bottom: 15px;
+    margin-top: 16px;
+}
+
+.note__features p {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'MyRiadPro';
+    font-weight: bold;
+    color: #006795;
+    font-size: 16px;
+    margin-top: -5px;
+}
+
+.note__features p span {
+    color: #f27269;
+}
+
+.note ul {
+    color: #00678f;
+    font-size: 20px;
+    padding-left: 29px;
+}
+
+.note ul ul {
+    padding-left: 18px;
+}
+
+.note ul.active {
+    color: #f27269;
+}
+
+.note ul li {
+    padding-left: 9px;
+}
+
+.note ul li + li {
+    margin-top: 1.7px;
+}
+
+.note ul li p {
+    font-size: 16px;
+    color: #00678f;
+    line-height: 1.4;
 }
 
 .reviews {
@@ -3547,15 +3678,13 @@ header.header-main .grid .btn-sm {
 
     .select-day {
         text-align: left;
-        padding-left: 0px;
+        padding-left: 3px;
     }
 
     .select-day > li {
         margin: 0;
-    }
-
-    .select-day > li + li {
         margin-left: -3px;
+        margin-bottom: 2px;
     }
 
     .schedule__point {
@@ -4513,6 +4642,15 @@ textarea.contact-us__field {
         display: block;
         margin-left: 0;
     }
+
+    .note {
+        padding-left: 0;
+    }
+
+    .note__heading {
+        margin-left: 0;
+        padding-top: 0px;
+    }
 }
 
 @media(min-width: 500px) and (max-width: 767px) {
@@ -4563,6 +4701,12 @@ textarea.contact-us__field {
     .contact-us {
         padding-left: 15px;
         padding-right: 15px;
+    }
+}
+
+@media(max-width: 399px) {
+    .event-page .event-slider {
+        display: none;
     }
 }
 

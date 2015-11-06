@@ -6,6 +6,7 @@ use voskobovich\behaviors\ManyToManyBehavior;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\db\Expression;
+use yii\helpers\Json;
 
 /**
  * This is the model class for table "tours".
@@ -40,8 +41,8 @@ class Tours extends \yii\db\ActiveRecord
         return [
             [['description_ru', 'support'], 'string'],
             [['country_id', 'city_id', 'user_id', 'status'], 'integer'],
-            [['created_at', 'updated_at', 'hotels'], 'safe'],
-            [['title_ru', 'image'], 'string', 'max' => 255],
+            [['created_at', 'updated_at', 'hotels', 'categories', 'cities'], 'safe'],
+            [['title_ru'], 'string', 'max' => 255],
             //[['id'], 'exist', 'skipOnError' => true, 'targetClass' => TourToHotel::className(), 'targetAttribute' => ['id' => 'tour_id']],
         ];
     }
@@ -85,8 +86,17 @@ class Tours extends \yii\db\ActiveRecord
                 'class' => ManyToManyBehavior::className(),
                 'relations' => [
                     'hotels' => 'hotels',
+                    'categories' => 'categories',
+                    'cities' => [
+                        'cities',
+                        'viaTableValues' => [
+                            'created_at' => function($model, $relationName, $attributeName) {
+                                return new Expression('NOW()');
+                            },
+                        ],
+                    ],
                 ],
-            ],
+            ]
         ];
     }
 
@@ -99,5 +109,30 @@ class Tours extends \yii\db\ActiveRecord
     public function getCity()
     {
         return $this->hasOne(Cities::className(), ['id'=>'city_id']);
+    }
+
+    public function getUserdata()
+    {
+        return $this->hasOne(Userdata::className(), ['user_id'=>'user_id']);
+    }
+
+    public function getCategories() {
+        return $this->hasMany(TourCategory::className(), ['id'=>'category_id'])
+            ->viaTable('tour_to_category', ['tour_id'=>'id']);
+    }
+
+    public function getCities() {
+        return $this->hasMany(Cities::className(), ['id'=>'city_id'])
+            ->viaTable('tour_to_city', ['tour_id'=>'id']);
+    }
+
+    public function getCitiesCustom($id = 0) {
+        $db = Yii::$app->db
+            ->createCommand('SELECT cities.title_ru, cities.id
+            FROM `tour_to_city`
+            JOIN `cities` ON cities.id = tour_to_city.city_id
+            WHERE tour_to_city.tour_id = '.$id.' ORDER BY tour_to_city.created_at DESC')
+            ->queryAll();
+        return $db;
     }
 }

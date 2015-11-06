@@ -8,6 +8,7 @@ use frontend\controllers\SiteController;
 
 $this->title = 'Каталог туров';
 $this->params['sidebarType'] = 1;
+$this->params['breadcrumbs'][] = ['label' => $this->title];
 ?>
 <div class="tours-catalog">
     <div class="container">
@@ -33,7 +34,7 @@ $this->params['sidebarType'] = 1;
                         <div class="caption clearfix">
                             <h4 class="title"><?=Html::encode($model->title_ru)?></h4>
                             <hr>
-                            <p><?=Html::encode($model->description_ru)?> </p>
+                            <p><?=StringHelper::truncateWords(Html::encode($model->description_ru), 20)?> </p>
                             <hr>
                             <p class="tour-duration">5 дней</p>
                             <a href="<?=Url::to('/tours/show/'.$model->id)?>" class="common-button common-button--thin">Подробнее</a>
