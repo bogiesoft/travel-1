@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\HotelsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Отели';
+$this->title = 'Объекты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="hotels-index">
