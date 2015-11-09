@@ -42,8 +42,8 @@ class Countries extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'description_ru' => 'Description Ru',
+            'title_ru' => 'Заголовок',
+            'description_ru' => 'Описание',
             'icon' => 'Иконка',
         ];
     }

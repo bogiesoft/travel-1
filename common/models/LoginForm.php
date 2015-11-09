@@ -45,8 +45,8 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->$attribute)) {
-                $this->addError('email', Yii::t('messages','Incorrect password or email.'));
-                $this->addError('password', Yii::t('messages','Incorrect password or email.'));
+                $this->addError('email', Yii::t('messages','Некорректный пароль либо email.'));
+                $this->addError('password', Yii::t('messages','Некорректный пароль либо email.'));
             }
         }
     }
@@ -83,7 +83,7 @@ class LoginForm extends Model
     {
         return [
             'email' => Yii::t('app','Email'),
-            'password' => Yii::t('app','Password')
+            'password' => Yii::t('app','Пароль')
         ];
     }
 }

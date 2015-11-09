@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Markers */
 
-$this->title = 'Create Markers';
-$this->params['breadcrumbs'][] = ['label' => 'Markers', 'url' => ['index']];
+$this->title = 'Создать маркер';
+$this->params['breadcrumbs'][] = ['label' => 'Маркеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="markers-create">

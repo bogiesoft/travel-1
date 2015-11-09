@@ -22,6 +22,9 @@ use yii\helpers\Json;
  * @property integer $status
  * @property string $created_at
  * @property string $updated_at
+ *  @property string $incost
+ * @property string $outcost
+ * @property string $maybecost
  */
 class Tours extends \yii\db\ActiveRecord
 {
@@ -39,7 +42,7 @@ class Tours extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['description_ru', 'support'], 'string'],
+            [['description_ru', 'support', 'incost', 'outcost', 'maybecost'], 'string'],
             [['country_id', 'city_id', 'user_id', 'status'], 'integer'],
             [['created_at', 'updated_at', 'hotels', 'categories', 'cities'], 'safe'],
             [['title_ru'], 'string', 'max' => 255],
@@ -54,16 +57,19 @@ class Tours extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'description_ru' => 'Description Ru',
-            'support' => 'Support',
-            'image' => 'Image',
-            'country_id' => 'Country ID',
-            'city_id' => 'City ID',
-            'user_id' => 'User ID',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title_ru' => 'Название',
+            'description_ru' => 'Контент',
+            'incost' => 'В стоимость включено',
+            'outcost' => 'Обьязательно оплачивается',
+            'maybecost' => 'Оплачивается по желанию',
+            'support' => 'При поддержке',
+            'image' => 'Изображения',
+            'country_id' => 'Страна',
+            'city_id' => 'Город',
+            'user_id' => 'Пользователь',
+            'status' => 'Показыать на сайте?',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 
@@ -134,5 +140,9 @@ class Tours extends \yii\db\ActiveRecord
             WHERE tour_to_city.tour_id = '.$id.' ORDER BY tour_to_city.created_at DESC')
             ->queryAll();
         return $db;
+    }
+
+    public function getDays() {
+        return $this->hasMany(TourDay::className(), ['tour_id'=>'id']);
     }
 }

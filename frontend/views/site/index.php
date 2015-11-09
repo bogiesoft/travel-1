@@ -9,6 +9,12 @@ use frontend\controllers\SiteController;
 $this->title = 'Главная - Турфирм.НЕТ';
 $this->params['sidebarType'] = 1;
 ?>
+
+<style>
+    .featured-tours__current__desc h3.title {
+        max-height: initial;
+    }
+</style>
                 <div class="slider-block">
                     <div class="owl-carousel main-slider">
                         <?php foreach($slides as $slide):
@@ -79,80 +85,21 @@ $this->params['sidebarType'] = 1;
                         </div>
                     </div>  <!--featured-tours-slider-->
                     <div class="featured-tours__catalog clearfix">
+                        <?php foreach($tours as $tour): ?>
                         <div class="featured-tours__current col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="/img/tourism.jpeg" alt="">
+                            <img src="<?=$tour->getImage()->getUrl('450x315');?>" alt="">
                             <div class="featured-tours__current__desc">
-                                <h3 class="title">Название тура №1</h3>
-                                <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
+                                <h3 class="title"><?=$tour->title_ru?></h3>
+                                <p>	<?=StringHelper::truncateWords($tour->description_ru, 20)?>
                                     <br>
                                 </p>
-                                <p class="duration">Длительность: 12 дней</p>
-                                <a href="#" class="btn btn-sm">Узнать больше</a>
+                                <p class="duration">Длительность: <?=count($tour->days)?> дней</p>
+                                <a href="<?=Url::to('/tours/show/'.$tour->id)?>" class="btn btn-sm">Узнать больше</a>
                             </div>
                         </div>
-                        <div class="featured-tours__current col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="/img/tourism5.jpg" alt="">
-                            <div class="featured-tours__current__desc">
-                                <h3 class="title">Название тура №2</h3>
-                                <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    <br>
-                                </p>
-                                <p class="duration">Длительность: 12 дней</p>
-                                <a href="#" class="btn btn-sm">Узнать больше</a>
-                            </div>
-                        </div>
-                        <div class="featured-tours__current col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="/img/tourism2.jpg" alt="">
-                            <div class="featured-tours__current__desc">
-                                <h3 class="title">Название тура №3</h3>
-                                <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    <br>
-                                </p>
-                                <p class="duration">Длительность: 12 дней</p>
-                                <a href="#" class="btn btn-sm">Узнать больше</a>
-                            </div>
-                        </div>
-                        <div class="featured-tours__current col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="/img/tourism3.jpg" alt="">
-                            <div class="featured-tours__current__desc">
-                                <h3 class="title">Название тура №4</h3>
-                                <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    <br>
-                                </p>
-                                <p class="duration">Длительность: 12 дней</p>
-                                <a href="#" class="btn btn-sm">Узнать больше</a>
-                            </div>
-                        </div>
-                        <div class="featured-tours__current col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="/img/tourism4.jpg" alt="">
-                            <div class="featured-tours__current__desc">
-                                <h3 class="title">Название тура №5</h3>
-                                <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    <br>
-                                </p>
-                                <p class="duration">Длительность: 12 дней</p>
-                                <a href="#" class="btn btn-sm">Узнать больше</a>
-                            </div>
-                        </div>
-                        <div class="featured-tours__current col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="/img/tourism5.jpg" alt="">
-                            <div class="featured-tours__current__desc">
-                                <h3 class="title">Название тура №6</h3>
-                                <p>	Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития.
-                                    <br>
-                                </p>
-                                <p class="duration">Длительность: 12 дней</p>
-                                <a href="#" class="btn btn-sm">Узнать больше</a>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
-                    <a href="#" class="common-button">Все туры</a>
+                    <a href="<?=Url::to('/tours/')?>" class="common-button">Все туры</a>
                 </div>  <!--featured-tours-->
 
                 <div class="banners clearfix">

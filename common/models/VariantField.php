@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "variant_field".
  *
  * @property integer $id
+ * @property integer $variant_id
  * @property integer $type_id
  * @property string $content
  */
@@ -27,7 +28,7 @@ class VariantField extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type_id'], 'integer'],
+            [['variant_id', 'type_id'], 'integer'],
             [['content'], 'string'],
         ];
     }
@@ -39,8 +40,13 @@ class VariantField extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'variant_id' => 'Variant ID',
             'type_id' => 'Type ID',
             'content' => 'Content',
         ];
+    }
+
+    public function getType(){
+        return $this->hasOne(FieldType::className(), ['id'=>'type_id']);
     }
 }

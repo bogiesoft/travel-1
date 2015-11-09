@@ -44,10 +44,10 @@ class EventCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title_ru' => 'Заголовок',
+            'status' => 'Показывать на сайте?',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 

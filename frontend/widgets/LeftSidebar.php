@@ -58,6 +58,14 @@ class LeftSidebar extends Widget {
 
                 return !$this->isMobile ? $this->render('leftsidebar-type3',['events'=>$events,'reviews'=>$reviews]) : $this->render('leftsidebar-type3-mobile',['countries'=>$countries,'categories'=>$categories]);
                 break;
+            case 4:
+                $out = [
+                    'cities'=>Cities::find()->all(),
+                    'categories' => TourCategory::find()->all()
+                ];
+
+                return !$this->isMobile ? $this->render('leftsidebar-type4', $out) : $this->render('leftsidebar-type4-mobile', $out);
+                break;
         endswitch;
     }
 }

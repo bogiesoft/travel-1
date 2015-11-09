@@ -19,7 +19,7 @@ class ToursSearch extends Tours
     {
         return [
             [['id', 'country_id', 'city_id', 'user_id', 'status'], 'integer'],
-            [['title_ru', 'description_ru', 'support', 'image', 'created_at', 'updated_at'], 'safe'],
+            [['title_ru', 'description_ru', 'support', 'image', 'created_at', 'updated_at', 'incost', 'outcost', 'maybecost'], 'safe'],
         ];
     }
 
@@ -70,6 +70,9 @@ class ToursSearch extends Tours
 
         $query->andFilterWhere(['like', 'title_ru', $this->title_ru])
             ->andFilterWhere(['like', 'description_ru', $this->description_ru])
+            ->andFilterWhere(['like', 'incost', $this->description_ru])
+            ->andFilterWhere(['like', 'outcost', $this->description_ru])
+            ->andFilterWhere(['like', 'maybecost', $this->description_ru])
             ->andFilterWhere(['like', 'support', $this->support])
             ->andFilterWhere(['like', 'image', $this->image]);
 

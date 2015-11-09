@@ -66,6 +66,17 @@ class EventsController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $images = UploadedFile::getInstances($model, 'images');
 
+            $post = Yii::$app->request->post();
+
+            $imagesToDelete = explode(',',$post['imagesToDelete']);
+
+            if($imagesToDelete) {
+                foreach($imagesToDelete as $id) {
+                    $img = $model->getImage()->findOne($id);
+                    $model->removeImage($img);
+                }
+            }
+
             foreach($images as $image) {
                 $path = Yii::getAlias('@webroot/images/store/').$image->baseName.'.'.$image->extension;
                 $image->saveAs($path);
@@ -91,6 +102,17 @@ class EventsController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $images = UploadedFile::getInstances($model, 'images');
+
+            $post = Yii::$app->request->post();
+
+            $imagesToDelete = explode(',',$post['imagesToDelete']);
+
+            if($imagesToDelete) {
+                foreach($imagesToDelete as $id) {
+                    $img = $model->getImage()->findOne($id);
+                    $model->removeImage($img);
+                }
+            }
 
             foreach($images as $image) {
                 $path = Yii::getAlias('@webroot/images/store/').$image->baseName.'.'.$image->extension;

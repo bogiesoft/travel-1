@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Tours */
@@ -22,20 +23,32 @@ use yii\widgets\ActiveForm;
 
     <?=$form->field($model, 'image[]')->fileInput(['multiple'=> true]) ?>
 
+    <?= $form->field($model, 'incost')->widget(CKEditor::className()) ?>
+
+    <?= $form->field($model, 'outcost')->widget(CKEditor::className()) ?>
+
+    <?= $form->field($model, 'maybecost')->widget(CKEditor::className()) ?>
+
+    <div class="row images-preview">
     <?php $images = $model->getImages();
-    foreach($images as $image) {
-        if($image){ ?><img src="<?=$image->getUrl('x200')?>" alt=""><?php }
+    foreach($images as $image) { ?>
+        <?php if($image){ ?>
+        <div class="col-lg-3 col-md-4 col-xs-6" data-image-id="<?=$image->id?>">
+            <img src="<?=$image->getUrl('300x150')?>" alt="">
+            <a href="" class="close-img"><i class="fa fa-close"></i></a>
+        </div>
+        <?php }
     }
     ?>
+    </div>
 
     <?php $model->user_id = (int)Yii::$app->user->id; ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+    <?= $form->field($model, 'user_id')
+        ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\User::find()->all(), 'id', 'username'))?>
 
     <?= $form->field($model, 'cities')
         ->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Cities::find()->all(), 'id', 'title_ru')) ?>
-
-    <?php //var_dump($model->getCitiesCustom($model->id)); ?>
 
     <div class="form-group" id="citiesArea">
         <?php
@@ -56,6 +69,92 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status')->checkbox() ?>
 
+    <input type="hidden" name="imagesToDelete" id="imagesToDelete" value="">
+
+    <div id="days" class="form-group">
+
+        <div class="form-group text-right">
+            <a href="" class="btn add-day btn-primary">Добавить день</a>
+        </div>
+
+        <div class="days">
+            <?php foreach($model->days as $d => $day): $d++; ?>
+                <h4>День <?=$d?> </h4>
+                <div class="text-right"><a data-day-id="<?=$d?>" class="add-element" href="">Добавить елемент</a></div>
+
+                <div id="d<?=$d?>" class="col-md-12 day-wrp">
+                    <div class="row">
+                        <?php foreach($day->schedule as $e => $element): $e++; ?>
+                            <h5>Елемент расписания <?=$e?> <a href="" class="collapse-el">(свернуть)</a></h5>
+
+                            <div class="text-right"><a href="" data-day-id="<?=$e?>" data-element-id="<?=$e?>" class="add-variant">Добавить вариант</a></div>
+
+                            <div class="col-md-12 el-wrp" id="d<?=$d?>e<?=$e?>">
+                                <div class="row">
+                                    <?php foreach($element->variants as $v => $variant): $v++; ?>
+                                        <h5>Вариант  <?=$v?></h5>
+                                        <div class="col-md-12 variant-wrp">
+
+                                            <div class="row variant" id="d<?=$d?>e<?=$e?>v<?=$v?>">
+                                                <div class="form-inline">
+                                                    <div class="form-group">
+                                                        <input type="text" value="<?=$variant->label?>" name="Tours[days][<?=$d?>][schedule][<?=$e?>][variants][<?=$v?>][label]" class="form-control" placeholder="Лейбл" size="20">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="file" name="Tours[days][<?=$d?>][schedule][<?=$e?>][variants][<?=$v?>][icon]" id="" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" value="<?=$variant->header?>" name="Tours[days][<?=$d?>][schedule][<?=$e?>][variants][<?=$v?>][header]" class="form-control" placeholder="Заголовок" size="70">
+                                                    </div>
+                                                </div>
+
+                                                <div class="text-right"><a data-day-id="<?=$d?>" data-element-id="<?=$e?>" data-variant-id="<?=$v?>" href="" class="add-field">Добавить поле</a></div>
+
+                                                <div class="fields">
+                                                    <?php foreach($variant->fields as $f => $field): $f++; ?>
+                                                        <div class="field" id="d<?=$d?>e<?=$e?>v<?=$v?>f<?=$f?>">
+                                                            <h6>Поле <?=$f?></h6>
+                                                            <div class="form-group">
+                                                                <select name="Tours[days][<?=$d?>][schedule][<?=$e?>][variants][<?=$v?>][fields][<?=$f?>][type_id]" id="" class="form-control">
+                                                                    <option value="">Тип поля</option>
+                                                                    <?php $types = \common\models\FieldType::find()->all();
+                                                                    foreach($types as $type){
+                                                                        if($type->id == $field->type_id) {
+                                                                            $selected = ' selected="selected"';
+                                                                        } else {
+                                                                            $selected = '';
+                                                                        }
+                                                                        echo '<option value="'.$type->id.'"'.$selected.'>'.$type->name.'</option>';
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" name="Tours[days][<?=$d?>][schedule][<?=$e?>][variants][<?=$v?>][fields][<?=$f?>][value]" id="" rows="4"><?=$field->content?></textarea>
+
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+    </div>
+
+
+
+
+
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
@@ -73,6 +172,7 @@ use yii\widgets\ActiveForm;
                 e.preventDefault();
                 $(this).parent().remove();
             });
+
         });
     </script>
 

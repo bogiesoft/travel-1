@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Webcam */
 
-$this->title = 'Update Webcam: ' . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Webcams', 'url' => ['index']];
+$this->title = 'Обновить вебкамеру: ' . ' ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Вебкамеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="webcam-update">
 

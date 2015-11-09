@@ -42,11 +42,11 @@ class Slider extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'image' => 'Image',
-            'link' => 'Link',
-            'link_name_ru' => 'Link Name Ru',
-            'excerpt_ru' => 'Excerpt Ru',
+            'title_ru' => 'Название',
+            'image' => 'Изображение',
+            'link' => 'Ссылка',
+            'link_name_ru' => 'Надпись на ссылке',
+            'excerpt_ru' => 'Краткое описание',
         ];
     }
 

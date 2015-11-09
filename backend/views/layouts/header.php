@@ -1,20 +1,19 @@
 <?php
 use yii\helpers\Html;
 
-use backend\assets\AppAsset;
-
-/* @var $this \common\components\MainView */
-
-AppAsset::register($this);
+/* @var $this \yii\web\View */
+/* @var $content string */
 ?>
-<?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
+
+<header class="main-header">
+
+    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+
+    <nav class="navbar navbar-static-top" role="navigation">
+
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Скрыть/развернуть меню</span>
+        </a>
+
+    </nav>
+</header>

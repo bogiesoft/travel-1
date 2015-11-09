@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use common\components\Alert;
 use common\controllers\MainController;
 use common\models\Events;
+use common\models\Tours;
 use console\controllers\RbacController;
 use frontend\filters\SiteLayout;
 use Yii;
@@ -75,6 +76,7 @@ class SiteController extends MainController
         $adv = Adv::find()->where(["show"=>1])->limit(3)->all();
         $news = News::find()->where(["status"=>1])->limit(3)->orderBy('created_at DESC')->all();
         $events = Events::find()->where(["status"=>1])->limit(3)->orderBy('created_at DESC')->all();
+        $tours = Tours::find()->where(['status'=>1])->limit(6)->orderBy('created_at DESC')->all();
 
         return $this->render('index',[
             'slides'=>$slides,
@@ -82,6 +84,7 @@ class SiteController extends MainController
             'adv' => $adv,
             'news'=>$news,
             'events'=>$events,
+            'tours'=>$tours,
         ]);
     }
 

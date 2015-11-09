@@ -48,15 +48,15 @@ class Webcam extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'image' => 'Image',
-            'code' => 'Code',
-            'city_id' => 'City ID',
-            'country_id' => 'Country ID',
-            'description_ru' => 'Description Ru',
-            'timezone' => 'Timezone',
-            'size_width' => 'Size Width',
-            'size_height' => 'Size Height',
+            'title_ru' => 'Название',
+            'image' => 'Изображение',
+            'code' => 'Код плеера',
+            'city_id' => 'Город',
+            'country_id' => 'Страна',
+            'description_ru' => 'Описание',
+            'timezone' => 'Временная зона',
+            'size_width' => 'Ширина плеера',
+            'size_height' => 'Высота плеера',
         ];
     }
 

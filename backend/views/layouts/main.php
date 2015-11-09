@@ -1,42 +1,65 @@
 <?php
-use backend\filters\AdminLayout;
-use frontend\filters\SiteLayout;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
+use yii\helpers\Html;
 
-/* @var $this \common\components\MainView */
+/* @var $this \yii\web\View */
+/* @var $content string */
 
-include_once('header.php');
-?>
-<?php $this->beginBody() ?>
-<div class="wrap">
-   <?php
-    
-    NavBar::begin([
-                      'brandLabel' => Yii::t('header','Admin panel'),
-                      'brandUrl' => Yii::$app->homeUrl,
-                      'options' => [
-                          'class' => 'navbar-default navbar-fixed-top',
-                      ],
-                  ]);
-    echo Nav::widget([
-                         'options' => ['class' => 'navbar-nav navbar-left'],
-                         'items' =>$this->getLayoutData(AdminLayout::place_left_nav)
-                     ]);
-    echo Nav::widget([
-                         'options' => ['class' => 'navbar-nav navbar-right'],
-                         'items' =>$this->getLayoutData(AdminLayout::place_right_nav)
-                     ]);
-    NavBar::end();
+
+if (Yii::$app->controller->action->id === 'login') { 
+/**
+ * Do not use this code in your template. Remove it. 
+ * Instead, use the code  $this->layout = '//main-login'; in your controller.
+ */
+    echo $this->render(
+        'main-login',
+        ['content' => $content]
+    );
+} else {
+
+    if (class_exists('backend\assets\AppAsset')) {
+        backend\assets\AppAsset::register($this);
+    } else {
+        app\assets\AppAsset::register($this);
+    }
+
+    dmstr\web\AdminLteAsset::register($this);
+
+    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
     ?>
+    <?php $this->beginPage() ?>
+    <!DOCTYPE html>
+    <html lang="<?= Yii::$app->language ?>">
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
+        <?php $this->head() ?>
+    </head>
+    <body class="skin-blue sidebar-mini">
+    <?php $this->beginBody() ?>
+    <div class="wrapper">
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-                                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                                ]) ?>
-        <?= $content ?>
+        <?= $this->render(
+            'header.php',
+            ['directoryAsset' => $directoryAsset]
+        ) ?>
+
+        <?= $this->render(
+            'left.php',
+            ['directoryAsset' => $directoryAsset]
+        )
+        ?>
+
+        <?= $this->render(
+            'content.php',
+            ['content' => $content, 'directoryAsset' => $directoryAsset]
+        ) ?>
+
     </div>
-</div>
-<?php include_once('footer.php');?>
 
+    <?php $this->endBody() ?>
+    </body>
+    </html>
+    <?php $this->endPage() ?>
+<?php } ?>

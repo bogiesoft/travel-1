@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use yii\db\mysql\QueryBuilder;
+use yii\helpers\StringHelper;
 use yii\web\UploadedFile;
 use Yii;
 use common\models\Tours;
@@ -64,6 +66,10 @@ class ToursController extends Controller
         $model = new Tours();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $post = Yii::$app->request->post();
+            $this->saveRelations($post['Tours'], $model->id);
+
             $images = UploadedFile::getInstances($model, 'image');
 
             foreach($images as $image) {
@@ -90,7 +96,25 @@ class ToursController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $post = Yii::$app->request->post();
+            $this->saveRelations($post['Tours'], $id);
+
             $images = UploadedFile::getInstances($model, 'image');
+
+            $post = Yii::$app->request->post();
+
+            $imagesToDelete = explode(',',$post['imagesToDelete']);
+
+            if($imagesToDelete) {
+                foreach($imagesToDelete as $id) {
+                    if(!is_null($model->getImage())) {
+                        $img = $model->getImage()->findOne($id);
+                        if(!is_null($img)){
+                            $model->removeImage($img);
+                        }
+                    }
+                }
+            }
 
             foreach($images as $image) {
                 $path = Yii::getAlias('@webroot/images/store/').$image->baseName.'.'.$image->extension;
@@ -132,5 +156,63 @@ class ToursController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionGetDay() {
+        $data = Yii::$app->request->post();
+
+        return $this->renderAjax('ajax/day', ['data'=>$data]);
+    }
+
+    public function actionGetElement() {
+        $data = Yii::$app->request->post();
+
+        return $this->renderAjax('ajax/element', ['data'=>$data]);
+    }
+
+    public function actionGetVariant() {
+        $data = Yii::$app->request->post();
+
+        return $this->renderAjax('ajax/variant', ['data'=>$data]);
+    }
+
+    public function actionGetField() {
+        $data = Yii::$app->request->post();
+
+        return $this->renderAjax('ajax/field', ['data'=>$data]);
+    }
+
+    public function saveRelations($data, $tour_id) {
+        $db = Yii::$app->db;
+
+        $db->createCommand("DELETE FROM tour_day WHERE tour_id = {$tour_id}")->execute();
+        $db->createCommand("DELETE FROM day_schedule WHERE tour_id = {$tour_id}")->execute();
+        $db->createCommand("DELETE FROM schedule_variant WHERE tour_id = {$tour_id}")->execute();
+        $db->createCommand("DELETE FROM variant_field WHERE tour_id = {$tour_id}")->execute();
+
+        foreach($data['days'] as $day) {
+            $db->createCommand("INSERT INTO tour_day SET tour_id = {$tour_id}")->execute();
+            $day_id = $db->getLastInsertID();
+            foreach($day['schedule'] as $schedule) {
+                $db->createCommand("INSERT INTO day_schedule SET day_id = {$day_id}, tour_id = {$tour_id}")->execute();
+                $schedule_id = $db->getLastInsertID();
+                foreach($schedule['variants'] as $variant){
+                    $db->createCommand("INSERT INTO schedule_variant
+                    SET item_id = {$schedule_id}, tour_id = {$tour_id}, label = '{$variant['label']}', header = '{$variant['header']}'")->execute();
+                    $variant_id = $db->getLastInsertID();
+                    foreach($variant['fields'] as $field) {
+                        $db->createCommand()->insert('variant_field', [
+                           'variant_id' => $variant_id,
+                            'tour_id' => $tour_id,
+                            'type_id' => $field['type_id'],
+                            'content' => $field['value']
+                        ])->execute();
+                        //$db->prepare("INSERT INTO variant_field SET variant_id = {$variant_id}, tour_id = {$tour_id}, type_id = {$field['type_id']}, content = '{$field['value']}'")->execute();
+                    }
+                }
+            }
+        }
+
+        return $data;
     }
 }

@@ -40,9 +40,9 @@ class FieldType extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'icon' => 'Icon',
-            'name' => 'Name',
-            'default_value' => 'Default Value',
+            'icon' => 'Иконка',
+            'name' => 'Название',
+            'default_value' => 'Значение по умолчанию',
         ];
     }
 }

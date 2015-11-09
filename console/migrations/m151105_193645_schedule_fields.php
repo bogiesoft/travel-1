@@ -8,6 +8,7 @@ class m151105_193645_schedule_fields extends Migration
     {
         $this->createTable('variant_field', [
             'id' => $this->primaryKey(),
+            'variant_id' => $this->integer(11),
             'type_id' => $this->integer(11),
             'content' => $this->text()
         ]);

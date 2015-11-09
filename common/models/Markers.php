@@ -65,14 +65,14 @@ class Markers extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'country' => 'Country',
-            'city' => 'City',
-            'content_ru' => 'Content Ru',
-            'image' => 'Image',
-            'latlng' => 'Latlng',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'country' => 'Страна',
+            'city' => 'Город',
+            'content_ru' => 'Контент',
+            'image' => 'Изображение',
+            'latlng' => 'Положение маркера',
+            'status' => 'Показывать на сайте?',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 }

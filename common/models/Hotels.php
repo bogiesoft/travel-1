@@ -45,12 +45,12 @@ class Hotels extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'description_ru' => 'Description Ru',
-            'place_ru' => 'Place Ru',
-            'way_ru' => 'Way Ru',
-            'discount' => 'Discount',
-            'link' => 'Link',
+            'title_ru' => 'Название',
+            'description_ru' => 'Описание',
+            'place_ru' => 'Адрес',
+            'way_ru' => 'Как доехать',
+            'discount' => 'Скидка для участников (число)',
+            'link' => 'Ссылка',
         ];
     }
 

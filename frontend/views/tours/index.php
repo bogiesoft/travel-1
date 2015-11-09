@@ -7,7 +7,7 @@ use yii\helpers\StringHelper;
 use frontend\controllers\SiteController;
 
 $this->title = 'Каталог туров';
-$this->params['sidebarType'] = 1;
+$this->params['sidebarType'] = 4;
 $this->params['breadcrumbs'][] = ['label' => $this->title];
 ?>
 <div class="tours-catalog">

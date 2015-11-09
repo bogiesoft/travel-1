@@ -20,11 +20,11 @@ $this->title = Yii::t('user', 'List users');
             ['class' => 'yii\grid\SerialColumn'],
 
              [
-                 'attribute'=>'email',
+                 'attribute'=>'username',
                  'format'=>'raw',
                  'value'=>function($data)
                  {
-                    return Html::a($data->email,Url::to(['update','id'=>$data->id]));
+                    return Html::a($data->username,Url::to(['update','id'=>$data->id]));
                  }
              ],
              [

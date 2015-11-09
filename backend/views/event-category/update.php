@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\EventCategory */
 
-$this->title = 'Update Event Category: ' . ' ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Event Categories', 'url' => ['index']];
+$this->title = 'Обновить категорию: ' . ' ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Категории мероприятий', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Обновить';
 ?>
 <div class="event-category-update">
 

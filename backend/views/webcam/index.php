@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\WebcamSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Webcams';
+$this->title = 'Веб-камеры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="webcam-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Webcam', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать веб-камеру', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,16 +25,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            /*'id',*/
             'title_ru',
-            'image',
-            'code:ntext',
+            /*'image',*/
             //'city_ru',
             // 'country_ru',
             // 'description_ru:ntext',
             // 'timezone',
-            // 'size_width',
-            // 'size_height',
+            'size_width',
+            'size_height',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

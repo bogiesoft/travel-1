@@ -456,11 +456,11 @@ class User extends MainActiveRecord implements IdentityInterface
         return [
             'email' => Yii::t('user','Email'),
             'status' => Yii::t('user','Status'),
-            'role' => Yii::t('user','Role'),
-            'password' => Yii::t('user','Password'),
-            'passwordConfirm' => Yii::t('user','Confirm password'),
-            'created_at' => Yii::t('user','Created At'),
-            'updated_at' => Yii::t('user','Updated At'),
+            'role' => Yii::t('user','Роль'),
+            'password' => Yii::t('user','Пароль'),
+            'passwordConfirm' => Yii::t('user','Подтвердить пароль'),
+            'created_at' => Yii::t('user','Создан'),
+            'updated_at' => Yii::t('user','Обновлен'),
         ];
     }
 

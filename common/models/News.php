@@ -65,13 +65,13 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'image' => 'Image',
-            'excerpt_ru' => 'Excerpt Ru',
-            'content_ru' => 'Content Ru',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title_ru' => 'Название',
+            'image' => 'Изображение',
+            'excerpt_ru' => 'Краткое описание',
+            'content_ru' => 'Контент',
+            'status' => 'Показывать на сайте?',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 }

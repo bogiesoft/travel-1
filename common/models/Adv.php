@@ -40,9 +40,9 @@ class Adv extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'link' => 'Link',
-            'image' => 'Image',
-            'show' => 'Show',
+            'link' => 'Ссылка',
+            'image' => 'Изображение',
+            'show' => 'Показывать на сайте?',
         ];
     }
 

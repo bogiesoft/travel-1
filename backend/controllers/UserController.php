@@ -38,7 +38,7 @@ class UserController extends MainController
                     'delete' => ['post'],
                 ],
             ],
-            'layout'=>UserLayout::className()
+            /*'layout'=>UserLayout::className()*/
         ];
     }
 

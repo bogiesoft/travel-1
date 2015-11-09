@@ -1,7 +1,6 @@
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right">&copy; Acrux Studio <?= date('Y') ?></p>
     </div>
 </footer>
 <div class="scroll-top page-scroll visible-xs visble-sm">

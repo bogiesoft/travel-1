@@ -42,9 +42,9 @@ class Cities extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'description_ru' => 'Description Ru',
-            'country_id' => 'Country ID',
+            'title_ru' => 'Заголовок',
+            'description_ru' => 'Описание',
+            'country_id' => 'ID страны',
         ];
     }
 }

@@ -58,4 +58,12 @@
         $(this).attr('href', href);
     });
 
+    $.expr[':'].external = function(obj) {
+        return !obj.href.match(/^mailto\:/) && (obj.hostname != location.hostname);
+    };
+
+    $("a:external").each(function(){
+        $(this).attr('href', '/frame?url='+$(this).attr('href')).attr('target', '_blank');
+    });
+
 })(jQuery)

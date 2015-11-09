@@ -39,8 +39,8 @@ class Options extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'value' => 'Value',
+            'name' => 'Название',
+            'value' => 'Значение',
             'type' => 'Тип',
         ];
     }

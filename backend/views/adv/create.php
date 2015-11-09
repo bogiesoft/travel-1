@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Adv */
 
-$this->title = 'Create Adv';
-$this->params['breadcrumbs'][] = ['label' => 'Advs', 'url' => ['index']];
+$this->title = 'Создать рекламный баннер';
+$this->params['breadcrumbs'][] = ['label' => 'Рекламные баннеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="adv-create">

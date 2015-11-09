@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\TourCategory */
 
-$this->title = 'Create Tour Category';
-$this->params['breadcrumbs'][] = ['label' => 'Tour Categories', 'url' => ['index']];
+$this->title = 'Создать категорию';
+$this->params['breadcrumbs'][] = ['label' => 'Категории туров', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tour-category-create">

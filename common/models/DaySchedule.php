@@ -40,4 +40,8 @@ class DaySchedule extends \yii\db\ActiveRecord
             'day_id' => 'Day ID',
         ];
     }
+
+    public function getVariants() {
+        return $this->hasMany(ScheduleVariant::className(), ['item_id'=>'id']);
+    }
 }

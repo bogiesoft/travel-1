@@ -44,10 +44,10 @@ class TourCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'status' => 'Status',
+            'title_ru' => 'Название',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
+            'status' => 'Показывать на сайте?',
         ];
     }
 

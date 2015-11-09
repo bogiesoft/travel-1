@@ -53,16 +53,16 @@ class Events extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
-            'country_id' => 'Country ID',
-            'place_ru' => 'Place Ru',
-            'date' => 'Date',
-            'images' => 'Images',
-            'content_ru' => 'Content Ru',
-            'tickets_link' => 'Tickets Link',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title_ru' => 'Заголовок',
+            'country_id' => 'ID страны',
+            'place_ru' => 'Место',
+            'date' => 'Дата',
+            'images' => 'Фото (можно выбрать несколько)',
+            'content_ru' => 'Контент',
+            'tickets_link' => 'Ссылка на билеты',
+            'status' => 'Показывать на сайте?',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 

@@ -65,12 +65,12 @@ class Pages extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title_ru' => 'Title Ru',
+            'title_ru' => 'Название',
             'slug' => 'Slug',
-            'content_ru' => 'Content Ru',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'content_ru' => 'Контент',
+            'status' => 'Показывать на сайте?',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 }

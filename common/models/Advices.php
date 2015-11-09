@@ -61,13 +61,13 @@ class Advices extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'main_title_ru' => 'Main Title Ru',
-            'sub_title_ru' => 'Sub Title Ru',
-            'excerpt_ru' => 'Excerpt Ru',
-            'full_content_ru' => 'Full Content Ru',
-            'show' => 'Show',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'main_title_ru' => 'Большой заголовок',
+            'sub_title_ru' => 'Маленький заголовок',
+            'excerpt_ru' => 'Краткое описание',
+            'full_content_ru' => 'Полное описание',
+            'show' => 'Показывать на сайте?',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 }

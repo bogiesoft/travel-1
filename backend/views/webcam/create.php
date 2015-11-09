@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Webcam */
 
-$this->title = 'Create Webcam';
-$this->params['breadcrumbs'][] = ['label' => 'Webcams', 'url' => ['index']];
+$this->title = 'Создать вебкамеру';
+$this->params['breadcrumbs'][] = ['label' => 'Вебкамеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="webcam-create">

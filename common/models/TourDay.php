@@ -40,4 +40,8 @@ class TourDay extends \yii\db\ActiveRecord
             'tour_id' => 'Tour ID',
         ];
     }
+
+    public function getSchedule() {
+        return $this->hasMany(DaySchedule::className(), ['day_id'=>'id']);
+    }
 }

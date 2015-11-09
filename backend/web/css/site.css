@@ -89,3 +89,30 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+.images-preview div {
+    position: relative;
+}
+.images-preview div img {
+    max-width: 100%;
+}
+.images-preview {
+    margin: 20px 0;
+}
+.images-preview div a.close-img {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    color: #fff;
+    width: 23px;
+    line-height: 21px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 10px #000;
+    -moz-box-shadow: 0px 0px 10px #000;
+    box-shadow:  0px 0px 10px #000;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.day-wrp,.variant-wrp, .el-wrp, .field {
+    background: #f6f6f6;
+    padding: 10px 30px;
+}

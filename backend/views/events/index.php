@@ -7,24 +7,36 @@ use yii\widgets\ListView;
 /* @var $searchModel backend\models\EventsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Events';
+$this->title = 'Мероприятия';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="events-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Events', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать мероприятие', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= ListView::widget([
+    <?= \yii\grid\GridView::widget([
         'dataProvider' => $dataProvider,
-        'itemOptions' => ['class' => 'item'],
-        'itemView' => function ($model, $key, $index, $widget) {
-            return Html::a(Html::encode($model->id), ['view', 'id' => $model->id]);
-        },
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            //'id',
+            'title_ru',
+            'place_ru',
+            /*'support:ntext',*/
+            // 'image',
+            // 'country_id',
+            // 'city_id',
+            // 'user_id',
+            'status',
+            // 'created_at',
+            // 'updated_at',
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
     ]) ?>
 
 </div>

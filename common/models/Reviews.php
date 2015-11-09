@@ -48,14 +48,14 @@ class Reviews extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'model' => 'Model',
-            'item_id' => 'Item ID',
-            'user_id' => 'User ID',
-            'title_ru' => 'Title Ru',
-            'content_ru' => 'Content Ru',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'status' => 'Status',
+            'model' => 'Группа елементов',
+            'item_id' => 'Елемент отзыва',
+            'user_id' => 'Пользователь',
+            'title_ru' => 'Название',
+            'content_ru' => 'Контент',
+            'created_at' => 'Создан',
+            'updated_at' => 'Обновлен',
+            'status' => 'Показывать на сайте?',
         ];
     }
 

@@ -32,18 +32,26 @@ use yii\helpers\Url;
 
     <?=$form->field($model, 'images[]')->fileInput(['multiple'=> true]) ?>
 
-    <?php $images = $model->getImages();
-        foreach($images as $image) {
-            if($image){ ?><img src="<?=$image->getUrl('x200')?>" alt=""><?php }
+    <div class="row images-preview">
+        <?php $images = $model->getImages();
+        foreach($images as $image) { ?>
+            <?php if($image){ ?>
+                <div class="col-lg-3 col-md-4 col-xs-6" data-image-id="<?=$image->id?>">
+                    <img src="<?=$image->getUrl('300x150')?>" alt="">
+                    <a href="" class="close-img"><i class="fa fa-close"></i></a>
+                </div>
+            <?php }
         }
-    ?>
-
+        ?>
+    </div>
 
     <?= $form->field($model, 'content_ru')->widget(\mihaildev\ckeditor\CKEditor::className()) ?>
 
     <?= $form->field($model, 'tickets_link')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'status')->checkbox() ?>
+
+    <input type="hidden" name="imagesToDelete" id="imagesToDelete" value="">
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
