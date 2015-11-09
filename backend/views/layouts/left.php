@@ -16,7 +16,7 @@
                 <img src="<?= $avatar ?>" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p><?=$model->firstname || $model->lastname ? $model->firstname.' '.$model->lastname : 'Admin User'?></p>
+                <p><?=!empty($model->firstname) || !empty($model->lastname) ? $model->firstname.' '.$model->lastname : 'Admin User'?></p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
