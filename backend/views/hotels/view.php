@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Hotels */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Отели', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Объекты', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="hotels-view">
