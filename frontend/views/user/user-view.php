@@ -23,17 +23,17 @@ if($user->email_verification_status == User::EMAIL_NOT_VERIFIED):?>
     <h1 class="text-center"><?=$userdata ? Html::encode($userdata->firstname.' '.$userdata->lastname):''?></h1>
 
     <div class="row">
-        <div class="col-md-3 text-right"><img src="<?= $userdata->getImage()->getUrl('150x200') ?>" alt=""></div>
+        <div class="col-md-3 text-right"><img src="<?=$userdata ? $userdata->getImage()->getUrl('150x200'):'' ?>" alt=""></div>
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-12">
                     <h4><?=Html::encode($model->email)?> (<?=Html::encode($model->username)?>)</h4>
                 </div>
                 <div class="col-md-12">
-                    <h5><?=Html::encode($userdata->country)?>, <?=Html::encode($userdata->city)?></h5>
+                    <h5><?=$userdata ?Html::encode($userdata->country):''?>, <?=$userdata ? Html::encode($userdata->city):''?></h5>
                 </div>
                 <div class="col-md-12">
-                    <h5>Возможность предложить тур: <?=$userdata->can_moderate ? 'Да' : 'Нет'?></h5>
+                    <?php if($userdata): ?><h5>Возможность предложить тур: <?=$userdata->can_moderate ? 'Да' : 'Нет'?></h5><?php endif; ?>
                 </div>
             </div>
         </div>
