@@ -7,7 +7,7 @@
             <div class="pull-left image">
                 <?php
                 $model = \common\models\Userdata::findOne(['user_id' => Yii::$app->user->id]);
-                $image = $model->getImage();
+                $image = $model ? $model->getImage() : false;
                 if ($image) {
                     $avatar = $image->getUrl('160x160');
                 } else {
