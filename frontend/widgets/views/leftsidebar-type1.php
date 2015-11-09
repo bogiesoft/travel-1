@@ -7,18 +7,18 @@ use yii\helpers\Html;
         <button type="button" class="btn common-button">Вариант тура</button>
         <ul class="aside-block__categories__list list-unstyled">
             <?php foreach($categories as $category){ ?>
-            <li><a href="" data-category-id="<?=$category->id?>"><?=Html::encode($category->title_ru)?></a></li>
+            <li><a href="<?=\yii\helpers\Url::to('/tours/category/'.$category->id)?>" data-category-id="<?=$category->id?>"><?=Html::encode($category->title_ru)?></a></li>
             <?php } ?>
 
         </ul>
     </div>  <!--filter-block__categories-->
 
     <div class="filter-block__categories aside-block__categories--country">
-        <button type="button" class="btn common-button">Страна</button>
+        <button type="button" class="btn common-button">Город</button>
         <ul class="aside-block__categories__list list-unstyled">
             <?php foreach($countries as $country): ?>
                 <li>
-                    <a href="" data-country-id="<?=$country->id?>"><?=Html::encode($country->title_ru)?></a>
+                    <a href="<?=\yii\helpers\Url::to('/tours/city/'.$country->id)?>" data-country-id="<?=$country->id?>"><?=Html::encode($country->title_ru)?></a>
                 </li>
             <?php endforeach; ?>
         </ul>

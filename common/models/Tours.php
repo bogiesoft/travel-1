@@ -145,4 +145,5 @@ class Tours extends \yii\db\ActiveRecord
     public function getDays() {
         return $this->hasMany(TourDay::className(), ['tour_id'=>'id']);
     }
+
 }

@@ -98,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?php foreach($variant->fields as $field){ ?>
                                                     <div class="tour-legend-details">
                                                         <?=$field->type['icon']?'<i class="'.$field->type['icon'].'"></i>':''?>
-                                                        <p><?=$field->content?></p>
+                                                        <p><?=$field->type['icon'] == 'icon icon-link' ? Html::a($field->content, $field->content) : $field->content?></p>
                                                     </div>
                                                 <?php } ?>
                                             </div>

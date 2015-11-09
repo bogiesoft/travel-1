@@ -20,7 +20,7 @@ if($user->email_verification_status == User::EMAIL_NOT_VERIFIED):?>
 <?php endif?>
 <div class="user-view">
 
-    <h1 class="text-center"><?=Html::encode($userdata->firstname.' '.$userdata->lastname)?></h1>
+    <h1 class="text-center"><?=$userdata->firstname ? Html::encode($userdata->firstname.' '.$userdata->lastname):''?></h1>
 
     <div class="row">
         <div class="col-md-3 text-right"><img src="<?= $userdata->getImage()->getUrl('150x200') ?>" alt=""></div>

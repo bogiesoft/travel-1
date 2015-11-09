@@ -33,7 +33,7 @@ class LeftSidebar extends Widget {
                 return !$this->isMobile ? $this->render('leftsidebar', ['cities'=>$cities, 'countries'=>$countries, 'source'=>$array]) : $this->render('leftsidebar-mobile', ['cities'=>$cities, 'countries'=>$countries, 'source'=>$array]);
                 break;
             case 1:
-                $countries = Countries::find()->all();
+                $countries = Cities::find()->all();
                 $categories = TourCategory::find()->where(['status'=>1])->all();
                 return !$this->isMobile ? $this->render('leftsidebar-type1',['countries'=>$countries, 'categories'=>$categories]) : $this->render('leftsidebar-type1-mobile',['countries'=>$countries, 'categories'=>$categories]);
                 break;

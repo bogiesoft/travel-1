@@ -33,4 +33,33 @@ class ToursController extends MainController
 
         return $this->render('show', ['model'=> $model]);
     }
+
+    public function actionCategory($id) {
+        $models = Tours::find()->joinWith('categories')
+            ->where(['tours.status'=>1])
+            ->andWhere(['tour_to_category.category_id'=>$id])->all();
+
+        return $this->render('index', ['models'=> $models]);
+    }
+
+    public function actionCity($id) {
+        $models = Tours::find()->joinWith('cities')
+            ->where(['tours.status'=>1])
+            ->andWhere(['tour_to_city.city_id'=>$id])->all();
+
+        return $this->render('index', ['models'=> $models]);
+    }
+
+    public function actionParams($city = 0, $category = 0, $days = '0:-', $people = '0:-', $timing = '0:-') {
+        $models = Tours::find()
+            ->joinWith('cities')
+            ->joinWith('categories')
+            ->where(['tours.status' => 1])
+            ->andWhere(['tour_to_city.city_id'=>$city])
+            ->andWhere(['tour_to_category.category_id'=>$category])
+            ->andWhere(['dayscount > 2'])->all();
+
+        var_dump($models);die;
+
+    }
 }

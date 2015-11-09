@@ -14,4 +14,4 @@
     </div>
 <?php endforeach; ?>
 
-<a href="#" class="common-button load-more-btn common-button--thin">Показать ещё камеры</a>
+<!--<a href="#" class="common-button load-more-btn common-button--thin">Показать ещё камеры</a>-->
