@@ -5,6 +5,7 @@ use common\components\Alert;
 use common\controllers\MainController;
 use common\models\Events;
 use common\models\Tours;
+use common\models\Userdata;
 use console\controllers\RbacController;
 use frontend\filters\SiteLayout;
 use Yii;
@@ -150,6 +151,30 @@ class SiteController extends MainController
 
         return $this->render('register', [
             'model' => $model,
+        ]);
+    }
+
+    public function actionAdditionalRegister($id) {
+        $model = new Userdata();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $model->image = \yii\web\UploadedFile::getInstance($model, 'image');
+            if($model->image) {
+                if($model->getImage()) {
+                    $model->removeImages();
+                }
+                $path = Yii::getAlias('@webroot/images/store/').$model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs($path);
+                $model->attachImage($path, true);
+            }
+
+            return $this->goHome();
+        }
+
+        return $this->render('additional', [
+            'id' => $id,
+            'model' => $model
         ]);
     }
 

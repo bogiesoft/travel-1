@@ -185,9 +185,9 @@ class User extends MainActiveRecord implements IdentityInterface
 
     public static function roles() {
         return [
-            self::user => Yii::t('user','User'),
-            self::admin => Yii::t('user','Admin'),
-            self::super_admin => Yii::t('user','Super Admin'),
+            self::user => Yii::t('user','Пользователь'),
+            self::admin => Yii::t('user','Администратор'),
+            self::super_admin => Yii::t('user','Супер админ'),
         ];
     }
 

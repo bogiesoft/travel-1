@@ -6,7 +6,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\RegisterForm */
 
-$this->title = 'Регистрация';
+$this->title = 'Дополнительная информация';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -19,14 +19,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 </h3>
             </div>  <!--main-content__heading-->
             <div class="consultations__block col-lg-5">
-                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-                <?= $form->field($model, 'username') ?>
+                <?php $form = ActiveForm::begin(['id' => 'form-signup']);
+                $model->user_id = $id;
+                $model->can_moderate = 0; ?>
 
-                <?= $form->field($model, 'email') ?>
-                <?= $form->field($model, 'password')->passwordInput() ?>
-                <?= $form->field($model, 'passwordConfirm')->passwordInput() ?>
+                <?= $form->field($model, 'firstname') ?>
+                <?= $form->field($model, 'lastname') ?>
+                <?= $form->field($model, 'country') ?>
+                <?= $form->field($model, 'city') ?>
+                <?= $form->field($model, 'image')->fileInput() ?>
+
                 <div class="form-group">
-                    <?= Html::submitButton(Yii::t('app','Зарегистрироваться'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton(Yii::t('app','Сохранить'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
                 <?php ActiveForm::end(); ?>
             </div>  <!--consultations__block-->

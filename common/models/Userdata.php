@@ -40,6 +40,7 @@ class Userdata extends \yii\db\ActiveRecord
         return [
             [['user_id', 'can_moderate', 'status'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
+            [['firstname', 'lastname', 'country', 'city'], 'required'],
             [['firstname', 'lastname', 'country', 'city', 'image'], 'string', 'max' => 255],
         ];
     }

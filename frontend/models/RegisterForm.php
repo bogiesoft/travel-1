@@ -60,8 +60,8 @@ class RegisterForm extends Model
         return [
             'username' => Yii::t('app','Имя пользователя'),
             'email' => Yii::t('app','Email'),
-            'password' => Yii::t('app','Password'),
-            'passwordConfirm' => Yii::t('app','Confirm password'),
+            'password' => Yii::t('app','Пароль'),
+            'passwordConfirm' => Yii::t('app','Подтвердить пароль'),
         ];
     }
 }
