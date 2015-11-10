@@ -154,7 +154,7 @@ class SiteController extends MainController
         ]);
     }
 
-    public function actionAdditionalRegister($id) {
+    public function actionAdditional($id) {
         $model = new Userdata();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
