@@ -40,7 +40,7 @@ class SiteController extends MainController
                 'except' => ['test'],
                 'rules' => [
                     [
-                        'actions' => ['register','login','index','webcams','contact'],
+                        'actions' => ['register','additional','login','index','webcams','contact'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
