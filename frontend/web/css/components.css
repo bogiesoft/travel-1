@@ -1,0 +1,42 @@
+.popup-outer {
+    display: none;
+}
+#modal .rs-select,
+#maps_filter .rs-select {
+    display: inline-block;
+    width: 40%;
+    margin: 0 21px;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #015276;
+    color: #015276!important;
+}
+#modal .confirm-popup__cont .reservation-code input,
+#maps_filter .confirm-popup__cont .reservation-code input{
+    width: 93%;
+}
+.rating > span.active:before, .rating > span.active ~ span:before {
+    content: "\2605";
+    cursor: pointer;
+    color: #006795;
+    position: absolute;
+}
+.filter-block__categories input {
+    z-index: 999;
+    position: relative;
+}
+.filter-btn-group .common-button {
+    position: relative;
+    z-index: 9999;
+}
+body .panel-heading a {
+    height: auto;
+}
+
+header.header-main,.day-advice__corner-border:after {
+    border-bottom: none;
+}
+.filter-btn-group--criteriafor {
+    position: relative;
+    z-index: 1;
+}

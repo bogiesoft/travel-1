@@ -2,6 +2,15 @@
 use frontend\controllers\SiteController;
 use yii\helpers\Url;
 ?>
+<?php
+                    $menu_items = \common\models\MenuItems::find()->orderBy('order ASC')->all();
+                    $mitems = [];
+                    foreach($menu_items as $item) {
+                        $mitems[] = [
+                            'label' => $item->title, 'url' => $item->link
+                        ];
+                    }
+                ?>
 <footer class="footer-main">
     <div class="footer-main__corner"></div>
     <div class="footer-main__corner-border"></div>
@@ -15,15 +24,7 @@ use yii\helpers\Url;
                     <h4 class="title">Навигация</h4>
                     <ul class="footer-main__navigation list-unstyled">
                         <?=\yii\widgets\Menu::widget([
-                            'items' => [
-                                ['label' => 'О проекте', 'url' => ['/page/show/1/']],
-                                ['label' => 'Консультации', 'url' => ['/page/show/2']],
-                                ['label' => 'Форум', 'url' => ['/forum/']],
-                                ['label' => 'Карты', 'url' => ['/maps/']],
-                                ['label' => 'Web-камеры', 'url' => ['/webcams/index']],
-                                ['label' => 'Справочник', 'url' => ['/page/show/3']],
-                                ['label' => 'Контакты', 'url' => ['page/show/4']],
-                            ],
+                            'items' => $mitems,
                             'activeCssClass'=>'active',
                             'activateParents'=>true,
                             'activateItems'=>true,
@@ -49,9 +50,9 @@ use yii\helpers\Url;
                 <div class="col-lg-4 col-md-3">
                     <form class="contact-us" method="post" action="javascript: void(null);">
                         <h4 class="title">СВЯЖИТЕСЬ С НАМИ</h4>
-                        <input type="text" class="contact-us__field" name="name" placeholder="Ваше имя">
-                        <input type="text" class="contact-us__field" name="mail" placeholder="E-mail">
-                        <textarea class="contact-us__field" placeholder="Напишите Ваше сообщение" name="message"></textarea>
+                        <input type="text" required class="contact-us__field" name="name" placeholder="Ваше имя">
+                        <input type="email" required class="contact-us__field" name="mail" placeholder="E-mail">
+                        <textarea class="contact-us__field" required placeholder="Напишите Ваше сообщение" name="message"></textarea>
                         <input type="submit" class="contact-us__submit" value="Отправить">
                     </form>
                 </div>

@@ -4,6 +4,7 @@ namespace common\models;
 use common\components\Alert;
 use common\helpers\Helper;
 use console\controllers\RbacController;
+use nill\forum\models\phpBBUsers;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -259,8 +260,9 @@ class User extends MainActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-
+            'timestampBehavior' => [
+                'class' => TimestampBehavior::className(),
+            ],
         ];
     }
 
@@ -496,5 +498,12 @@ class User extends MainActiveRecord implements IdentityInterface
 
     public function getUserdata() {
         return $this->hasOne(Userdata::className(), ['user_id' => 'id']);
+    }
+
+    public function password($password) {
+        $this->password_new = $password;
+
+        $this->setPassword($password);
+        return $this->save(false);
     }
 }

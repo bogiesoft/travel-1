@@ -86,4 +86,8 @@ class Events extends \yii\db\ActiveRecord
     public function getCountry() {
         return $this->hasOne(Countries::className(), ['id' => 'country_id']);
     }
+
+    public function getRating() {
+        return $this->hasMany(Rating::className(), ['event_id'=>'id']);
+    }
 }

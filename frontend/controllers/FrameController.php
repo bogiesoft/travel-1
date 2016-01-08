@@ -2,7 +2,6 @@
 
 namespace frontend\controllers;
 use Yii;
-use common\models\Pages;
 
 class FrameController extends \yii\web\Controller {
 
@@ -14,6 +13,6 @@ class FrameController extends \yii\web\Controller {
 
     public function actionIndex($url = '') {
 
-        return $this->renderPartial('index', ['url'=>$url]);
+        return $this->renderPartial('index', ['url'=>$url, 'back'=>Yii::$app->request->referrer]);
     }
 }

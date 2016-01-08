@@ -63,7 +63,102 @@
     };
 
     $("a:external").each(function(){
-        $(this).attr('href', '/frame?url='+$(this).attr('href')).attr('target', '_blank');
+        if($(this).attr('href').indexOf('forum') < 0) {
+            $(this).attr('href', '/frame?url=' + $(this).attr('href'));
+        }
     });
 
-})(jQuery)
+    $('form.contact-us').submit(function(e){
+        e.preventDefault();
+        var data = $(this).serialize();
+
+        $.post('/site/form', data, function(response){
+            $('form.contact-us').find('input, textarea').val('');
+           alert('Спасибо! Ваше письмо отправлено.');
+        });
+    });
+
+    $('#changeObjectCategory').change(function(){
+        var data = {
+            tour_id: $(this).attr('data-tour-id'),
+            object_category: $(this).val()
+        };
+        if(data.object_category){
+            $.post('/tours/objects-by-category', data, function(response){
+               $('#step2').html(response);
+            });
+        }
+    });
+
+    $('.save-code').submit(function(e){
+        e.preventDefault();
+        var data = $(this).serialize();
+        var city_id = $(this).find('select[name="object_id"] option:selected').attr('data-city-id');
+        var country_id = $(this).find('select[name="object_id"] option:selected').attr('data-country-id');
+        $.post('/tours/save-code/', {
+            data: data,
+            city_id: city_id,
+            country_id: country_id
+        }, function(response){
+            $('.save-code input[name="code"]').val('');
+
+            $('#notify-msg .name-object').text($('[name="object_id"] option:selected').text());
+            $('#modal').fadeOut(500);
+            $('#notify-msg').fadeIn(400);
+        });
+    });
+
+    $('.modal-btn').click(function(e){
+        e.preventDefault();
+        var target = $(this).attr('href');
+        $(target).fadeIn(400);
+    });
+
+    $('.popup__close').click(function(e){
+        e.preventDefault();
+        $(this).parents('.popup-outer').fadeOut(400)
+    });
+
+    $('.rating span').click(function(){
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        var index = 5-$(this).index();
+        var data = {
+            rating: index,
+            user_id: user_id,
+            event_id: $(this).parents('.rating').attr('data-event-id')
+        };
+        if(!user_id){
+            alert('Для голосования необходимо зарегистрироваться!');
+            return false;
+        }
+        if(!data.event_id) {
+            return false;
+        }
+
+        $.post('/site/rating/', data, function(response){
+            console.log(response);
+        });
+    });
+
+    $('#add_tour_form').submit(function(e){
+        e.preventDefault();
+        var empty_fields = 0;
+        $(this).find('input, textarea').each(function(){
+           if(!$(this).val()) {
+               empty_fields++;
+           }
+        });
+        if(!empty_fields){
+            var data = $(this).serialize();
+
+            $.post('/site/addtourform', data, function(response){
+                alert('Вы успешно предложили тур!');
+                window.location.href = '/';
+            });
+        } else {
+            alert('Заполните, пожалуйста, все поля!');
+        }
+    });
+
+})(jQuery);

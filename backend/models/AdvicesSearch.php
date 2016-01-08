@@ -19,7 +19,7 @@ class AdvicesSearch extends Advices
     {
         return [
             [['id', 'show'], 'integer'],
-            [['main_title_ru', 'sub_title_ru', 'excerpt_ru', 'full_content_ru', 'created_at', 'updated_at'], 'safe'],
+            [['main_title_ru', 'sub_title_ru', 'button_title_ru', 'excerpt_ru', 'full_content_ru', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -67,6 +67,7 @@ class AdvicesSearch extends Advices
 
         $query->andFilterWhere(['like', 'main_title_ru', $this->main_title_ru])
             ->andFilterWhere(['like', 'sub_title_ru', $this->sub_title_ru])
+            ->andFilterWhere(['like', 'button_title_ru', $this->button_title_ru])
             ->andFilterWhere(['like', 'excerpt_ru', $this->excerpt_ru])
             ->andFilterWhere(['like', 'full_content_ru', $this->full_content_ru]);
 

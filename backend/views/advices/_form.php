@@ -12,6 +12,8 @@ use mihaildev\ckeditor\CKEditor;
 <div class="advices-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <?php $model->button_title_ru = 'Больше информации' ?>
+    <?= $form->field($model, 'button_title_ru')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'main_title_ru')->textInput(['maxlength' => true]) ?>
 
@@ -20,6 +22,8 @@ use mihaildev\ckeditor\CKEditor;
     <?= $form->field($model, 'excerpt_ru')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'full_content_ru')->widget(CKEditor::className()) ?>
+
+    <?= $form->field($model, 'order')->textInput(['type'=>'number'])?>
 
     <?= $form->field($model, 'show')->checkbox() ?>
 

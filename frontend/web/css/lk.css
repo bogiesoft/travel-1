@@ -1,0 +1,1585 @@
+h5.title {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Calibri';
+}
+
+.breadcrumb li {
+    display: inline-block;
+}
+
+.breadcrumb li:first-child {
+    margin-left: 34px;
+}
+
+.breadcrumb li > a {
+    font: 12px 'Calibri';
+    color: #414042;
+    font-weight: 300;
+}
+
+.breadcrumb li + li:before {
+    content: "/\00a0";
+    color: #414042;
+    position: relative;
+    padding: 0 3px;
+    top: 1px;
+}
+
+.breadcrumb .personal-cabinet {
+    padding-left: 0;
+}
+
+.breadcrumb .personal-cabinet li:first-child {
+    margin-left: 18px;
+}
+
+/*Личный кабинет*/
+
+.personal-cabinet {
+    margin: 0 auto;
+    float: none;
+    max-width: 1330px;
+}
+
+.personal-cabinet .row + .row {
+    margin-top: 87px;
+}
+
+.personal-cabinet .main-content__heading {
+    padding: 31px 0 24px;
+}
+
+.personal-cabinet__block {
+    padding-left: 0;
+}
+
+.personal-cabinet__block + .personal-cabinet__block {
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+.personal-cabinet__block__heading {
+    border-bottom: 1px solid #d0d0d0;
+    padding-bottom: 9px;
+}
+
+.personal-cabinet__block__heading .title {
+    font-size: 24px;
+    color: rgb(0, 103, 149);
+    line-height: 1.2;
+    font-weight: 200;
+    float: left;
+}
+
+.personal-cabinet__block__heading .title span {
+    color: #999;
+    font-size: 17px;
+}
+
+.personal-cabinet__block .common-button {
+    font-size: 13px;
+    text-transform: none;
+    color: #006795;
+    min-width: 150px;
+    border-color: #006795;
+    line-height: 1.1;
+    padding: 4px 16px;
+    margin-top: 4px;
+    float: right;
+}
+
+.personal-cabinet__block .common-button--solid {
+    color: #fff;
+}
+
+.personal-cabinet__block__heading  .common-button + .common-button {
+    margin-right: 16px;
+}
+
+.reserved-tours {
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
+.reserved-tours li {
+    padding-left: 7px;
+}
+
+.reserved-tours li + li {
+    margin-top: 8.8px;
+}
+
+.reserved-tours li p {
+    font: 16px 'MyRiadPro';
+    color: rgb(0, 103, 149);
+    font-weight: bold;
+    line-height: 1.2;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 9px;
+    margin-top: -6px;
+}
+
+.reserved-tours li p > a:hover {
+    color: #f27269;
+}
+
+.reserved-tours li .icon {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: rgb(242, 114, 105);
+    width: 42px;
+    height: 42px;
+}
+
+.common-button.button-exit {
+    background-color: rgb(242, 114, 105);
+    border-color: rgb(242, 114, 105);
+    color: #fff;
+    font: 14px 'Calibri';
+    font-weight: bold;
+    min-width: 72px;
+    line-height: 1;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.icon-sheep {
+    background-position: 5px -181px;
+}
+
+.icon-bus {
+    background-position: -81px -180px;
+}
+
+.icon-car {
+    background-position: -40px -178px;
+}
+
+.icon-pencil {
+    width: 15px;
+    height: 15px;
+    background-position: -126px -191px;
+}
+
+.personal-data {
+    padding-left: 23px;
+    margin-top: 13px;
+}
+
+.personal-data__name p {
+    font: 20px 'Calibri';
+    color: rgb(0, 103, 149);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.personal-data li + li {
+    margin-top: 13.3px;
+}
+
+.personal-data li p {
+    color: rgb(0, 103, 149);
+}
+
+.personal-data li p span {
+    color: #999;
+    min-width: 133px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.personal-data li p .age {
+    color: #4d4d4d;
+}
+
+.personal-data li p .nikname {
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+    font-weight: 200;
+    color: rgb(0, 103, 149);
+}
+
+.personal-cabinet__block .common-button .icon-pencil {
+    margin-right: 5px;
+    margin-top: -2px;
+    top: 0;
+}
+
+.messages {
+    margin-top: 9px;
+    margin-left: 4px;
+    margin-right: 20px;
+}
+
+.msg {
+    background-color: #e3eaed;
+    padding: 3px 10px 11px;
+}
+
+.messages .msg + .msg {
+    margin-top: 2px;
+}
+
+.msg__info {
+    margin-bottom: 5px;
+}
+
+.msg__theme {
+    display: inline-block;
+    font-weight: bold;
+    color: rgb(0, 103, 149);
+    font-size: 18px;
+    margin-right: 11px;
+}
+
+.msg__time {
+    display: inline-block;
+    color: #999999;
+    font-size: 12px;
+}
+
+.msg > p {
+    font-size: 12px;
+    color: rgb(56, 56, 56);
+    line-height: 1.2;
+}
+
+.own-tour {
+    margin-top: 8px;
+    padding-right: 15px;
+}
+
+.own-tour p {
+    font-size: 14px;
+    color: #006795;
+    line-height: 1.2;
+    letter-spacing: .1px;
+}
+
+/*Вход в личный кабинет*/
+
+.enter-popup {
+    max-width: 650px;
+    background-color: #00678f;
+    text-align: center;
+    padding-top: 19px;
+    padding-bottom: 30px;
+    position: absolute;
+}
+
+.enter-popup:before,
+.enter-popup::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    width: 1px;
+    background-color: #98d5e0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.enter-popup > div h4.title {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.enter-popup form {
+    margin-top: 17px;
+}
+
+.cabinet-input-field {
+    border: 1px solid rgb(152, 213, 224);
+    border-radius: 19px;
+    -moz-border-radius: 19px;
+    -webkit-border-radius: 19px;
+    background-color: rgb(255, 255, 255);
+    max-width: 230px;
+    width: 100%;
+    height: 39px;
+    font: 18px 'Calibri';
+    color: rgb(0, 103, 143);
+    line-height: 1.2;
+    padding-left: 22px;
+    padding-right: 10px;
+}
+
+.enter-cabinet__form p {
+    margin: 18px 0;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+}
+
+.enter-popup .cabinet-input-field {
+    margin: 0 auto;
+}
+
+.cabinet-input-field::-webkit-input-placeholder {
+    color: #00678f;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.cabinet-input-field::-moz-placeholder {
+    color: #00678f;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.cabinet-input-field:-moz-placeholder {
+    color: #00678f;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.cabinet-input-field:-ms-input-placeholder {
+    color: #00678f;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.cabinet-input-field:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.cabinet-input-field:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.cabinet-input-field:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.cabinet-input-field:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.cabinet-input-field:active, .cabinet-input-field:focus {
+    outline: none;
+}
+
+.through-service li {
+    display: inline-block;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    width: 40px;
+    height: 40px;
+}
+
+.through-service li + li {
+    margin-left: 3px;
+}
+
+.through-service li a {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.through-service li .icon {
+    width: 40px;
+    height: 40px;
+    top: 0;
+}
+
+.icon-facebook {
+    background-position: 0 -220px;
+}
+
+.icon-odnoklassniki {
+    background-position: -51px -220px;
+}
+
+.icon-vkontakte {
+    background-position: -102px -220px;
+}
+
+.icon-googleplus {
+    background-position: -153px -220px;
+}
+
+.icon-mailru {
+    background-position: -204px -220px;
+}
+
+.cabinet-input-field + .cabinet-input-field {
+    margin-top: 10px;
+}
+
+.remember {
+    margin-top: 85px;
+}
+
+.remember input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label, .remember a {
+    font: 14px 'Calibri';
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+.remember input[type="checkbox"] + label {
+    margin-right: 19px;
+    margin-left: 6px;
+}
+
+input[type="checkbox"] + label::before, input[type="checkbox"] + label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid rgb(152, 213, 224);
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.enter-popup form input[type="submit"] {
+    font: 18px 'Calibri';
+    color: rgb(152, 213, 224);
+    line-height: 1.2;
+    border: 2px solid rgb(152, 213, 224);
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    padding: 0 10px;
+    width: 100%;
+    max-width: 228px;
+    min-height: 40px;
+    margin-top: 29px;
+    text-transform: none;
+}
+
+.remember a {
+    text-decoration: underline;
+}
+
+/*Забронированные туры в лк*/
+
+.schedule__heading {
+    padding-top: 1px;
+    padding-left: 14px;
+}
+
+.schedule__heading h5.title {
+    text-transform: uppercase;
+    color: #f27269;
+    font-weight: bold;
+    font-size: 15.2px;
+}
+
+.schedule__heading h5.title, .schedule__heading p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.schedule__heading p {
+    margin-left: 28px;
+}
+
+.schedule__heading p span {
+    margin-left: 9px;
+}
+
+.schedule--reserved {
+    border: none;
+}
+
+.schedule--reserved .panel-group .panel + .panel {
+    margin-top: 2px;
+}
+
+.schedule--reserved .panel.active > .panel-collapse {
+    border-bottom: none;
+}
+
+.schedule--reserved .panel-heading h4 {
+    font-size: 16px;
+    color: rgb(0, 103, 149);
+    font-weight: bold;
+    line-height: 1.688;
+}
+
+.schedule--reserved .panel-default > .panel-heading {
+    border-bottom: 0;
+    padding-top: 3px;
+    padding-left: 7px;
+    border-left: 3px solid #006795;
+    min-height: 74px;
+}
+
+.schedule--reserved .reserved-tours li p {
+    margin-left: 5px;
+}
+
+.tour-schedule-table {
+
+}
+
+.tour-schedule-mobile {
+    display: none;
+}
+
+.schedule .tour-schedule-table {
+    margin-top: 16px;
+    margin-left: 3px;
+    margin-bottom: 14px;
+}
+
+.tour-schedule-table thead {
+    background-color: #f1f3f4;
+}
+
+.tour-schedule-table thead th {
+    height: 32px;
+}
+
+.tour-schedule-table th p {
+    color: #999999;
+    text-align: center;
+}
+
+.tour-schedule-table tr td {
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 39px;
+    padding-bottom: 6px;
+    text-align: center;
+    min-width: 111px;
+}
+
+.tour-schedule-table tr:nth-child(even) {
+    background-color: #e8f0f4;
+}
+
+.tour-schedule-table tr td:first-child {
+    text-align: left;
+    min-width: 160px;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .panel-body .tour-schedule-table tr td p {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    letter-spacing: .8px;
+}
+
+.schedule .panel-default > .panel-heading + .panel-collapse > .panel-body .tour-schedule-table tr td:first-child p {
+    letter-spacing: .3px;
+}
+
+.tour-schedule-table tr td:first-child p:before,
+.tour-schedule-table tr td:first-child p::before {
+    content: '';
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgb(242, 114, 105);
+    width: 13px;
+    height: 13px;
+    margin-right: 16px;
+    margin-top: -5px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+/*Профиль пользователя*/
+
+.profile {
+    border-top: 1px solid #cecece;
+    padding-top: 17px;
+    padding-left: 5px;
+    max-width: 1040px;
+}
+
+.profile__avatar {
+    margin-bottom: 31px;
+}
+
+.profile__avatar .photo {
+    border: 1px solid rgb(242, 114, 105);
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    width: 137px;
+    height: 137px;
+    margin-right: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.profile .identity {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile .common-button {
+    height: 25px;
+}
+
+
+
+.identity .actions {
+    margin-top: 12px;
+}
+
+.actions .common-button {
+    font: 13px 'Calibri';
+    line-height: 0.923;
+    text-transform: none;
+}
+
+.actions .load-photo-button {
+    min-width: 111px;
+    border-color: #999;
+    color: rgb(153, 153, 153);
+}
+
+.load-photo-button .icon {
+    top: 0;
+    margin-right: 10px;
+    left: -4px;
+}
+
+.icon-photo-snap {
+    background-position: -162px -172px;
+    width: 22px;
+    height: 18px;
+}
+
+.change-pswd-button {
+    min-width: 161px;
+    border-color: #f27269;
+}
+
+.actions .change-pswd-button {
+    margin-left: 3px;
+}
+
+.change-pswd-button .icon {
+    margin-right: 7px;
+}
+
+.icon-key {
+    width: 16px;
+    height: 16px;
+    background-position: -165px -195px;
+}
+
+.profile__block {
+    max-width: 508px;
+}
+
+.profile__block + .profile__block {
+    margin-left: 45px;
+}
+
+.profile-input-group {
+    text-align: justify;
+    line-height: 0;
+}
+
+.profile-input-group + .profile-input-group {
+    margin-top: 4px;
+}
+
+.profile__block--location .profile-input-group + .profile-input-group {
+    margin-top: 5px;
+}
+
+.profile-input-group:after {
+    width: 100%;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+}
+
+.profile-input-group p, .profile-input-group__field {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.profile-input-group p {
+    font: 16px 'Calibri';
+    color: rgb(153, 153, 153);
+    line-height: 1.315;
+    top: -2px;
+    left: -1px;
+}
+
+.profile-input-group__field {
+    max-width: 361px;
+    width: 100%;
+}
+
+.profile-input-group__field .icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 12px;
+    margin: auto;
+}
+
+.profile-input-group input {
+    border: 1px solid rgb(153, 153, 153);
+    background-color: rgb(255, 255, 255);
+    height: 30px;
+    width: 100%;
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    font: 16px 'Calibri';
+    color: #006795;
+    padding-left: 14px;
+    padding-bottom: 4px;
+}
+
+.profile-input-group input::-webkit-input-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.profile-input-group input::-moz-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.profile-input-group input:-moz-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.profile-input-group input:-ms-input-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.profile-input-group input:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.profile-input-group input:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.profile-input-group input:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.profile-input-group input:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+
+.profile-input-group__field--login input {
+    background-color: #d9dddf;
+    border-color: #d9dddf;
+}
+
+.profile .row + .row {
+    margin-top: 60px;
+}
+
+.profile__form input[type="submit"]{
+    font: 16px 'Calibri';
+    color: #fff;
+    background-color: #00678f;
+    border-color: #00678f;
+    text-transform: none;
+    min-width: 107px;
+    padding: 6px 2px;
+    height: auto;
+    margin-top: 83px;
+    margin-left: 122px;
+}
+
+@media(min-width: 1550px) {
+
+    .header-main .personal-cabinet .logo {
+        text-align: left;
+    }
+}
+
+@media(max-width: 1299px) {
+    .profile {
+        padding-left: 11px;
+        max-width: 800px;
+    }
+
+    .profile__block {
+        width: 100%;
+        margin-bottom: 22px;
+    }
+
+    .profile__block + .profile__block {
+        margin-left: 0;
+    }
+
+    .profile .row + .row {
+        margin-top: 4px;
+    }
+
+    .profile__form input[type="submit"] {
+        margin-top: 15px;
+        margin-left: 369px;
+    }
+}
+
+@media(max-width: 1199px) {
+    .messages {
+        margin-right: 0;
+    }
+}
+
+@media(max-width: 991px) {
+	 .personal-cabinet .row + .row {
+        margin-top: 0;
+    }
+
+    .personal-cabinet .main-content__heading {
+        padding: 30px 0px 19px;
+    }
+
+    .personal-cabinet__block {
+        margin-bottom: 33px;
+    }
+
+    .personal-cabinet__block + .personal-cabinet__block {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .personal-data {
+        padding-left: 0;
+    }
+
+    .messages {
+        margin-top: 12px;
+        margin-left: 2px;
+    }
+
+    .profile {
+        border-top: none;
+        padding-left: 30px;
+        padding-top: 3px;
+    }
+
+    .profile__block {
+        width: 50%;
+        float: left;
+        max-width: 100%;
+    }
+
+    .profile__avatar {
+        margin-bottom: 20px;
+    }
+
+    .profile-input-group p {
+        display: none;
+    }
+    
+    .addtour-input-group p {
+        display: none !important;
+    }
+
+    .profile-input-group input {
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        height: 38px;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        padding-bottom: 0;
+        padding-left: 0;
+    }
+
+    .profile-input-group input:focus, .profile-input-group input:active {
+        padding-left: 12px;
+    }
+
+    .profile-input-group__field--login input {
+        height: 32px;
+        margin-top: 6px;
+    }
+
+    .profile-input-group input::-webkit-input-placeholder {
+        opacity: 1;
+    }
+
+    .profile-input-group input::-moz-placeholder {
+        opacity: 1;
+    }/* Firefox 19+ */
+
+    .profile-input-group input:-moz-placeholder {
+        opacity: 1;
+    }/* Firefox 18- */
+
+    .profile-input-group input:-ms-input-placeholder {
+        opacity: 1;
+    }
+    
+    
+    
+	
+	.addtour-input-group input::-webkit-input-placeholder {
+	    opacity: 1 !important;
+	}
+	
+	.addtour-input-group input::-moz-placeholder {
+	    opacity: 1 !important;
+	}/* Firefox 19+ */
+	
+	.addtour-input-group input:-moz-placeholder {
+	    opacity: 1 !important;
+	}/* Firefox 18- */
+	
+	.addtour-input-group input:-ms-input-placeholder {
+	    opacity: 1 !important;
+	}
+	
+	.addtour-input-group textarea::-webkit-input-placeholder {
+	    opacity: 1 !important;
+	}
+	
+	.addtour-input-group textarea::-moz-placeholder {
+	    opacity: 1 !important;
+	}/* Firefox 19+ */
+	
+	.addtour-input-group textarea:-moz-placeholder {
+	    opacity: 1 !important;
+	}/* Firefox 18- */
+	
+	.addtour-input-group textarea:-ms-input-placeholder {
+	    opacity: 1 !important;
+	}
+	
+
+    .profile-input-group__field .icon {
+        display: none;
+    }
+
+    .personal-cabinet .row + .row {
+        margin-top: 5px;
+    }
+
+    .profile__block--location .profile-input-group + .profile-input-group {
+        margin-top: 3px;
+    }
+
+    .profile__block--location {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .profile-input-group__field {
+        max-width: 100%;
+    }
+
+    .profile__form input[type="submit"] {
+        margin-top: 12px;
+        margin-left: 44%;
+    }
+    
+    .form_add_tour .row + .row {
+    	margin-top: 0px !important;
+	}
+	
+	.form_add_tour .row {
+    	margin-bottom: 10px !important;
+	}
+	
+	.form_add_tour .profile__form input[type="submit"] {
+        margin-top: 12px;
+        position: relative;
+        left: 50%;
+        margin-left: -117px;
+    }
+
+}
+
+@media(max-width: 767px) {
+
+    .profile__block {
+        max-width: 330px;
+    }
+
+    .profile__block--location {
+        max-width: 95.6%;
+    }
+}
+
+@media(max-width: 719px) {
+
+    header.header-main {
+        padding-bottom: 25px;
+        padding-top: 20px;
+    }
+
+    .personal-cabinet .main-content__heading {
+        padding-top: 15px;
+    }
+
+	.personal-cabinet__block {
+        padding-right: 0;
+        margin-bottom: 28px;
+    }
+
+    .personal-cabinet__block__heading .title {
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    .personal-cabinet__block__heading .common-button {
+        display: none;
+    }
+
+    .personal-cabinet__block > .common-button {
+        display: table;
+        margin: 0 auto;
+        min-width: 238px;
+        font-size: 18px;
+        float: none;
+    }
+
+    .personal-data {
+        margin-bottom: 28px;
+    }
+
+    .personal-data li p .nikname {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .schedule .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        padding-top: 15px;
+    }
+
+    .schedule .day-number {
+        float: left;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        color: #fff;
+        padding-top: 6px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        margin-right: 11px;
+        background-color: rgb(0, 103, 143);
+        width: 31px;
+        height: 31px;
+    }
+
+    .schedule--reserved .panel-default > .panel-heading {
+        padding-left: 18px;
+    }
+
+    .schedule__heading {
+        padding-left: 0;
+    }
+
+    .schedule__heading h5.title, .schedule__heading p {
+        margin-left: 0;
+        display: block;
+    }
+
+    .schedule--reserved .reserved-tours li p {
+        margin-left: 13px;
+    }
+
+    .schedule .tour-schedule-table {
+        display: none;
+    }
+
+    .tour-schedule-mobile {
+        display: block;
+        margin-bottom: 26px;
+    }
+
+    .tour-schedule-mobile__part {
+        margin-top: 12px;
+    }
+
+    .tour-schedule-mobile__part + .tour-schedule-mobile__part {
+        margin-top: 8px;
+    }
+
+    .tour-schedule-modile__day {
+        border-top: 1px solid #006795;
+        margin: 0 -17px;
+        padding: 6px 17px 7px;
+    }
+
+    .tour-schedule-modile__day .city {
+        margin-left: 52px;
+    }
+
+    .schedule .tour-schedule-mobile p {
+        display: inline-block;
+        vertical-align: middle;
+        letter-spacing: 0.25px;
+    }
+
+    .schedule .panel-default > .panel-heading + .panel-collapse > .panel-body .tour-schedule-mobile p {
+        letter-spacing: .25px;
+    }
+
+    .tour-schedule-modile__details {
+        margin: 0 -17px;
+        padding: 4px 17px 13px;
+        background-color: #e9f0f4;
+    }
+
+    .tour-schedule-modile__details p span {
+        color: #999;
+        min-width: 100px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .tour-schedule-modile__details p a {
+        text-transform: uppercase;
+    }
+
+    .tour-schedule-modile__details p + p {
+        margin-top: 15px;
+    }
+
+    .schedule--reserved .note ul {
+        padding-left: 18px;
+    }
+
+    .schedule--reserved .panel-default > .panel-heading + .panel-collapse > .panel-body p {
+        letter-spacing: 0;
+    }
+
+    .schedule--reserved .note ul li {
+        padding-left: 0;
+    }
+
+    .schedule--reserved .note ul li p {
+        line-height: 1.21;
+    }
+
+    .schedule--reserved .note__features {
+        margin-bottom: 7px;
+        margin-top: 11px;
+    }
+
+    .messages {
+        margin-bottom: 28px;
+    }
+
+    .msg > p {
+        font-size: 14px;
+    }
+
+    .own-tour {
+        margin-bottom: 28px;
+    }
+
+    .reserved-tours {
+        margin-bottom: 28px;
+    }
+
+    .schedule--reserved .reserved-tours {
+        margin-bottom: 0;
+        margin-top: 7px;
+    }
+
+    .reserved-tours li {
+        padding-left: 0;
+    }
+
+    .reserved-tours li p {
+        max-width: 80%;
+        margin-top: 0;
+    }
+
+    .popup.enter-popup {
+        max-width: 360px;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+    }
+
+    .enter-popup .enter-cabinet, .enter-popup .registration-block {
+        width: 100%;
+        padding-top: 19px;
+        padding-bottom: 30px;
+        background-color: #00678F;
+    }
+
+    .enter-popup .registration-block {
+        margin-top: 20px;
+    }
+
+    .profile {
+        padding-left: 0;
+    }
+
+    .profile__avatar {
+        padding-left: 8px;
+        padding-top: 2px;
+    }
+
+    .profile__avatar .photo {
+        width: 71px;
+        height: 71px;
+        margin-right: 11px;
+    }
+
+    .profile__avatar .photo img {
+        max-width: 100%;
+    }
+
+    .profile__avatar .title {
+        max-width: 160px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-top: 2px;
+        line-height: 1.2;
+        font-size: 18px;
+    }
+
+    .profile .identity {
+        margin-top: 18px;
+    }
+
+    .profile__block {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .profile__block.form_bl{
+    	margin-bottom: 0;
+    }
+    .profile__block--location {
+        max-width: 100%;
+    }
+
+    .personal-cabinet .row + .row {
+        margin-top: 2px;
+    }
+
+    .profile__form input[type="submit"] {
+        margin-top: 17px;
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+    }
+}
+
+@media(max-width: 359px) {
+    .reserved-tours li p {
+        max-width: 230px;
+    }
+}
+
+.add_tour {
+    max-width: 1040px;
+    min-height: 600px;
+}
+
+.add_tour .text_block{
+	color: #006795;
+	font-size: 16px;
+}
+
+.title.text-left.zag{
+	color: #414042;
+	margin-top: 20px;
+}
+
+.zag_form{
+	color: #006795;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 35px;
+	margin-bottom: 20px;
+}
+
+
+.addtour-input-group{
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.addtour-input-group input {
+	border: 0;
+    border-bottom: 1px solid #cecece;
+    height: 30px;
+    width: 100%;
+    font: 16px 'Calibri';
+    color: #006795;
+    padding-left: 14px;
+    padding-bottom: 4px;
+}
+
+.addtour-input-group textarea{
+    border: 1px solid #cecece;
+    height: 185px;
+    width: 100%;
+    font: 16px 'Calibri';
+    color: #006795;
+    padding-left: 14px;
+    padding-bottom: 4px;
+}
+
+
+.addtour-input-group input::-webkit-input-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.addtour-input-group input::-moz-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.addtour-input-group input:-moz-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.addtour-input-group input:-ms-input-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.addtour-input-group input:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.addtour-input-group input:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.addtour-input-group input:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.addtour-input-group input:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+
+
+
+
+.addtour-input-group textarea::-webkit-input-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.addtour-input-group textarea::-moz-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.addtour-input-group textarea:-moz-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.addtour-input-group textarea:-ms-input-placeholder {
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.addtour-input-group textarea:focus::-webkit-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+.addtour-input-group textarea:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 19+ */
+
+.addtour-input-group textarea:focus:-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}/* Firefox 18- */
+
+.addtour-input-group textarea:focus:-ms-input-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+}
+
+
+.addtour-input-group p, .profile-input-group__field {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.addtour-input-group p {
+    font: 16px 'Calibri';
+    color: #006795;
+    line-height: 1.315;
+    top: -2px;
+    left: -1px;
+    width: 110px;
+}
+
+.full_width{
+	width: 100%;
+}
+
+.full_width .profile-input-group__field{
+	width: 100% !important;
+	max-width: 915px;
+}
+
+.form_add_tour .row + .row {
+    margin-top: 40px;
+}
+
+.addtour-input-group.tourtext{
+	margin-top: 40px;
+}
+
+.addtour-input-group.tourtext .profile-input-group__field{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.common-button.common-button--solid.addbtn{
+	width: 234px;
+	text-align: center;
+    font-family: 'Calibri';
+    font-size: 16px;
+    text-transform: uppercase;
+	margin: 35px;
+}
+
+
+.form_add_tour .profile__form input[type="submit"] {
+    margin-top: 12px;
+    position: relative;
+    left: 50%;
+    margin-left: -117px;
+}
+
+
+
+
+

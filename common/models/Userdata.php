@@ -17,6 +17,10 @@ use yii\db\Expression;
  *  @property string $country
  * @property string $city
  * @property string $image
+ * * @property string $fathername
+ * @property string $birthday
+ * @property string $phone
+ * @property string $skype
  * @property integer $can_moderate
  * @property integer $status
  * @property string $created_at
@@ -38,10 +42,9 @@ class Userdata extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'can_moderate', 'status'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
-            [['firstname', 'lastname', 'country', 'city'], 'required'],
-            [['firstname', 'lastname', 'country', 'city', 'image'], 'string', 'max' => 255],
+            /*[['fathername', 'birthday', 'phone', 'skype'], 'required'],*/
+            [['birthday', 'created_at', 'updated_at'], 'safe'],
+            [['firstname', 'lastname', 'country', 'city', 'image', 'fathername', 'phone', 'skype'], 'string', 'max' => 255],
         ];
     }
 
@@ -53,11 +56,15 @@ class Userdata extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'firstname' => 'Firstname',
-            'lastname' => 'Lastname',
-            'country' => 'Country',
-            'city' => 'City',
-            'image' => 'Image',
+            'firstname' => 'Имя',
+            'lastname' => 'Фамилия',
+            'country' => 'Страна',
+            'city' => 'Город',
+            'image' => 'Фото',
+            'fathername' => 'Отчество',
+            'birthday' => 'Дата рождения',
+            'phone' => 'Телефон',
+            'skype' => 'Ник в Skype',
             'can_moderate' => 'Can Moderate',
             'status' => 'Status',
             'created_at' => 'Created At',

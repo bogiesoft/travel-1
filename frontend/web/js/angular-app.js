@@ -1,4 +1,4 @@
-var maps = angular.module('maps', ['uiGmapgoogle-maps','ngSanitize']);
+var maps = angular.module('maps', ['uiGmapgoogle-maps','ngSanitize','angular-bootstrap-select']);
 
 maps.controller('MapsController', function($scope, $http, $filter){
     $scope.markers = [];

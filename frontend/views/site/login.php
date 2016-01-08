@@ -10,6 +10,13 @@ use yii\helpers\Url;
 $this->title = 'Вход';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    .sh_m{
+        padding: 15px;
+        font-weight: lighter;
+        margin: 15px 0;
+    }
+</style>
 <div class="consultations">
     <div class="container">
         <div class="row">
@@ -18,6 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?=Html::encode($this->title)?>
                 </h3>
             </div>  <!--main-content__heading-->
+            <?php if(!empty($show_message)){ ?>
+                <p class="bg-danger sh_m">Для дальнейшего пользования сайтом необходимо войти либо зарегистрироваться</p>
+            <?php } ?>
             <div class="consultations__block col-lg-5">
                 <?php $form = ActiveForm::begin(['id' => 'login-form',
                     'action'=>Url::to(['site/login']),

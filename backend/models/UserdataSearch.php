@@ -19,7 +19,7 @@ class UserdataSearch extends Userdata
     {
         return [
             [['id', 'user_id', 'can_moderate', 'status'], 'integer'],
-            [['firstname', 'lastname', 'country', 'city', 'image', 'created_at', 'updated_at'], 'safe'],
+            [['firstname', 'lastname', 'country', 'city', 'image', 'fathername', 'birthday', 'phone', 'skype', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -62,6 +62,7 @@ class UserdataSearch extends Userdata
             'id' => $this->id,
             'user_id' => $this->user_id,
             'can_moderate' => $this->can_moderate,
+            'birthday' => $this->birthday,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
@@ -71,7 +72,10 @@ class UserdataSearch extends Userdata
             ->andFilterWhere(['like', 'lastname', $this->lastname])
             ->andFilterWhere(['like', 'country', $this->country])
             ->andFilterWhere(['like', 'city', $this->city])
-            ->andFilterWhere(['like', 'image', $this->image]);
+            ->andFilterWhere(['like', 'image', $this->image])
+            ->andFilterWhere(['like', 'fathername', $this->fathername])
+            ->andFilterWhere(['like', 'phone', $this->phone])
+            ->andFilterWhere(['like', 'skype', $this->skype]);
 
         return $dataProvider;
     }

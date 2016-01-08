@@ -40,8 +40,18 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/events/']
                             <div class="caption">
                                 <div class="justify-elements-align">
                                     <h4 class="date"><?=$date->format('d/m/Y')?></h4>
-                                    <div class="rating">
-                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                    <?php
+                                    if($event->rating) {
+                                        $rating_all = array_sum(\yii\helpers\ArrayHelper::map($event->rating, 'id', 'rating'));
+                                        $rating = (int)$rating_all / count($event->rating);
+                                    } else {
+                                        $rating = 0;
+                                    }
+                                    ?>
+                                    <div class="rating rating-<?=$rating?>" data-event-id="<?=$event->id?>">
+                                        <?php for($i=1; $i<=5; $i++){ ?>
+                                        <span <?=$i == 6-$rating ? 'class="active"':'' ?>>☆</span>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <a href="<?=Url::to('/events/show/'.$event->id)?>"><?=Html::encode($event->title_ru)?></a>

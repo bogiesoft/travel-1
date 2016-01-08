@@ -35,7 +35,9 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/webcams/'
                                 </div>  <!--web-cameras__item-->
                             </div>
                             <?php endforeach; ?>
-                            <a href="#" class="common-button load-more-btn common-button--thin">Загрузить еще</a>
+                            <?php if(!empty($models) && count($models) % 3 == 0 && count($models) % 18 == 0): ?>
+                            <a href="<?=Url::to(['/webcams/', 'limit'=>$limit])?>" class="common-button load-more-btn common-button--thin">Загрузить еще</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>  <!--web-cameras-->

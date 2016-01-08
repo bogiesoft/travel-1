@@ -63,6 +63,10 @@ class HotelsController extends Controller
         $model = new Hotels();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $post = Yii::$app->request->post();
+            if(!empty($post['Hotels'])) {
+                $this->saveRelations($post['Hotels'], $model->id);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -82,6 +86,8 @@ class HotelsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $post = Yii::$app->request->post();
+            $this->saveRelations($post['Hotels'], $id);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -101,6 +107,30 @@ class HotelsController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionGetField() {
+        $data = Yii::$app->request->post();
+
+        return $this->renderAjax('ajax/field', ['data'=>$data]);
+    }
+
+    public function saveRelations($data, $object_id) {
+        $db = Yii::$app->db;
+
+        $db->createCommand("DELETE FROM object_field WHERE object_id = {$object_id}")->execute();
+
+        if(!empty($data['fields'])):
+            foreach($data['fields'] as $field) {
+                $db->createCommand()->insert('object_field', [
+                    'object_id' => $object_id,
+                    'type_id' => $field['type_id'],
+                    'content' => $field['value']
+                ])->execute();
+            }
+        endif;
+
+        return $data;
     }
 
     /**

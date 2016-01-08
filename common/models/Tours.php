@@ -23,6 +23,7 @@ use yii\helpers\Json;
  * @property string $created_at
  * @property string $updated_at
  *  @property string $incost
+ *  @property string $duration
  * @property string $outcost
  * @property string $maybecost
  */
@@ -45,7 +46,7 @@ class Tours extends \yii\db\ActiveRecord
             [['description_ru', 'support', 'incost', 'outcost', 'maybecost'], 'string'],
             [['country_id', 'city_id', 'user_id', 'status'], 'integer'],
             [['created_at', 'updated_at', 'hotels', 'categories', 'cities'], 'safe'],
-            [['title_ru'], 'string', 'max' => 255],
+            [['title_ru', 'duration', 'pdf'], 'string', 'max' => 255],
             //[['id'], 'exist', 'skipOnError' => true, 'targetClass' => TourToHotel::className(), 'targetAttribute' => ['id' => 'tour_id']],
         ];
     }
@@ -66,7 +67,9 @@ class Tours extends \yii\db\ActiveRecord
             'image' => 'Изображения',
             'country_id' => 'Страна',
             'city_id' => 'Город',
+            'duration' => 'Продолжительность',
             'user_id' => 'Пользователь',
+            'pdf' => 'PDF файл маршрута',
             'status' => 'Показыать на сайте?',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
@@ -146,4 +149,7 @@ class Tours extends \yii\db\ActiveRecord
         return $this->hasMany(TourDay::className(), ['tour_id'=>'id']);
     }
 
+    public function getBrones() {
+        return $this->hasMany(ObjectCodes::className(), ['tour_id'=>'id']);
+    }
 }

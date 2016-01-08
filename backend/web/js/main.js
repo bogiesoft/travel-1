@@ -80,4 +80,38 @@ $(document).ready(function(){
             $(this).text('(свернуть)');
         }
     });
+
+    $('body').on('click', '.add-object-field', function(e){
+        e.preventDefault();
+        var objectId = $(this).attr('data-object-id');
+        var fieldId = $('#params').find('.field').length + 1;
+        var data = {
+            objectId: objectId,
+            fieldId: fieldId
+        };
+
+        $.post('/hotels/get-field', data, function(response){
+            $('#params').append(response);
+        });
+    });
+
+    $('body').on('change', '.object-select', function(){
+        var objectId = $(this).val();
+        var tourId = $('#tourId').val();
+        var name = $(this).attr('name').replace(/object_id/g,"hide_fields")+'[]';
+        /*switch typeId {
+         case 1:
+
+         break;
+
+         }*/
+        $.post('/tours/hide-fields', {name:name, objectId:objectId, tourId:tourId}, function(response){
+            $('[name="'+name+'"]').parents('.fields-select').html(response)
+        });
+    });
+
+    $('body').on('click', '.remove-variant', function(e){
+        e.preventDefault();
+        $(this).parents('.vrnt-outer').empty();
+    });
 });

@@ -32,7 +32,11 @@
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],*/
 
                     ['label' => 'Войти', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-
+                    [
+                        'label' => 'Коды объектов',
+                        'icon' => 'fa fa-bar-chart-o',
+                        'url' => '/object-codes/',
+                    ],
                     [
                         'label' => 'Туры',
                         'icon' => 'fa fa-globe',
@@ -56,6 +60,16 @@
                                 'items' => [
                                     ['label' => 'Список', 'icon' => 'fa fa-list', 'url' => ['/hotels'],],
                                     ['label' => 'Добавить', 'icon' => 'fa fa-plus', 'url' => ['/hotels/create'],],
+                                ]
+                            ],
+
+                            [
+                                'label' => 'Категории объектов',
+                                'icon' => 'fa fa-bed',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'Список', 'icon' => 'fa fa-list', 'url' => ['/object-category'],],
+                                    ['label' => 'Добавить', 'icon' => 'fa fa-plus', 'url' => ['/object-category/create'],],
                                 ]
                             ],
 
@@ -88,6 +102,16 @@
                                 ]
                             ],
                         ]
+                    ],
+                    [
+                        'label' => 'Меню',
+                        'icon' => '',
+                        'url' => '/menu-items/',
+                    ],
+                    [
+                        'label' => 'Справочник',
+                        'icon' => '',
+                        'url' => '/faq/',
                     ],
 
                     [

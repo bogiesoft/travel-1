@@ -11,8 +11,11 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/maps/']];
         vertical-align: top;
         float: left;
     }
+    .ng-cloak,[ng-cloak] {
+        display: none!important;
+    }
 </style>
-<div class="maps" ng-app="maps">
+<div class="maps" ng-app="maps" ng-cloak>
     <div class="container" ng-controller="MapsController">
         <div class="row">
             <div class="main-content__heading">
@@ -20,13 +23,13 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/maps/']];
                     Карты
                 </h3>
             </div>  <!--main-content__heading-->
-            <div class="maps__filter hidden-sm hidden-xs clearfix" ng-cloak>
-                <label>Выберите страну<select ng-change="citySelect = ''" class="selectpicker common-button common-button--thin" ng-model="countrySelect">
+            <div id="maps_filter" class="maps__filter hidden-sm hidden-xs clearfix" ng-cloak>
+                <label>Выберите страну<select ng-change="citySelect = ''" class="rs-select common-button common-button--thin" ng-model="countrySelect">
 
                         <option ng-repeat="country in countries" ng-value="{{country.id}}" ng-cloak>{{country.title_ru}}</option>
 
                     </select></label>
-                <label>Город<select class="selectpicker common-button common-button--thin" ng-model="citySelect">
+                <label>Город<select class="rs-select common-button common-button--thin" ng-model="citySelect">
 
                         <option ng-repeat="city in cities | filter: {country_id: countrySelect}" ng-value="{{city.id}}" ng-cloak>{{city.title_ru}}</option>
 

@@ -19,7 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 </h3>
             </div>  <!--main-content__heading-->
             <div class="consultations__block col-lg-5">
-                <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+                <?php $form = ActiveForm::begin([
+                    'id' => 'form-signup'
+                ]);
+                $form->action = \yii\helpers\Url::to('site/register'); ?>
                 <?= $form->field($model, 'username') ?>
 
                 <?= $form->field($model, 'email') ?>

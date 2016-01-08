@@ -121,6 +121,16 @@ class ToursController extends Controller
                 $image->saveAs($path);
                 $model->attachImage($path, true);
             }
+
+            $pdf = UploadedFile::getInstance($model, 'pdf');
+            if($pdf) {
+                $path = Yii::getAlias('@frontend/web/pdf/').$pdf->baseName.'.'.$pdf->extension;
+                $pdf->saveAs($path);
+                $model->pdf = '/pdf/'.$pdf->baseName.'.'.$pdf->extension;
+                $model->save();
+            }
+
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -185,10 +195,14 @@ class ToursController extends Controller
     public function saveRelations($data, $tour_id) {
         $db = Yii::$app->db;
 
+        if(empty($data['days'])) {
+            return;
+        }
+
         $db->createCommand("DELETE FROM tour_day WHERE tour_id = {$tour_id}")->execute();
         $db->createCommand("DELETE FROM day_schedule WHERE tour_id = {$tour_id}")->execute();
         $db->createCommand("DELETE FROM schedule_variant WHERE tour_id = {$tour_id}")->execute();
-        $db->createCommand("DELETE FROM variant_field WHERE tour_id = {$tour_id}")->execute();
+        $db->createCommand("DELETE FROM fields_to_hide WHERE tour_id = {$tour_id}")->execute();
 
         foreach($data['days'] as $day) {
             $db->createCommand("INSERT INTO tour_day SET tour_id = {$tour_id}")->execute();
@@ -196,10 +210,26 @@ class ToursController extends Controller
             foreach($day['schedule'] as $schedule) {
                 $db->createCommand("INSERT INTO day_schedule SET day_id = {$day_id}, tour_id = {$tour_id}")->execute();
                 $schedule_id = $db->getLastInsertID();
-                foreach($schedule['variants'] as $variant){
+                foreach($schedule['variants'] as $variant) {
                     $db->createCommand("INSERT INTO schedule_variant
-                    SET item_id = {$schedule_id}, tour_id = {$tour_id}, label = '{$variant['label']}', header = '{$variant['header']}'")->execute();
-                    $variant_id = $db->getLastInsertID();
+                    SET item_id = {$schedule_id},
+                    tour_id = {$tour_id},
+                    label = '{$variant['label']}',
+                    header = \"{$variant['header']}\",
+                    datetime = '{$variant['datetime']}',
+                    object_id = {$variant['object_id']}")->execute();
+
+                    if(!empty($variant['hide_fields'])) {
+                        foreach($variant['hide_fields'] as $field_id) {
+                            $db->createCommand("INSERT INTO fields_to_hide
+                            SET object_field_id = {$field_id},
+                            tour_id = {$tour_id},
+                            object_id = {$variant['object_id']}")->execute();
+                        }
+                    }
+
+
+                    /*$variant_id = $db->getLastInsertID();
                     foreach($variant['fields'] as $field) {
                         $db->createCommand()->insert('variant_field', [
                            'variant_id' => $variant_id,
@@ -208,11 +238,24 @@ class ToursController extends Controller
                             'content' => $field['value']
                         ])->execute();
                         //$db->prepare("INSERT INTO variant_field SET variant_id = {$variant_id}, tour_id = {$tour_id}, type_id = {$field['type_id']}, content = '{$field['value']}'")->execute();
-                    }
+                    }*/
                 }
             }
         }
 
         return $data;
     }
+
+    public function actionEditorByType(){
+        $post = Yii::$app->request->post();
+
+        return $this->renderAjax('ajax/editor-by-type', ['data'=>$post]);
+    }
+
+    public function actionHideFields(){
+        $post = Yii::$app->request->post();
+
+        return $this->renderAjax('ajax/hide-fields', ['data'=>$post]);
+    }
+
 }

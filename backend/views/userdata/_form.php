@@ -25,6 +25,14 @@ use yii\widgets\ActiveForm;
         <?php if($image){ ?><img src="<?=$image->getUrl('x200')?>" alt=""><?php } ?>
     </div>
 
+    <?= $form->field($model, 'fathername')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'birthday')->widget(\yii\jui\DatePicker::className()) ?>
+
+    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'skype')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'country')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>

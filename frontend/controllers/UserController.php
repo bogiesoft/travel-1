@@ -6,7 +6,11 @@
  * Time: 18:58
  */
 namespace frontend\controllers;
+use common\models\ForumPosts;
+use common\models\ObjectCodes;
+use common\models\Tours;
 use common\models\Userdata;
+use common\models\UserToForumUser;
 use frontend\filters\SiteLayout;
 use common\controllers\MainController;
 use common\models\User;
@@ -41,14 +45,32 @@ class UserController extends MainController
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView()
     {
+        $id = \Yii::$app->user->id;
+
+        if(!$id) {
+            return $this->redirect('/site/login');
+        }
+
         $model = $this->findModel(User::className(),$id);
         $userdata = Userdata::findOne(['user_id'=>$id]);
+        $brones = ObjectCodes::find()->joinWith('tour')->where(['object_codes.user_id'=>$id])->orderBy('object_codes.created_at DESC')->groupBy('tours.id')->all();
+
+        $forum_user = UserToForumUser::findOne(['user_id'=>$model->id]);
+        $messages = ForumPosts::find()->where(['poster_id'=>$forum_user['forum_user_id']])->all();
+
         self::checkAccess(RbacController::update_profile,['user'=>$model]);
+
+        if(!$userdata) {
+            return $this->redirect('/site/additional');
+        }
+
         return $this->render('user-view', [
             'model' => $model,
-            'userdata' => $userdata
+            'userdata' => $userdata,
+            'brones'=>$brones,
+            'messages'=>$messages
         ]);
     }
 
@@ -95,5 +117,38 @@ class UserController extends MainController
             return $this->goHome();
     }
 
+
+    public function actionTours(){
+        $id = \Yii::$app->user->id;
+        $model = $this->findModel(User::className(),$id);
+        self::checkAccess(RbacController::update_profile,['user'=>$model]);
+        $brones = Tours::find()->joinWith('brones')->where(['object_codes.user_id'=>$id])->orderBy('object_codes.created_at DESC')->groupBy('object_codes.object_id')->all();
+
+        return $this->render('tours', [
+            'model'=>$model,
+            'tours'=>$brones,
+        ]);
+    }
+
+    public function actionMessages(){
+        $id = \Yii::$app->user->id;
+        $model = $this->findModel(User::className(),$id);
+        self::checkAccess(RbacController::update_profile,['user'=>$model]);
+
+        $forum_user = UserToForumUser::findOne(['user_id'=>$model->id]);
+        $messages = ForumPosts::find()->where(['poster_id'=>$forum_user['forum_user_id']]);
+        $topics = $messages->groupBy('topic_id')->all();
+        $messages = $messages->all();
+
+        return $this->render('messages', [
+            'messages'=>$messages,
+            'topics'=>$topics
+        ]);
+    }
+
+    public function actionForm() {
+
+        return $this->render('form', []);
+    }
 
 }

@@ -1,8 +1,11 @@
 <?php
 use common\components\MainView;
 
+require(__DIR__ . '/../../vendor/nill/forum/PhpBBWebUser.php');
+require(__DIR__ . '/../../vendor/nill/forum/models/phpBBUsers.php');
+require(__DIR__ . '/../../vendor/nill/forum/behaviors/PhpBBUserBahavior.php');
 return [
-    'language' => 'en-EN',
+    'language' => 'ru-RU',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'aliases' => [
         '@file_save_dir' => '@common/files/',
@@ -19,8 +22,8 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'PhpBbUsers' => [
-            'class' => 'common\components\PhpBbUsers'
+        'roslPhpBb' => [
+            'class' => \common\components\RoslPhpBbClass::className()
         ],
         'assetManager'=>[
             'appendTimestamp' => true,
@@ -73,7 +76,7 @@ return [
                 '*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
-                    'sourceLanguage' => 'en-US',
+                    'sourceLanguage' => 'ru-RU',
                 ],
             ],
         ],

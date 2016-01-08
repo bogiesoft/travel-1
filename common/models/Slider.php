@@ -31,6 +31,7 @@ class Slider extends \yii\db\ActiveRecord
     {
         return [
             [['excerpt_ru'], 'string'],
+            [['order'], 'integer'],
             [['title_ru', 'image', 'link', 'link_name_ru'], 'string', 'max' => 255],
         ];
     }
@@ -47,6 +48,7 @@ class Slider extends \yii\db\ActiveRecord
             'link' => 'Ссылка',
             'link_name_ru' => 'Надпись на ссылке',
             'excerpt_ru' => 'Краткое описание',
+            'order' => 'Порядок показа',
         ];
     }
 

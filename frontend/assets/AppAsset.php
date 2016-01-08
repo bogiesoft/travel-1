@@ -22,10 +22,14 @@ class AppAsset extends AssetBundle
         "fonts/icon-fonts/style.css",
         "css/owl-carousel/owl.carousel.css",
         "css/owl-carousel/owl.theme.css",
-        "css/normalize.css",
-        "css/main.css",
+        "css/bootstrap-select.min.css",
         "css/lightslider.css",
         "css/jquery.mCustomScrollbar.min.css",
+        "css/normalize.css",
+        "css/main.css",
+        "css/msg_forum.css",
+        "css/lk.css",
+        "css/components.css",
     ];
     public $js = [
         "js/vendor/modernizr-2.8.3.min.js",

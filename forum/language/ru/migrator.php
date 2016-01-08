@@ -7,7 +7,8 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * For full copyright and license information, please see
-* the docs/CREDITS.txt file.*
+* the docs/CREDITS.txt file.
+*
 */
 
 /**
@@ -36,20 +37,19 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'CONFIG_NOT_EXIST'					=> 'Настройка конфигурации "%s" не существует.',
+	'CONFIG_NOT_EXIST'					=> 'Параметр конфигурации «%s» не существует.',
 
-	'GROUP_NOT_EXIST'					=> 'Группа "%s" не существует.',
-	
+	'GROUP_NOT_EXIST'					=> 'Группа «%s» не существует.',
+
 	'MIGRATION_APPLY_DEPENDENCIES'		=> 'Установка зависимостей обновления %s.',
-
-	'MIGRATION_DATA_DONE'				=> 'Перенос данных выполнен: %1$s; Время: %2$.2f секунд',
-	'MIGRATION_DATA_IN_PROGRESS'		=> 'Выполняется перенос данных: %1$s; Время: %2$.2f секунд',
+	'MIGRATION_DATA_DONE'				=> 'Обновлены данные: %1$s; Время: %2$.2f секунд',
+	'MIGRATION_DATA_IN_PROGRESS'		=> 'Обновление данных: %1$s; Время: %2$.2f секунд',
 	'MIGRATION_DATA_RUNNING'			=> 'Добавление данных: %s.',
-	'MIGRATION_EFFECTIVELY_INSTALLED'	=> 'Перенос данных успешно произведен (пропущен): %s',
-	'MIGRATION_EXCEPTION_ERROR'			=> 'Что-то пошло не так во время запроса и было сгенерировано исключение. Изменения, внесенные до ошибки были отменены настолько, насколько это возможно, но Вам необходимо будет проверить форум на предмет наличия ошибок.',
-	'MIGRATION_NOT_FULFILLABLE'			=> 'Перенос "%1$s" не может быть выполнен, отсутствует перенос "%2$s".',
+	'MIGRATION_EFFECTIVELY_INSTALLED'	=> 'Обновление уже было выполнено (пропущено): %s',
+	'MIGRATION_EXCEPTION_ERROR'			=> 'В процессе обновления произошла ошибка, которая вызвала исключение. Изменения, произведенные до появления ошибки, были отменены. Тем не менее, рекомендуется проверить конференцию на отсутствие ошибок в работе.',
+	'MIGRATION_NOT_FULFILLABLE'			=> 'Невозможно выполнить обновление «%1$s», пропущено обновление «%2$s».',
 	'MIGRATION_NOT_VALID'				=> '%s не является корректным обновлением.',
-	'MIGRATION_SCHEMA_DONE'				=> 'Установленная схема: %1$s; Время: %2$.2f секунд',
+	'MIGRATION_SCHEMA_DONE'				=> 'Обновлена схема: %1$s; Время: %2$.2f секунд',
 	'MIGRATION_SCHEMA_RUNNING'			=> 'Обновление схемы: %s.',
 
 	'MIGRATION_INVALID_DATA_MISSING_CONDITION'		=> 'Файл обновления содержит ошибки. Обработчик оператора if не смог найти условие.',
@@ -58,12 +58,12 @@ $lang = array_merge($lang, array(
 	'MIGRATION_INVALID_DATA_UNKNOWN_TYPE'			=> 'Файл обновления содержит ошибки. Тип обновления не указан.',
 	'MIGRATION_INVALID_DATA_UNDEFINED_TOOL'			=> 'Файл обновления содержит ошибки. Требуемый файл обновления не существует.',
 	'MIGRATION_INVALID_DATA_UNDEFINED_METHOD'		=> 'Файл обновления содержит ошибки. Требуемый метод отсутствует в файле обновления.',
-	
-	'MODULE_ERROR'						=> 'При создании модуля произошла ошибка: %s',
-	'MODULE_INFO_FILE_NOT_EXIST'		=> 'Отсутствует модуль info-файла: %2$s',
-	'MODULE_NOT_EXIST'					=> 'Отсутствует необходимый модуль: %s',
 
-	'PERMISSION_NOT_EXIST'				=> 'Настройка доступа "%s" отсутствуют.',
+	'MODULE_ERROR'						=> 'Ошибка при создании модуля: %s',
+	'MODULE_INFO_FILE_NOT_EXIST'		=> 'Обязательный компонент модуля не существует: %2$s',
+	'MODULE_NOT_EXIST'					=> 'Обязательный модуль не существует: %s',
 
-	'ROLE_NOT_EXIST'					=> 'Роль доступа "%s" отсутствует.',
+	'PERMISSION_NOT_EXIST'				=> 'Право доступа «%s» не существует.',
+
+	'ROLE_NOT_EXIST'					=> 'Роль «%s» в системе прав доступа не существует.',
 ));

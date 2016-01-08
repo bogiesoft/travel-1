@@ -15,6 +15,7 @@ use common\models\Countries;
         function actionIndex() {
             $city = Yii::$app->getRequest()->getQueryParam('city');
             $country = Yii::$app->getRequest()->getQueryParam('country');
+            $limit = Yii::$app->getRequest()->getQueryParam('limit') ? Yii::$app->getRequest()->getQueryParam('limit') : 18;
             $where = [];
             if($city) {
                 $where['city_id'] = $city;
@@ -23,9 +24,15 @@ use common\models\Countries;
                 $where['country_id'] = $country;
             }
 
-            $models = Webcam::find()->where($where)->all();
+            $models = Webcam::find()
+                ->where($where)
+                ->limit($limit)
+                ->all();
 
-            return $this->render('index', ['models'=>$models]);
+            return $this->render('index', [
+                'models'=>$models,
+                'limit' => $limit+18
+            ]);
         }
 
         function actionShow($id) {

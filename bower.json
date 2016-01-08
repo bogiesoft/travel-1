@@ -1,0 +1,23 @@
+{
+  "name": "travel",
+  "version": "0.0.0",
+  "homepage": "https://github.com/djrosl/travel",
+  "authors": [
+    "rosl <dubztep45@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap-select": "~0.0.5",
+    "angular-google-maps": "~2.2.1",
+    "angular": "~1.4.6",
+    "ngmap": "~1.13.4"
+  }
+}

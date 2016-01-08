@@ -19,14 +19,15 @@ $this->params['sidebarType'] = 1;
                     <div class="owl-carousel main-slider">
                         <?php foreach($slides as $slide):
                             $image = $slide->getImage(); ?>
-                        <div class="main-slider__item">
+                        <a href="<?=Url::to($slide->link)?>" class="main-slider__item">
                             <img src="<?=$image->getUrl('1012x497')?>" alt="">
                             <div class="main-slider__desc">
-                                <h2 class="main-slider__desc__title"><?=Html::encode($slide->title_ru)?></h2>
-                                <?=Html::decode($slide->excerpt_ru)?>
-                                <a href="<?=Url::to($slide->link)?>" class="common-button"><?=Html::encode($slide->link_name_ru)?></a>
+                                <h2 class="main-slider__desc__title"><?=Html::decode($slide->title_ru)?></h2>
+                                <?=Html::decode($slide->excerpt_ru)?><?php
+                                //<a href="<?=Url::to($slide->link)" class="common-button"><?=Html::encode($slide->link_name_ru)</a>
+                                ?>
                             </div>
-                        </div>
+                        </a>
                         <?php endforeach; ?>
                     </div>
                 </div>  <!--slider-block-->
@@ -42,7 +43,7 @@ $this->params['sidebarType'] = 1;
                             <hr>
                             <p>	<?=Html::encode($advice->excerpt_ru)?>
                             </p>
-                            <a href="<?=Url::to(['advice/show/'.$advice->id])?>" class="common-button">Больше информации</a>
+                            <a href="<?=Url::to(['advice/show/'.$advice->id])?>" class="common-button"><?=Html::encode($advice->button_title_ru)?></a>
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -50,25 +51,25 @@ $this->params['sidebarType'] = 1;
 
                 <div class="tours-catalog">
                     <div class="tours-catalog__heading">
-                        <button type="button" class="btn common-button">Каталог образцов туров</button>
+                        <a href="<?=Url::to('/tours/')?>" type="button" class="btn common-button">Каталог идей путешествий</a>
                     </div>
                 </div>  <!--tours-catalog-->
 
                 <div class="more-about-us clearfix">
-                    <?=Html::decode(SiteController::getOption('about_header'))?>
+                    <h3 class="title"><?=Html::decode(SiteController::getOption('about_header'))?></h3>
                     <?=Html::decode(SiteController::getOption('about_text'))?>
                     <a href="<?=Url::to(['/page/show/1'])?>"><button type="button" class="btn common-button">БОЛЬШЕ О НАС</button></a>
                 </div>  <!--more-about-us-->
 
                 <div class="search-tour">
-                    <form method="post" action="javascript: void(null);">
+                    <form method="get" action="<?=Url::to('/tours/index/')?>">
                         <div class="search-field">
-                            <input type="search" placeholder="Поиск по турам" name="serch" class="common-form-element">
+                            <input type="search" placeholder="Поиск по турам" name="search" class="common-form-element">
                             <input type="submit" value="">
                         </div>
-                        <input type="text" placeholder="Страна" class="common-form-element pull-left">
-                        <input type="text" placeholder="Количество человек" class="common-form-element">
-                        <input type="text" placeholder="Продолжительность" class="common-form-element pull-right">
+                        <input type="text" name="city" placeholder="Город" class="common-form-element pull-left">
+                        <input type="text" name="people" placeholder="Количество человек" class="common-form-element">
+                        <input type="text" name="duration" placeholder="Продолжительность" class="common-form-element pull-right">
                     </form>
                 </div>  <!--search-tour-->
 
@@ -79,18 +80,15 @@ $this->params['sidebarType'] = 1;
                             <h2 class="title">Рекомендуемые туры</h2>
                             <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития</p>
                         </div>
-                        <div class="featured-tours-slider__item">
-                            <h2 class="title">Рекомендуемые туры</h2>
-                            <p>Таким образом рамки и место обучения кадров влечет за собой процесс внедрения и модернизации модели развития</p>
-                        </div>
                     </div>  <!--featured-tours-slider-->
                     <div class="featured-tours__catalog clearfix">
                         <?php foreach($tours as $tour): ?>
                         <div class="featured-tours__current col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="<?=$tour->getImage()->getUrl('450x315');?>" alt="">
+                            <?=$tour->getImage() ? '<img src="'.$tour->getImage()->getUrl('450x315').'" alt="">': '';?>
                             <div class="featured-tours__current__desc">
                                 <h3 class="title"><?=$tour->title_ru?></h3>
                                 <p>	<?=StringHelper::truncateWords($tour->description_ru, 20)?>
+                                <p><br></p>
                                     <br>
                                 </p>
                                 <p class="duration">Длительность: <?=count($tour->days)?> дней</p>

@@ -1,5 +1,5 @@
 <?php
-require_once('../../common/components/MainView.php');
+require_once(__DIR__ . '/../../common/components/MainView.php');
 use common\components\MainView;
 use frontend\models\User;
 

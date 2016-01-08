@@ -1,4 +1,19 @@
 <?php
+
+
+//************************   FORUM Yii **********************************
+
+/*include "yiiapp.php";*/
+
+/*$controller = new yii\web\Controller('117','forum');
+\Yii::$app->controller = $controller;*/
+
+ob_start();
+
+//************************  *********  **********************************
+
+
+
 /**
 *
 * This file is part of the phpBB Forum Software package.

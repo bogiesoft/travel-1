@@ -48,9 +48,9 @@ class Advices extends \yii\db\ActiveRecord
     {
         return [
             [['excerpt_ru', 'full_content_ru'], 'string'],
-            [['show'], 'integer'],
+            [['show','order'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['main_title_ru', 'sub_title_ru'], 'string', 'max' => 255],
+            [['main_title_ru', 'sub_title_ru', 'button_title_ru'], 'string', 'max' => 255],
         ];
     }
 
@@ -62,12 +62,14 @@ class Advices extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'main_title_ru' => 'Большой заголовок',
+            'button_title_ru' => 'Надпись на кнопке',
             'sub_title_ru' => 'Маленький заголовок',
             'excerpt_ru' => 'Краткое описание',
             'full_content_ru' => 'Полное описание',
             'show' => 'Показывать на сайте?',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
+            'order'=>'Порядок показа'
         ];
     }
 }

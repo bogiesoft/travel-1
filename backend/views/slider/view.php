@@ -6,13 +6,13 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Slider */
 
-$this->title = $model->title_ru;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Слайды', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = Html::decode($this->title);
 ?>
 <div class="slider-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::decode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title_ru',
             'image',
             'link',
             'link_name_ru',

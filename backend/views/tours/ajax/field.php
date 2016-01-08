@@ -1,7 +1,7 @@
-<div class="field" id="d<?=$data['dayId']?>e<?=$data['elementId']?>v<?=$data['variantId']?>f<?=$data['fieldId']?>">
+<div class="field" id="f<?=$data['fieldId']?>">
     <h6>Поле <?=$data['fieldId']?></h6>
     <div class="form-group">
-        <select name="Tours[days][<?=$data['dayId']?>][schedule][<?=$data['elementId']?>][variants][<?=$data['variantId']?>][fields][<?=$data['fieldId']?>][type_id]" id="" class="form-control">
+        <select name="Hotel[fields][<?=$data['fieldId']?>][type_id]" id="" class="field-type-select form-control">
             <option value="">Тип поля</option>
             <?php $types = \common\models\FieldType::find()->all();
             foreach($types as $type){
@@ -10,8 +10,7 @@
             ?>
         </select>
     </div>
-    <div class="form-group">
-
-        <textarea class="form-control" name="Tours[days][<?=$data['dayId']?>][schedule][<?=$data['elementId']?>][variants][<?=$data['variantId']?>][fields][<?=$data['fieldId']?>][value]" id="" rows="4"></textarea>
+    <div class="form-group field-inp-wrp">
+        <input type="hidden" name="<?='Hotel[fields]['.$data['fieldId'].'][value]'?>">
     </div>
 </div>

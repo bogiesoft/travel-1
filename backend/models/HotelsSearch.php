@@ -18,7 +18,7 @@ class HotelsSearch extends Hotels
     public function rules()
     {
         return [
-            [['id', 'discount'], 'integer'],
+            [['id', 'discount', 'brone', 'country_id', 'city_id'], 'integer'],
             [['title_ru', 'description_ru', 'place_ru', 'way_ru', 'link'], 'safe'],
         ];
     }
@@ -61,6 +61,9 @@ class HotelsSearch extends Hotels
         $query->andFilterWhere([
             'id' => $this->id,
             'discount' => $this->discount,
+            'brone' => $this->brone,
+            'city_id' => $this->country_id,
+            'country_id' => $this->country_id,
         ]);
 
         $query->andFilterWhere(['like', 'title_ru', $this->title_ru])

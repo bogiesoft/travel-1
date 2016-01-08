@@ -1,0 +1,330 @@
+h5.title {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Calibri';
+}
+
+.breadcrumb li {
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.breadcrumb li:first-child {
+    margin-left: 34px;
+}
+
+.breadcrumb li > a {
+    font: 12px 'Calibri';
+    color: #414042;
+    font-weight: 300;
+}
+
+.breadcrumb li + li:before {
+    content: "/\00a0";
+    color: #414042;
+    position: relative;
+    padding: 0 3px;
+    top: 1px;
+}
+
+.breadcrumb .personal-cabinet {
+    padding-left: 0;
+}
+
+.breadcrumb .personal-cabinet li:first-child {
+    margin-left: 18px;
+}
+
+.clear{
+	clear: both;
+}
+
+@media(min-width: 1550px) {
+
+    .header-main .personal-cabinet .logo {
+        text-align: left;
+    }
+}
+
+@media(max-width: 1299px) {
+    
+}
+
+
+
+@media(max-width: 991px) {
+
+	
+
+}
+
+@media(max-width: 767px) {
+
+}
+
+@media(max-width: 719px) {
+	
+	.more_msg{
+		display: block !important;
+	}
+	
+	.zag_msg{
+		display: none;
+	}
+	
+	.mess_block{
+		display: none;
+	}
+	
+	.toggle{
+		display: block !important;
+	}
+	
+	.stat_theme{
+		display: none;
+	}
+	.paginator{
+		display: none;
+	}
+}
+
+@media(max-width: 359px) {
+    
+}
+
+.title.text-left.zag{
+	color: #414042;
+}
+
+.title.text-left.zag_msg{
+	color: #414042;
+}
+
+.title.text-left.zag span{
+	color: #414042;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.tour_forum .table{
+	border: 0;
+}
+
+.tour_forum .table td{
+	border: 0;
+}
+
+
+.tour_forum .table thead th{
+	border: 0;
+	border-bottom: 1px solid #d0d0d0;
+	color: #999999;
+	font-size: 12px;
+	padding: 0;
+	font-weight: normal;
+}
+
+.tour_forum .table td{
+	background: #d6dde1;
+	padding-left: 0;
+}
+
+.tour_forum .table td a:hover{
+	text-decoration: none;
+}
+
+.tour_forum .table tr.row_otp td{
+	background: #fff;
+	padding: 0;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.tour_forum .table tr:first-child.row_otp td{
+	background: #fff;
+	padding: 0;
+	padding-top: 2px;
+	padding-bottom: 1px;
+}
+
+.tour_forum .table td:first-child{
+	color: #006795;
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 15px;
+}
+
+.tour_forum .table td:first-child span{
+	color: #999999;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.theme_block .table td:nth-child(2) p{
+	color: #000;
+	font-size: 12px;
+}
+
+.tour_forum .table td:nth-child(3){
+	font-size: 12px;
+}
+
+
+.tour_forum .table td:nth-child(3) a{
+	display: block;
+	font-size: 12px;
+	color: #000;
+	text-decoration: underline;
+}
+
+.tour_forum .table td:last-child a:hover{
+	text-decoration: none;
+}
+
+.stat_theme{
+	float: left;
+	color: #006795;
+	font-size: 14px;
+	margin-left: 5px;
+}
+
+.paginator{
+	float: right;
+}
+
+.paginator span{
+	color: #006795;
+	text-decoration: underline;
+}
+
+.mess_forum td span{
+	display: block;
+}
+
+.table.mess_forum td:first-child{
+	width: 30%;
+}
+
+.table.mess_forum td:last-child{
+	width: 70%;
+}
+
+.tour_forum .table tr.new_row td{
+	background: #f0f3f4;
+}
+
+.tour_forum .table tr.new_row span{
+	font-size: 14px;
+	margin-right: 4%;
+}
+
+.tour_forum .table tr.new_row p{
+	margin: 0;
+	color: #000000;
+	font-size: 14px;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.tour_forum .table tr.new_row a.last_mess{
+	color: #000000;
+	font-size: 14px;
+	font-weight: normal;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.tour_forum .table tr.new_row span.datetime{	
+	color: #000000;
+	font-size: 12px;
+}
+
+.intbl{
+	width: 100%;
+}
+
+.more_msg{
+	text-align: center;
+	margin-top: 20px;
+	display: none;
+}
+
+.more_msg a{
+	color: #006795;
+	font-size: 18px;
+	display: inline-block;
+	border: 1px solid #006795;
+	border-radius: 20px;
+	padding: 7px 25px; 
+}
+
+.toggle{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	margin-top: 35px;
+	margin-top: 30px !important;
+	text-align: center !important;
+	display: none;
+}
+
+.toggle div{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	display: inline-block;
+	padding-bottom: 20px;
+}
+
+.toggle div span{	
+	width: 300px;
+	display: inline-block;
+	background: #fff;
+	color: #086c98;
+	border-radius: 20px;
+	padding: 7px 25px; 
+	white-space: nowrap;
+	cursor: pointer;
+	border: 2px solid #086c98;
+}
+
+.toggle div.active span{	
+	width: 300px;
+	display: inline-block;
+	background: #006795;
+	color: #fff;
+	border-radius: 20px;
+	padding: 7px 25px; 
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.text-zag_form p{
+	color: #383838;
+	font-size: 14px;
+}
+
+
+.hide_td{
+	display: none;
+}
+
+.onooff{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

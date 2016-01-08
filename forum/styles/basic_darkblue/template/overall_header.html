@@ -88,26 +88,30 @@
 
 	<div class="use-bootstrap">
 		<header class="header-main">
-            <div class="container">
-                <div class="row">
-                    <div class="logo valign col-lg-3 col-md-3">
-                        <a href="http://travel.dev/"><h3>Турфирм<span>НЕТ</span></h3></a>
-                    </div><div class="grid valign col-lg-9 col-md-9 hidden-sm hidden-xs">
-                        <nav class="nav-menu list-unstyled clearfix">
-                            <li><a href="#">О проекте</a></li>
-                            <li class="active"><a href="#">Консультации</a></li>
-                            <li><a href="#">Форум</a></li>
-                            <li><a href="#">Карты</a></li>
-                            <li><a href="#">Web-камеры</a></li>
-                            <li><a href="#">Справочник</a></li>
-                            <li><a href="#">Контакты</a></li>
-                        </nav>
-                        <button type="button" class="btn btn-sm">Вход</button>
-                     </div> <!--grid-->
-                    
-                </div>  <!--row-->
-            </div>  <!--container-->
-        </header>   <!--header-main-->
+			<div class="container">
+				<div class="row">
+					<div class="logo col-lg-3 col-md-3 valign">
+						<a href="http://travel.alltoall.info/"><h3>Турфирм<span>НЕТ</span></h3></a>
+					</div>
+					<div class="grid valign col-lg-8 col-md-8 hidden-sm hidden-xs">
+						<ul class="nav-menu list-unstyled clearfix"><li><a href="http://travel.alltoall.info/page/show/1">О проекте</a></li>
+							<li><a href="http://travel.alltoall.info/page/show/2">Консультации</a></li>
+							<li><a href="http://forum.travel.alltoall.info/">Форум</a></li>
+							<li><a href="http://travel.alltoall.info/maps">Карты</a></li>
+							<li><a href="http://travel.alltoall.info/webcams/index">Web-камеры</a></li>
+							<li><a href="http://travel.alltoall.info/faq">Справочник</a></li>
+							<li><a href="http://travel.alltoall.info/page/show/4">Контакты</a></li></ul>
+						<button type="button" class="btn btn-sm">
+							<!-- IF S_USER_LOGGED_IN -->
+							<a href="http://travel.alltoall.info/user/view">{S_USERNAME}</a>
+							<!-- ELSE -->
+							<a href="http://travel.alltoall.info/site/login">Вход</a>
+							<!-- ENDIF -->
+						</button>
+					</div> <!--grid-->
+				</div>  <!--row-->
+			</div>  <!--container-->
+		</header>
 	</div>
 
 

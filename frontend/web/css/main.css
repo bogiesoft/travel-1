@@ -174,6 +174,7 @@ body {
     color: #f27269;
     text-transform: uppercase;
     font-weight: bold;
+    outline: none;
 }
 
 a.common-button {
@@ -189,6 +190,7 @@ a.common-button--thin {
 
 a.common-button:hover, a.common-button:active, a.common-button:focus {
     text-decoration: none;
+    outline: none;
 }
 
 .common-button:hover, .common-button:active, .common-button:focus {
@@ -1666,8 +1668,18 @@ header.header-main .grid .btn-sm {
     padding-left: 44px;
     margin-bottom: 0;
     margin-top: 8px;
-    background: url("../img/icons_sprite.png") no-repeat -20px -80px;
+    position: relative;
     display: inline-block;
+}
+
+.tours-catalog__item .caption .tour-duration .icon {
+    width: 20px;
+    height: 21px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 11px;
+    background: url("../img/icons_sprite.png") no-repeat -30px -81px;
 }
 
 .tours-catalog__item .caption a.common-button {
@@ -3059,6 +3071,111 @@ header.header-main .grid .btn-sm {
     text-align: center;
 }
 
+.popup {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    right: 0;
+    top: 30%;
+    margin: auto;
+}
+
+.confirm-popup {
+    border: 1px solid rgb(0, 103, 143);
+    background-color: #f7f7f7;
+    box-shadow: 0px 1px 16px 0px rgba(0, 0, 0, 0.75);
+    max-width: 593px;
+    min-height: 256px;
+    padding-top: 8px;
+}
+
+.confirm-popup__heading {
+    background-color: #015276;
+    padding: 0 28px;
+    position: relative;
+}
+
+.confirm-popup__heading h3.title {
+    text-transform: uppercase;
+    line-height: 1.8;
+    color: #fff;
+    font-size: 18px;
+}
+
+.confirm-popup__cont {
+    padding: 24px 26px 0;
+    margin: 0 -15px;
+    text-align: center;
+}
+
+.confirm-popup__cont .bootstrap-select:not([class*=span]):not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    border-color: #015276;
+    margin: 0 13px;
+    max-width: 258px;
+    width: 60%;
+}
+
+.reservation-code {
+    margin: 25px 15px 29px;
+}
+
+.confirm-popup__cont .reservation-code input {
+    border: 1px solid rgb(0, 103, 149);
+    height: 28px;
+    width: 100%;
+    text-align: center;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+}
+
+.confirm-popup__cont input[type="submit"] {
+    font-size: 19.1px;
+    text-transform: none;
+    background-color: #f27269;
+    color: #fff;
+    font-weight: normal;
+}
+
+.popup__close {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background: url("../img/icons_sprite.png") no-repeat -170px -63px;
+}
+
+.confirm-popup__heading .popup__close {
+    top: 0;
+    bottom: 0;
+    right: 9px;
+    margin: auto;
+}
+
+.notify-popup {
+    background-color: rgba(0, 103, 143, 0.859);
+    max-width: 383px;
+    min-height: 164px;
+    padding-top: 15px;
+    padding-left: 19px;
+}
+
+.notify-popup .popup__close {
+    top: 3px;
+    right: 3px;
+    border: none;
+}
+
+.notify-popup p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.notify-popup a {
+    border-bottom: 2px solid #bfd3de;
+    display: inline-block;
+}
+
 .single-review {
     background-color: #fff;
     padding: 12px 34px 14px 22px;
@@ -3852,6 +3969,34 @@ header.header-main .grid .btn-sm {
 
     .events__country__event .image {
         height: 165px;
+    }
+
+    .popup {
+        left: 15px;
+        right: 15px;
+    }
+
+    .confirm-popup__heading h3.title {
+        line-height: 1.2;
+    }
+
+    .confirm-popup__cont {
+        padding-top: 14px;
+        margin: 0;
+        padding-bottom: 14px;
+    }
+
+    .confirm-popup__cont .bootstrap-select:not([class*=span]):not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        margin: 0 0 14px;
+        width: 100%;
+    }
+
+    .reservation-code {
+        margin: 0 0 16px;
+    }
+
+    .reservation-code input {
+        max-width: 258px;
     }
 
 }

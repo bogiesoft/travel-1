@@ -4,7 +4,7 @@ use yii\helpers\Url;
 ?>
 <aside class="aside-block col-lg-3 col-md-3 hidden-sm hidden-xs">
     <div class="filter-block__categories aside-block__categories--blue">
-        <button type="button" class="btn common-button">Мероприятия</button>
+        <a href="<?=Url::to('/events/')?>" type="button" class="btn common-button">Мероприятия</a>
         <div class="aside-block__events__list">
             <?php foreach($events as $event):
                 $image = $event->getImage();
@@ -22,7 +22,7 @@ use yii\helpers\Url;
             <a href="<?=Url::to('/events/')?>" class="common-button common-button--solid load-more-btn">Больше мероприятий</a>
         </div>  <!--aside-block__events__list-->
         <?php if(count($reviews)): ?>
-        <button type="button" class="btn common-button">Отзывы</button>
+        <a href="<?=Url::to('/reviews/')?> type="button" class="btn common-button">Отзывы</a>
 
         <div class="aside-block__reviews__list">
             <?php foreach($reviews as $review): ?>
@@ -32,7 +32,7 @@ use yii\helpers\Url;
             </div>
             <?php endforeach; ?>
 
-            <a href="/reviews/" class="common-button common-button--solid load-more-btn">Больше отзывов</a>
+            <a href="<?=Url::to('/reviews/')?> class="common-button common-button--solid load-more-btn">Больше отзывов</a>
         </div>  <!--aside-block__reviews__list-->
         <?php endif; ?>
     </div>  <!--filter-block__categories-->

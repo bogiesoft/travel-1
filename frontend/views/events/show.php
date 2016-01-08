@@ -49,13 +49,19 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['/events/'.
                         <li>
                             <p><span>Рейтинг: </span>
                             </p>
-                            <div class="rating">
-                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            <?php
+                            $rating_all = array_sum(\yii\helpers\ArrayHelper::map($model->rating, 'id', 'rating'));
+                            $rating = (int)$rating_all/count($model->rating);
+                            ?>
+                            <div class="rating rating-<?=$rating?>" data-event-id="<?=$model->id?>">
+                                <?php for($i=1; $i<=5; $i++){ ?>
+                                    <span <?=$i == 6-$rating ? 'class="active"':'' ?>>☆</span>
+                                <?php } ?>
                             </div>
                         </li>
                     </ul>
                     <div class="event-details__action">
-                        <i class="event-details__action__icon"></i><a href="#" class="common-button common-button--thin">Туры в Бразилию</a>
+                        <i class="event-details__action__icon"></i><a href="<?=Url::to('/tours/country/'.$country->id)?>" class="common-button common-button--thin">Туры в: <?=$country->title_ru?></a>
                     </div>
                     <div class="event-details__action">
                         <i id="order-ticket" class="event-details__action__icon"></i><a href="<?=$model->tickets_link?>" class="common-button common-button--thin">Заказ билетов на мероприятие</a>

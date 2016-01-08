@@ -22,5 +22,10 @@ return [
         ],
 
     ],
+    'controllerMap' => [
+        'clean-assets' => [
+            'class' => 'mbrowniebytes\yii2cleanassets\CleanAssetsController',
+        ],
+    ],
     'params' => $params,
 ];
