@@ -28,6 +28,14 @@ $this->title = Yii::t('user', 'List users');
                  }
              ],
              [
+                 'attribute'=>'userdata',
+                 'format'=>'raw',
+                 'value'=>function($data)
+                 {
+                    return Html::a('Инфо',Url::to(['/usertdata/edit','id'=>$data->id]));
+                 }
+             ],
+             [
                  'class'=>\dosamigos\grid\EditableColumn::className(),
                  'filter' => User::statuses(),
                  'attribute'=>'status',

@@ -10,6 +10,18 @@ use console\controllers\RbacController;
 
 class User extends \common\models\User
 {
+    public $userdata;
+ 
+    // now set the rules to make those attributes safe
+    public function rules()
+    {
+        return [
+            // ... more stuff here
+            [['userdata'], 'safe'],
+            // ... more stuff here
+        ];
+    }
+
     public static function findIdentity($id)
     {
         $query = static::find();
